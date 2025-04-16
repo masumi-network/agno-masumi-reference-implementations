@@ -1,0 +1,145 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Automated NFT Minting Demo for Cardano Blockchain
+
+This document provides a detailed summary of the project requirements, core functionalities, tech stack, key decisions, and application flow for the automated NFT minting solution developed as a hackathon demo.
+
+## Project Overview
+
+*   **Purpose:** Build an automated NFT minting solution on the Cardano blockchain.
+*   **Key Feature:** Use specialized "agents" to handle different parts of the minting process.
+*   **Demo Context:** Built primarily for a hackathon demo with minimal security measures.
+
+## Core Functionality
+
+*   **Content Generation:**
+
+    *   If no assets are provided, employ DALL·E to generate images based on a creative prompt.
+    *   Default image specs: 1024x1024 resolution, surreal/ethereal art style.
+
+*   **Asset Handling:**
+
+    *   Upload generated or user-supplied assets to IPFS via NMKR or web3.storage.
+
+*   **Metadata Generation:**
+
+    *   Create CIP-25 compliant NFT metadata using a dedicated MetadataAgent.
+
+*   **Minting:**
+
+    *   Mint NFTs using the NMKR API.
+
+*   **Wallet Management:**
+
+    *   Validate user wallet addresses and use a hot wallet for signing transactions (basic implementation, minimal security for demo).
+
+*   **Payment Processing:**
+
+    *   Integrate Masumi Payments for a pay-per-mint model.
+
+*   **Orchestration:**
+
+    *   A JobAgent coordinates the overall process, ensuring each step is executed in sequence and storing outcomes in Supabase/PostgreSQL.
+
+## Tech Stack
+
+*   **Agent Backend:**
+
+    *   Based on the Agno agent framework with FastAPI (adhering to MIP-003 specifications).
+
+*   **Frontend:**
+
+    *   Streamlit UI serving as a basic input form to trigger the `/start_job` endpoint.
+
+*   **Minting:**
+
+    *   NMKR API
+
+*   **Storage:**
+
+    *   IPFS via NMKR or web3.storage
+
+*   **Database:**
+
+    *   Supabase / PostgreSQL (MCP structure)
+
+*   **Payments:**
+
+    *   Masumi Payments
+
+*   **Monitoring:**
+
+    *   Braintrust
+
+*   **AI Models/Tools:**
+
+    *   GPT-4o (core agent logic)
+    *   Claude 3.7 Sonnet, Claude 3.5 Sonnet, Gemini 2.5 Pro (support models)
+    *   DALL·E (image generation)
+    *   Cursor (IDE for coding)
+
+## Key Decisions and Assumptions
+
+*   **Image Generation:**
+
+    *   Resolution set to 1024x1024 by default.
+    *   Art style is surreal/ethereal.
+
+*   **Security Considerations:**
+
+    *   Minimal security implemented for demo purposes, though core functions include basic validation (e.g., wallet, payment).
+
+*   **Payment Model:**
+
+    *   Implements a pay-per-mint system via Masumi Payments.
+
+*   **Database:**
+
+    *   Using Supabase with an MCP structure.
+
+## Application Flow
+
+1.  **User Input:**
+
+    *   The user interacts with a Streamlit UI form, submitting collection details and a creative prompt.
+
+2.  **Content Generation (Conditional):**
+
+    *   If no assets are provided by the user, the request is routed to the ContentCreatorAgent to generate an image via DALL·E.
+
+3.  **IPFS Upload:**
+
+    *   The AssetAgent handles uploading of assets (generated or user-provided) to IPFS.
+
+4.  **Metadata Creation:**
+
+    *   The MetadataAgent generates CIP-25 compliant metadata from the provided or generated data.
+
+5.  **Minting:**
+
+    *   The MintAgent interacts with the NMKR API to mint the NFT on the Cardano blockchain.
+
+6.  **Wallet Verification:**
+
+    *   The WalletAgent validates the user's wallet address and manages transaction signing with a hot wallet.
+
+7.  **Payments:**
+
+    *   Processes payments via Masumi Payments on a pay-per-mint basis.
+
+8.  **Job Monitoring:**
+
+    *   A JobAgent oversees the orchestration of the entire process and stores data in Supabase/PostgreSQL.
+
+9.  **Final Response:**
+
+    *   Upon job completion, a structured response is sent back to the user summarizing the outcome.
+
+## Security Note
+
+*   While this demo is built with minimal security measures, it is important to note that in a production environment, all components should adhere to rigorous security standards, including secure authentication, input validation, data encryption, and secure session management.
+
+This summary serves as a high-level guide to the architecture, data flow, and overall design. Further detailed documentation should address individual components, API endpoints, and security considerations when advancing the project beyond the demo stage.

@@ -1,0 +1,79 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Certainly! Here’s a comprehensive, developer-friendly overview of the NMKR Studio API, tailored for integration into your Agno agent workflows. ￼
+
+⸻
+
+🔐 Authentication
+	•	API Key: Obtain from your NMKR Studio account.
+	•	Authorization Header: Include as a Bearer token in your request headers. ￼ ￼
+
+Example: ￼
+
+Authorization: Bearer YOUR_API_KEY
+
+
+
+⸻
+
+🌐 Base URLs
+	•	Mainnet: https://studio-api.nmkr.io/v2/
+	•	Testnet (Preprod): https://studio-api.preprod.nmkr.io/v2/ ￼
+
+⸻
+
+📁 Project Management
+	•	Create Project: POST /v2/CreateProject
+	•	List Projects: GET /v2/ListProjects
+	•	Get Project Details: GET /v2/ProjectDetails/{projectUid}
+	•	Delete Project: DELETE /v2/DeleteProject/{projectUid}
+
+⸻
+
+🖼️ Asset (NFT) Management
+	•	Upload NFT: POST /v2/UploadNft/{projectUid}
+	•	Get NFT Details by ID: GET /v2/GetNftDetailsById/{nftUid}
+	•	Get NFT Details by Token Name: GET /v2/GetNftDetailsByTokenname/{projectUid}/{nftName}
+	•	Update Metadata: PUT /v2/UpdateMetadata/{projectUid}/{nftUid}
+	•	Delete NFT: DELETE /v2/DeleteNft/{nftUid} ￼
+
+⸻
+
+🪙 Minting
+	•	Mint and Send Random NFT: GET /v2/MintAndSendRandom/{projectUid}/{count}/{walletAddress}
+	•	Mint and Send Specific NFT: GET /v2/MintAndSendSpecific/{projectUid}/{nftUid}/{count}/{walletAddress} ￼
+
+⸻
+
+💳 Payment Transactions
+	•	Create Payment Transaction: POST /v2/CreatePaymentTransaction
+	•	Get Payment Transaction State: GET /v2/ProceedPaymentTransaction/{paymentTransactionUid}/GetTransactionState
+	•	Get Payment Address: GET /v2/ProceedPaymentTransaction/{paymentTransactionUid}/PaymentAddress
+	•	Submit Transaction: POST /v2/ProceedPaymentTransaction/{paymentTransactionUid}/SubmitTransaction
+	•	Cancel Transaction: POST /v2/ProceedPaymentTransaction/{paymentTransactionUid}/CancelTransaction ￼ ￼
+
+⸻
+
+🛠️ Tools & Utilities
+	•	Managed Wallets: Manage wallets within NMKR Studio.
+	•	Split Addresses: Handle revenue splits among multiple addresses.
+	•	Direct Sales: Set up direct NFT sales.
+	•	Policy Snapshot: Retrieve snapshots of policy states. ￼ ￼
+
+⸻
+
+🧪 Testing & Swagger
+	•	Swagger UI: Interactive API documentation and testing interface.
+	•	Mainnet: https://studio-api.nmkr.io/swagger/index.html
+	•	Testnet: https://studio-api.preprod.nmkr.io/swagger/index.html ￼ ￼ ￼
+
+⸻
+
+📚 Additional Resources
+	•	NMKR Docs: Comprehensive documentation and guides.
+	•	API Examples: Practical examples for various use cases.
+	•	Support: Reach out via support@nmkr.io or join the NMKR Discord. ￼
+

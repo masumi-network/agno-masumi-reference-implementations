@@ -1,0 +1,34 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# App Flow Document
+
+## Onboarding and Sign-In/Sign-Up
+
+When a new user first lands on the application, they are welcomed by a clean, minimal interface provided through the Streamlit UI. This landing page functions both as an introduction and as the gateway to start the NFT creation process. For those who have not previously registered, there is a simple sign-up process which might include using an email address or a social login option. The user enters basic personal details and sets a password, with clear instructions on how their information is secured. For returning users, a straightforward sign-in form is available where they enter their credentials to access the system. If a user forgets their password, a recovery option is provided on the sign-in page, guiding them through the steps to reset their password securely. Throughout this phase, the user is given clear, friendly instructions that ensure they understand the process and know exactly where to click next.
+
+## Main Dashboard or Home Page
+
+Once the user has signed in, they are redirected to the main dashboard, which acts as the central hub for all interactions. This dashboard displays a clear header and a sidebar that provides navigation to the key sections of the application. In the central area, users can see a summary of current job statuses, progress indicators, and a prominent form for initiating a new NFT drop. The design is simple and uncluttered, with each section – from the input fields for creative prompts, collection details, and wallet addresses – clearly laid out. Navigation menus allow the user to easily move between starting a new job, reviewing past transactions, or accessing account management settings. This page serves to orient the user and provide instant access to every major feature.
+
+## Detailed Feature Flows and Page Transitions
+
+After arriving on the main dashboard, a user begins the NFT creation process by filling out a basic form which asks for essential details such as the NFT collection name, descriptive prompt, and wallet address. If the user does not upload any pre-made assets, the system automatically routes the request to the component responsible for content generation. This first step triggers the ContentCreatorAgent which uses the DALL·E tool to generate imaginative, dreamlike forest images at a resolution of 1024x1024. Upon successful creation, the generated image URLs are passed to the next stage of the process.
+
+At this point, the AssetAgent takes over, uploading the generated images (or any assets provided by the user) to IPFS. The agent returns a mapping that details each file alongside its unique IPFS URI. Once asset storage is confirmed, the MetadataAgent is invoked. This agent combines the NFT collection details, royalties, and image asset information to create compliant JSON metadata in the CIP-25 format. The metadata is structured carefully to adhere to Cardano standards and includes all the necessary traits and data for each NFT.
+
+With everything prepared, the MintAgent communicates with the NMKR API to actually mint the NFTs on the Cardano blockchain. As this minting process occurs, the WalletAgent validates the user’s provided wallet address and ensures that the internal hot wallet is ready for transaction signing. This integration allows ADA to be routed appropriately as part of the pay-per-mint model. Meanwhile, the JobAgent acts as the orchestrator, ensuring that every stage from content creation, asset upload, metadata generation, to NFT minting executes in the correct sequence. The system transitions smoothly from one phase to the next without requiring additional user actions, while the front end updates with progress indicators and notifications.
+
+## Settings and Account Management
+
+Users have access to a dedicated settings and account management section that allows for the personalization of their experience. Here, individuals can update their personal information, tweak notification preferences, and manage connected wallet addresses. Furthermore, users can view their transaction history, check the collected minting transaction hashes, and review job statuses that have been stored in Supabase or PostgreSQL. The payment settings section is integrated into this area as well, where users can update their billing preferences related to the pay-per-mint model facilitated by Masumi Payments. Once changes are made, users are given a clear path to return to the main dashboard and continue with their NFT creation process without any disruption.
+
+## Error States and Alternate Paths
+
+At any point during the user journey, the system is designed to handle errors gracefully and provide helpful feedback. If a user enters an invalid email, password, or wallet address during sign-up or sign-in, a clear error message is displayed with instructions on how to correct the entry. During the NFT creation pipeline, if any agent encounters an issue (for example, if the DALL·E tool fails to generate content, or if the IPFS upload does not complete successfully), error prompts appear on the screen. The user is guided with options to retry the process or adjust their inputs accordingly. In cases of connectivity issues, the system is programmed to alert the user with messages that explain the problem and suggest waiting or reloading the page. Any restricted actions trigger visual warnings, ensuring that the user is always aware of what went wrong and how to return to a normal flow.
+
+## Conclusion and Overall App Journey
+
+In summary, the application takes the user on a clear, step-by-step journey from initial sign-up or sign-in to the creation and minting of NFTs. Starting at a friendly landing page with basic registration and login, the user is quickly directed to a main dashboard that simplifies the initiation of an NFT drop. Once the process begins, the system’s intelligent pipeline kicks in: content is generated with advanced image tools if assets are missing, assets are securely uploaded to IPFS, metadata is generated in a standard-compliant format, and NFTs are minted on the Cardano blockchain. Throughout the process, real-time communication between specialized agents is maintained, ensuring that the user receives a complete set of information, including minting transaction hashes and metadata details. With integrated payment processing and account management features, the application provides a seamless end-to-end solution that is easy to understand and efficient to use, ultimately guiding the user from creative input to a successful NFT launch.

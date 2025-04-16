@@ -1,0 +1,22 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+flowchart TD A[User Input: Streamlit UI] B[Wallet Agent: Validate Wallet] C[Masumi Payments: Payment Check] D{Asset Provided?} E[Content Creator Agent: Generate Image using DALL·E] F[Asset Agent: Upload Asset to IPFS] G[Metadata Agent: Generate CIP-25 Metadata] H[Mint Agent: Mint NFT via NMKR API] I[Job Agent: Orchestrate and Track Job] J[Database: Supabase PostgreSQL] K[Monitoring: Braintrust]
+
+A --> B
+B --> C
+C --> D
+D -- Yes --> F
+D -- No --> E
+E --> F
+F --> G
+G --> H
+H --> I
+I --> J
+I --> K
+
+
+
+

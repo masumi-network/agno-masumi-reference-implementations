@@ -1,0 +1,149 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Certainly! Here’s a concise summary of the Agno documentation repository ():
+
+⸻
+
+🧠 What is Agno?
+
+Agno is a lightweight, open-source framework designed for building autonomous AI agents equipped with memory, knowledge, tools, and reasoning capabilities. It facilitates the creation of multimodal agents capable of processing and generating text, images, audio, and video. ￼ ￼
+
+⸻
+
+🔑 Key Components
+	1.	Agents: Core entities that utilize language models to perform tasks. Agents can be enhanced with:
+	•	Memory: Retain information across interactions.
+	•	Knowledge: Access domain-specific information via vector databases.
+	•	Tools: Interact with external systems or APIs.
+	•	Reasoning: Analyze and make decisions based on inputs and tool outputs. ￼ ￼
+	2.	Tools: Modular plugins that extend agent functionalities, such as web search, data retrieval, or API interactions. ￼
+	3.	Memory & Storage: Mechanisms for agents to store session data and recall past interactions, enabling context-aware responses.
+	4.	Knowledge Integration: Support for integrating with over 20 vector databases, allowing agents to retrieve and utilize domain-specific knowledge effectively. ￼
+	5.	Multimodal Capabilities: Agents can handle and generate various data types, including text, images, audio, and video.
+	6.	Multi-Agent Architecture: Agno supports orchestrating multiple agents in different modes:
+	•	Route: Direct tasks to appropriate agents.
+	•	Collaborate: Agents work together on tasks.
+	•	Coordinate: Manage complex workflows involving multiple agents. ￼
+
+⸻
+
+⚙️ Performance Highlights
+	•	Speed: Agent instantiation averages around 2 microseconds, significantly faster than comparable frameworks.
+	•	Efficiency: Low memory footprint (~3.75 KiB per agent), enabling scalable deployments. ￼
+
+⸻
+
+📁 Documentation Structure
+
+The agno-docs repository is organized into various sections to facilitate learning and implementation:
+	•	Introduction: Overview and getting started guides. ￼
+	•	Agents: Detailed explanations on building and configuring agents.
+	•	Tools: Guides on integrating and creating tools for agents.
+	•	Memory & Storage: Implementing memory and storage solutions for agents.
+	•	Knowledge: Integrating knowledge bases and vector databases. ￼
+	•	Reasoning: Enhancing agent decision-making processes.
+	•	Teams: Orchestrating multiple agents for complex tasks. ￼
+	•	Workflows: Designing and managing agent workflows.
+	•	Examples: Practical examples demonstrating various use cases.
+
+⸻
+
+🚀 Getting Started
+
+To begin using Agno: ￼
+	1.	Installation:
+
+pip install -U agno
+
+
+	2.	Creating a Basic Agent:
+
+from agno.agent import Agent
+from agno.models.openai import OpenAIChat
+
+agent = Agent(
+    model=OpenAIChat(id="gpt-4o"),
+    description="A helpful assistant.",
+    markdown=True
+)
+
+agent.print_response("Hello, how can I assist you today?")
+
+
+
+Certainly! Here’s a comprehensive vocabulary list of essential imports, tools, and components you’ll need to build complex agents using the Agno framework:
+
+⸻
+
+🧠 Core Imports
+
+These are the foundational modules required to create and manage agents:
+
+from agno.agent import Agent
+from agno.models.openai import OpenAIChat
+from agno.models.anthropic import Claude
+from agno.models.groq import Groq
+
+
+
+⸻
+
+🔧 Built-in Tools
+
+Agno offers a variety of tools to extend agent capabilities:
+	•	DuckDuckGoTools: Web search functionality
+	•	YFinanceTools: Financial data retrieval
+	•	GithubTools: Interact with GitHub repositories
+	•	Newspaper4kTools: Extract news articles
+	•	LocalFileSystemTools: Access local file systems
+	•	CsvTools: Handle CSV files
+	•	PDFKnowledgeBase: Work with PDF documents
+	•	ReasoningTools: Enhance agent reasoning capabilities ￼ ￼ ￼ ￼ ￼ ￼ ￼ ￼
+
+⸻
+
+🧠 Memory and Knowledge Integration
+
+To enable agents to remember and utilize knowledge: ￼
+
+from agno.memory import Memory
+from agno.knowledge import KnowledgeBase
+from agno.vectordb.pgvector import PgVector
+from agno.vectordb.chromadb import ChromaDb
+
+
+
+⸻
+
+🧩 Multi-Agent Orchestration
+
+For coordinating multiple agents:
+	•	route: Direct tasks to appropriate agents
+	•	collaborate: Agents work together on tasks
+	•	coordinate: Manage complex workflows involving multiple agents ￼
+
+⸻
+
+📦 Additional Utilities
+
+Enhance agent functionality with these utilities: ￼
+	•	markdown=True: Enable Markdown formatting in responses
+	•	show_tool_calls=True: Display tool calls during agent execution
+	•	debug_mode=True: Enable debugging information ￼ ￼ ￼
+
+⸻
+
+🔗 External Integrations
+
+Agno supports integration with various external services:
+	•	OpenAI, Anthropic, Groq: Language model providers
+	•	Supabase, PostgreSQL: Database solutions
+	•	NMKR API: NFT minting on Cardano
+	•	IPFS: Decentralized storage
+	•	Masumi Payments: On-chain monetization
+	•	Braintrust: Agent monitoring ￼ ￼ ￼ ￼
+
+

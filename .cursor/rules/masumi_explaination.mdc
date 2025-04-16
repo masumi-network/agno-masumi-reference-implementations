@@ -1,0 +1,129 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Here’s a compact and Cursor-friendly breakdown of the complete Masumi documentation and Masumi Quickstart Template — everything you need to build, monetize, and integrate an agentic service in your Agno/CrewAI project.
+
+⸻
+
+🧠 MASUMI OVERVIEW
+
+Masumi is a decentralized protocol that enables:
+	•	✅ Agent discovery via registry
+	•	💰 On-chain payments between agents/users
+	•	🧾 Transparent identity and output verification
+	•	📡 Standardized APIs for integration with orchestration tools
+
+⸻
+
+🔌 ENDPOINTS TO IMPLEMENT (Masumi MIP-003 Standard)
+
+Required for every Masumi-compatible Agentic Service
+
+Endpoint	Method	Purpose
+/start_job	POST	Starts a job with input payload
+/status	GET	Returns job status using job_id
+/provide_input	POST	Optionally submit additional inputs
+/availability	GET	Healthcheck, returns 200 OK if active
+/input_schema	GET	Returns full JSONSchema of accepted input
+
+🧠 Implement these in your FastAPI backend (api/main.py) and connect to your Agent logic (e.g., mint_job.py).
+
+⸻
+
+💸 MASUMI PAYMENT API
+
+Add monetization to your agent with these endpoints:
+
+Endpoint	Purpose
+/purchase/ (POST)	Creates a new payment request
+/proceedpaymenttransaction/{uid}/gettransactionstate (GET)	Gets payment status
+/proceedpaymenttransaction/{uid}/submittransaction (POST)	Submits signed payment
+/proceedpaymenttransaction/{uid}/canceltransaction (POST)	Cancels the payment if needed
+
+➡️ Use .env to store your API key (token=...)
+➡️ Pricing logic goes in a pricing.json (e.g. {"price_ada": 3})
+
+⸻
+
+🧩 AGENT REGISTRY ENDPOINTS
+
+Register your agent and make it discoverable:
+
+Endpoint	Purpose
+/registry/entry/{agent_id}	View public metadata about your agent
+/registry/sources	Lists all available registered agents
+
+Metadata includes: agent name, description, pricing, categories, etc.
+
+⸻
+
+🔐 MASUMI AGENT IDENTITY
+
+To give your agent an identity:
+	•	Sign a proof-of-ownership (public key from wallet)
+	•	Use the identity to build trust & transparency
+	•	Link your agent to a Cardano wallet (used for earnings)
+
+⸻
+
+🧾 MASUMI DECISION LOGGING
+
+Add transparency by logging hashes of agent outputs to blockchain:
+	•	output_hash = hash(output)
+	•	Submit via Masumi endpoint to enable verifiability
+	•	Buyers can check logs via explorer/registry
+
+⸻
+
+⚙️ ENV CONFIG (Cursor: .env.example)
+
+MASUMI_API_KEY=...
+MASUMI_PAYMENT_URL=https://api.masumi.network
+MASUMI_REGISTRY_URL=https://api.masumi.network
+HOT_WALLET_MNEMONIC=...
+NMKR_API_KEY=...
+
+
+
+⸻
+
+🧱 QUICKSTART PROJECT STRUCTURE
+
+From the Masumi Quickstart Template:
+
+project/
+├── api/                 # FastAPI Masumi endpoints
+│   └── main.py
+├── agent/               # CrewAI / Agno agent definition
+│   └── your_agent.py
+├── pricing.json         # Monetization rules
+├── .env.example         # Secrets config
+├── README.md
+
+Cursor setup:
+
+{
+  "entrypoints": {
+    "agent": "agent/your_agent.py",
+    "api": "api/main.py"
+  },
+  "env": ".env"
+}
+
+
+
+⸻
+
+🧪 DEV FLOW (Cursor-ready)
+
+uvicorn api.main:app --reload  # Start agentic service
+curl http://localhost:8000/start_job  # Test endpoint
+
+Streamlit UI (optional) → Posts directly to /start_job, polls /status
+
+⸻
+
+
+

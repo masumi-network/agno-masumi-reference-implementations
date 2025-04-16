@@ -1,0 +1,132 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## Project Overview
+
+* **Type:** NFT Minting Agent
+* **Description:** An NFT minting agent called "MintMind Team" built using the Agno framework (MIP-003 spec with FastAPI) designed to automate the creation and launch of NFT drops on the Cardano blockchain. This hackathon demo focuses on functionality and pipeline demonstration rather than robust security.
+* **Primary Goal:** Automate the NFT drop process by taking user prompts and NFT collection details, generating assets with DALL-E if needed, uploading assets to IPFS, generating CIP-25 compliant metadata, minting NFTs via the NMKR API, and handling basic wallet interactions.
+
+## Project Structure
+
+### Framework-Specific Routing
+
+* **Directory Rules:**
+
+    * `Agno@MIP-003 (FastAPI)`: Utilize a conventional API endpoints structure under the `api/` directory. For instance, routes like `api/agents/[agent_name].py` define individual agent endpoints (e.g., ContentCreatorAgent, AssetAgent, etc.).
+    * Example 1: "FastAPI Endpoint" → `api/main.py` initializes the Agno application with all agent routes.
+    * Example 2: "Streamlit Frontend" → `frontend/app.py` serves as the entry point for the UI.
+
+### Core Directories
+
+* **Versioned Structure:**
+
+    * `api/agents`: Contains all Agno agent implementations utilizing FastAPI, ensuring version-specific compliance with the MIP-003 spec.
+    * `frontend`: Houses all Streamlit-based UI components and pages.
+    * `services`: Contains integrations with third-party APIs (DALL-E, NMKR API, IPFS services), wallet management, and database interactions (Supabase/PostgreSQL with MCP structure).
+
+### Key Files
+
+* **Stack-Versioned Patterns:**
+
+    * `api/main.py`: Primary FastAPI application file that aggregates and routes agent endpoints.
+    * `frontend/app.py`: The main Streamlit application file that renders the user interface and handles basic input forms.
+    * `services/utils.py`: Version-specific utility functions for interacting with DALL-E, NMKR, and IPFS.
+
+## Tech Stack Rules
+
+* **Version Enforcement:**
+
+    * `Agno@MIP-003`: Must follow the FastAPI-based endpoint conventions with explicit agent separation within the `api/agents` directory.
+    * `Streamlit@latest`: Ensure responsiveness and real-time UI updates with a clear separation from backend agent operations.
+    * `DALL-E`: Always generate 1024x1024 images in a surreal/ethereal style when assets are not provided.
+    * `NMKR API`: Enforce interactions according to the provided API documentation for NFT minting, ensuring CIP-25 metadata compliance.
+
+## PRD Compliance
+
+* **Non-Negotiable:**
+
+    * "The agent shall generate CIP-25 compliant JSON metadata, handle wallet validations through a basic mechanism, and integrate third-party APIs for asset creation, uploading, and minting." This includes strict adherence to using DALL-E for image generation (1024x1024, surreal style) and managing communications with IPFS, NMKR, and Masumi Payments.
+
+## App Flow Integration
+
+* **Stack-Aligned Flow:**
+
+    * Agents operate in a sequential flow:
+      * **ContentCreatorAgent:** Generates images using DALL-E if no assets are provided.
+      * **AssetAgent:** Uploads generated or provided assets to IPFS, returning a mapping of filenames to URIs.
+      * **MetadataAgent:** Creates CIP-25 compliant metadata for the NFT collection.
+      * **MintAgent:** Uses NMKR API to mint NFTs based on the provided metadata and asset URIs.
+      * **WalletAgent:** Validates wallet addresses and handles hot wallet signing operations.
+      * **JobAgent:** Orchestrates the end-to-end process, tracks job status, and logs metadata and transaction hashes in Supabase.
+
+## Best Practices
+
+* **Agno (FastAPI):**
+
+    * Ensure endpoints are modular and adhere to the MIP-003 spec.
+    * Use Pydantic models for request validation.
+    * Implement clear separation of concerns for different agent responsibilities.
+
+* **Streamlit:**
+
+    * Maintain a responsive and user-friendly UI.
+    * Lazy-load data where possible to improve performance.
+    * Clearly display error messages for failed interactions.
+
+* **DALL-E:**
+
+    * Validate image resolution (1024x1024) and style parameters.
+    * Cache repeated prompt responses to minimize duplicate API calls.
+    * Ensure safe fallback mechanisms if image generation fails.
+
+* **NMKR API Integration:**
+
+    * Validate API responses and handle errors gracefully.
+    * Ensure all minted NFTs have CIP-25 compliant metadata attached.
+    * Log transaction hashes and metadata for audit purposes.
+
+* **IPFS Integration:**
+
+    * Confirm successful uploads and map filenames to their generated URIs.
+    * Handle retries for failed uploads.
+    * Maintain consistency in asset URI formatting.
+
+* **Wallet Management:**
+
+    * Perform basic wallet address validation without overcomplicating the demo security model.
+    * Prepare hot wallet environments in isolated and secure modules.
+    * Log wallet interactions for transparency.
+
+* **Supabase/PostgreSQL (MCP Structure):**
+
+    * Ensure all NFT metadata, job statuses, and logs are recorded in a structured manner.
+    * Optimize database queries for scalability.
+    * Use environment-specific configurations for fast deployments in hackathon settings.
+
+## Rules
+
+* Derive folder/file patterns **directly** from `techStackDoc` versions.
+* If a Next.js 14 App Router were used: Enforce an `app/` directory with nested route folders. Since this project uses Agno with FastAPI and Streamlit, follow API and UI directory segregation strictly.
+* Never mix version patterns (for example, do not mix FastAPI agent structures with flat UI file patterns). Align each component strictly to its tech stack requirements.
+
+## Rules Metrics
+
+Before starting the project development, create a metrics file in the root of the project called `cursor_metrics.md`.
+
+### Instructions:
+
+* Each time a cursor rule is used as context, update `cursor_metrics.md`.
+* Use the following format for `cursor_metrics.md:`
+
+```
+# Rules Metrics
+
+## Usage
+
+* rule-name.mdc: 5
+* another-rule.mdc: 2
+* ...other rules
+```
