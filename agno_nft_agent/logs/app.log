@@ -1,0 +1,221 @@
+2025-04-29 18:14:31,221 - root - INFO - Starting application with configuration:
+2025-04-29 18:14:31,221 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 18:14:36,794 - root - INFO - Starting application with configuration:
+2025-04-29 18:14:36,794 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 18:18:15,590 - root - INFO - Starting application with configuration:
+2025-04-29 18:18:15,591 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 18:18:30,191 - root - INFO - Starting application with configuration:
+2025-04-29 18:18:30,191 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 18:19:36,152 - root - INFO - Starting application with configuration:
+2025-04-29 18:19:36,152 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 18:31:08,552 - root - INFO - Starting application with configuration:
+2025-04-29 18:31:08,552 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 18:31:37,303 - root - ERROR - Missing required field in request: 'text'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno/cookbook/examples/agents/agno_content_to_nft_agent/main.py", line 107, in start_job
+    input_text = data.input_data["text"]
+KeyError: 'text'
+2025-04-29 18:31:53,799 - root - ERROR - Missing required field in request: 'text'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno/cookbook/examples/agents/agno_content_to_nft_agent/main.py", line 107, in start_job
+    input_text = data.input_data["text"]
+KeyError: 'text'
+2025-04-29 18:45:27,153 - root - INFO - Starting application with configuration:
+2025-04-29 18:45:27,154 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 18:45:45,640 - root - ERROR - Missing required field in request: 'text'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno/cookbook/examples/agents/agno_content_to_nft_agent/main.py", line 107, in start_job
+    input_text = data.input_data["text"]
+KeyError: 'text'
+2025-04-29 18:45:50,238 - root - ERROR - Missing required field in request: 'text'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno/cookbook/examples/agents/agno_content_to_nft_agent/main.py", line 107, in start_job
+    input_text = data.input_data["text"]
+KeyError: 'text'
+2025-04-29 18:46:22,746 - root - ERROR - Missing required field in request: 'text'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno/cookbook/examples/agents/agno_content_to_nft_agent/main.py", line 107, in start_job
+    input_text = data.input_data["text"]
+KeyError: 'text'
+2025-04-29 18:50:05,817 - root - INFO - Starting application with configuration:
+2025-04-29 18:50:05,817 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 18:50:15,619 - root - ERROR - Missing required field in request: 'text'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno/cookbook/examples/agents/agno_content_to_nft_agent/main.py", line 107, in start_job
+    input_text = data.input_data["text"]
+KeyError: 'text'
+2025-04-29 18:50:18,034 - root - ERROR - Missing required field in request: 'text'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno/cookbook/examples/agents/agno_content_to_nft_agent/main.py", line 107, in start_job
+    input_text = data.input_data["text"]
+KeyError: 'text'
+2025-04-29 18:50:50,637 - root - ERROR - Missing required field in request: 'text'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno/cookbook/examples/agents/agno_content_to_nft_agent/main.py", line 107, in start_job
+    input_text = data.input_data["text"]
+KeyError: 'text'
+2025-04-29 18:51:05,186 - root - ERROR - Missing required field in request: 'text'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno/cookbook/examples/agents/agno_content_to_nft_agent/main.py", line 107, in start_job
+    input_text = data.input_data["text"]
+KeyError: 'text'
+2025-04-29 18:54:11,627 - root - INFO - Starting application with configuration:
+2025-04-29 18:54:11,627 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 18:54:20,455 - root - ERROR - Missing required field in request: 'text'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno/cookbook/examples/agents/agno_content_to_nft_agent/main.py", line 107, in start_job
+    input_text = data.input_data["text"]
+KeyError: 'text'
+2025-04-29 18:54:24,706 - root - ERROR - Missing required field in request: 'text'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno/cookbook/examples/agents/agno_content_to_nft_agent/main.py", line 107, in start_job
+    input_text = data.input_data["text"]
+KeyError: 'text'
+2025-04-29 18:56:39,959 - root - INFO - Starting application with configuration:
+2025-04-29 18:56:39,959 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 18:56:50,473 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 18:56:50,474 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 18:56:50,474 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 18:56:50,474 - root - INFO - Starting job 0b3c21f5-5979-4038-90ca-28db43f2d3b3 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 18:56:50,474 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 18:56:50,474 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-29 18:56:50,474 - root - INFO - Creating payment request...
+2025-04-29 18:56:50,474 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 18:56:50,474 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T04:56:50.474Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}], 'inputHash': '956514816dd68430aa6a604d0fb413ebb95f89588bfcf2146a7ce8ef2b8ab6d7'}
+2025-04-29 18:56:50,610 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-29 18:56:50,611 - root - ERROR - Validation error in request: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno/cookbook/examples/agents/agno_content_to_nft_agent/main.py", line 135, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-29 18:58:09,736 - root - INFO - Starting application with configuration:
+2025-04-29 18:58:09,736 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 18:58:21,103 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 18:58:21,104 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 18:58:21,104 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 18:58:21,105 - root - INFO - Starting job 14e75093-ff91-4123-9693-9bd16b90c365 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 18:58:21,105 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 18:58:21,105 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-29 18:58:21,105 - root - INFO - Creating payment request...
+2025-04-29 18:58:21,105 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 18:58:21,105 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T04:58:21.105Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}], 'inputHash': '956514816dd68430aa6a604d0fb413ebb95f89588bfcf2146a7ce8ef2b8ab6d7'}
+2025-04-29 18:58:21,228 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-29 18:58:21,230 - root - ERROR - Validation error in request: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno/cookbook/examples/agents/agno_content_to_nft_agent/main.py", line 136, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-29 19:02:25,442 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 19:02:25,444 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 19:02:25,444 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 19:02:25,444 - root - INFO - Starting job 0612982a-5cbd-4f29-a861-7b130b6ef9d9 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 19:02:25,444 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 19:02:25,444 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-29 19:02:25,445 - root - INFO - Creating payment request...
+2025-04-29 19:02:25,445 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 19:02:25,445 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T05:02:25.445Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}], 'inputHash': '956514816dd68430aa6a604d0fb413ebb95f89588bfcf2146a7ce8ef2b8ab6d7'}
+2025-04-29 19:02:25,580 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-29 19:02:25,581 - root - ERROR - Validation error in request: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno/cookbook/examples/agents/agno_content_to_nft_agent/main.py", line 136, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-29 19:03:51,817 - root - INFO - Starting application with configuration:
+2025-04-29 19:03:51,818 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1/
+2025-04-29 19:04:07,692 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 19:04:07,692 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 19:04:07,693 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 19:04:07,693 - root - INFO - Starting job e55aadfe-7132-49b5-a370-c41d966d0855 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 19:04:07,693 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 19:04:07,693 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-29 19:04:07,693 - root - INFO - Creating payment request...
+2025-04-29 19:04:07,693 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 19:04:07,693 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T05:04:07.693Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}], 'inputHash': '956514816dd68430aa6a604d0fb413ebb95f89588bfcf2146a7ce8ef2b8ab6d7'}
+2025-04-29 19:04:07,924 - masumi.payment - ERROR - Payment request failed with status 404: {"status":"error","error":{"message":"Can not GET /api/v1//payment/"}}
+2025-04-29 19:04:07,925 - root - ERROR - Error in start_job: Payment request failed: {"status":"error","error":{"message":"Can not GET /api/v1//payment/"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno/cookbook/examples/agents/agno_content_to_nft_agent/main.py", line 136, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 155, in create_payment_request
+    raise Exception(f"Payment request failed: {error_text}")
+Exception: Payment request failed: {"status":"error","error":{"message":"Can not GET /api/v1//payment/"}}
+2025-04-29 19:04:31,531 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 19:04:31,532 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 19:04:31,532 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 19:04:31,532 - root - INFO - Starting job 69c5260c-dab3-4000-82c5-5f8a4e6f1213 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 19:04:31,532 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 19:04:31,532 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-29 19:04:31,532 - root - INFO - Creating payment request...
+2025-04-29 19:04:31,532 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 19:04:31,532 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T05:04:31.532Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}], 'inputHash': '956514816dd68430aa6a604d0fb413ebb95f89588bfcf2146a7ce8ef2b8ab6d7'}
+2025-04-29 19:04:31,697 - masumi.payment - ERROR - Payment request failed with status 404: {"status":"error","error":{"message":"Can not GET /api/v1//payment/"}}
+2025-04-29 19:04:31,697 - root - ERROR - Error in start_job: Payment request failed: {"status":"error","error":{"message":"Can not GET /api/v1//payment/"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno/cookbook/examples/agents/agno_content_to_nft_agent/main.py", line 136, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 155, in create_payment_request
+    raise Exception(f"Payment request failed: {error_text}")
+Exception: Payment request failed: {"status":"error","error":{"message":"Can not GET /api/v1//payment/"}}
+2025-04-29 19:07:20,858 - root - INFO - Starting application with configuration:
+2025-04-29 19:07:20,858 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 19:07:23,082 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 19:07:23,083 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 19:07:23,083 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 19:07:23,083 - root - INFO - Starting job 71add512-7a9c-4b50-82b7-9894affcece6 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 19:07:23,083 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 19:07:23,083 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-29 19:07:23,083 - root - INFO - Creating payment request...
+2025-04-29 19:07:23,083 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 19:07:23,083 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T05:07:23.083Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}], 'inputHash': '956514816dd68430aa6a604d0fb413ebb95f89588bfcf2146a7ce8ef2b8ab6d7'}
+2025-04-29 19:07:23,211 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-29 19:07:23,212 - root - ERROR - Validation error in request: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno/cookbook/examples/agents/agno_content_to_nft_agent/main.py", line 136, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-29 19:08:29,445 - root - INFO - Starting application with configuration:
+2025-04-29 19:08:29,445 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 19:08:37,018 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 19:08:37,018 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 19:08:37,018 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 19:08:37,018 - root - INFO - Starting job 563f8f47-082f-4e9e-a4ff-1c773b3eb553 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 19:08:37,018 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 19:08:37,019 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-29 19:08:37,019 - root - INFO - Creating payment request...
+2025-04-29 19:08:37,019 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 19:08:37,019 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T05:08:37.019Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': '956514816dd68430aa6a604d0fb413ebb95f89588bfcf2146a7ce8ef2b8ab6d7'}
+2025-04-29 19:08:37,203 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-29 19:08:37,204 - root - ERROR - Validation error in request: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno/cookbook/examples/agents/agno_content_to_nft_agent/main.py", line 135, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-29 19:09:09,104 - root - INFO - Starting application with configuration:
+2025-04-29 19:09:09,104 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 19:09:11,701 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 19:09:11,702 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 19:09:11,702 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 19:09:11,702 - root - INFO - Starting job fa76f921-bd01-475d-87fa-efc8228166db with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 19:09:11,702 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 19:09:11,702 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-29 19:09:11,702 - root - INFO - Creating payment request...
+2025-04-29 19:09:11,702 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 19:09:11,702 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T05:09:11.702Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': '956514816dd68430aa6a604d0fb413ebb95f89588bfcf2146a7ce8ef2b8ab6d7'}
+2025-04-29 19:09:11,864 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-29 19:09:11,865 - root - ERROR - Validation error in request: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno/cookbook/examples/agents/agno_content_to_nft_agent/main.py", line 136, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}

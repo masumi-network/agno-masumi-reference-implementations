@@ -3,91 +3,213 @@ description:
 globs: 
 alwaysApply: true
 ---
-# Tech Stack Document
+Here is the updated Technical Specification for Astryn – The Telegram NFT Agent, based on the revised architecture, tech stack, and hackathon-ready features (including RabbitMQ, Agno RAG, and Masumi):
 
-This document outlines the technologies chosen for our agno agent project, explaining how they work together to create a seamless NFT minting solution. The goal is to ensure a user-friendly experience while maintaining efficiency across all components.
+⸻
 
-## Frontend Technologies
+📄 Technical Specification: Astryn – The Telegram NFT Agent
 
-The frontend of our project provides a simple and intuitive interface for users to interact with the NFT minting pipeline. Here are the main technologies used:
+⸻
 
-- **Streamlit**
-  - A lightweight framework for quickly building web applications. It offers a basic input form that captures all necessary user details and sends them to the backend, making it easy for users to kickstart their NFT creation process.
+🧠 Project Overview
 
-## Backend Technologies
+Astryn is an autonomous AI-powered Telegram bot that:
+	•	Interacts with users via Telegram chat
+	•	Accepts prompt or media uploads to create NFTs
+	•	Generates content using AI (DALL·E, SDXL, AnimateDiff)
+	•	Mints NFTs on Cardano via NMKR
+	•	Sends NFTs to user wallets
+	•	Handles payments via Masumi
+	•	Uses Agno’s agent framework and VectorDB for RAG
+	•	Monitors all activity using Braintrust
+	•	Supports agent-to-agent API calls via Agno’s MIP-003 interface
 
-Our backend is designed to manage the complex workflow required for NFT minting. It integrates multiple agents and services to transform user input into minted NFTs. The key components include:
+⸻
 
-- **Agno**
-  - An agent framework that helps orchestrate several specialized agents (ContentCreator, Asset, Metadata, Mint, and Wallet Agents) to execute the NFT drop pipeline efficiently.
-- **FastAPI**
-  - A modern web framework used alongside Agno to expose endpoints for communication between the frontend and the agents, following the MIP-003 spec.
-- **Supabase / PostgreSQL**
-  - A robust database solution where essential data—such as NFT metadata, minting transaction hashes, and job statuses—is stored. The structure follows standard MCP in Supabase ensuring data integrity and easy querying.
+⚙️ Core Architecture
 
-## Infrastructure and Deployment
+                +----------------------------+
+                |      Telegram Bot (Astryn) |
+                +-------------+--------------+
+                              |
+               +--------------v---------------+
+               |     FastAPI Agent (Agno)     |
+               |  /start_job, /status, RAG, etc. |
+               +---+----------+---------+------+
+                   |          |         |
+              +----v--+   +---v----+  +--v----+
+              | Queue |   | Vector |  | NMKR  |
+              |RabbitMQ|  |  DB    |  | Mint  |
+              +--------+  +--------+  +-------+
+                   |         |
+              +----v-----+   |
+              | Workers  |<--+
+              +----------+
+                     |
+              +------v------+
+              | Supabase DB |
+              +-------------+
+                     |
+              +------v------+
+              | Braintrust  |
+              +-------------+
 
-Reliable infrastructure is critical to ensuring that our application scales and performs consistently. Our choices include:
 
-- **Hosting Platforms**:
-  - While specific hosting details might be determined later, the integration of Agno with FastAPI allows for flexible deployment scenarios on popular cloud providers.
-- **CI/CD Pipelines**:
-  - These pipelines automate building, testing, and deploying updates to ensure the application remains stable and up-to-date.
-- **Version Control Systems**:
-  - Standard practices (e.g., Git repositories) are used to manage our codebase, making collaboration smooth and enhancing reliability.
 
-## Third-Party Integrations
+⸻
 
-To enrich the functionality of our project, several third-party services have been integrated:
+📦 Tech Stack Breakdown
 
-- **NMKR API**
-  - Used for minting NFTs. Once the metadata and asset URIs are ready, NMKR API is called to execute the minting process on the Cardano blockchain.
-- **IPFS (via NMKR or web3.storage)**
-  - A decentralized storage solution ensuring that each NFT asset is stored with a unique URI, providing transparency and traceability.
-- **Masumi Payments**
-  - Integrated for a pay-per-mint model, this service handles all necessary payment transactions associated with NFT drops.
-- **Braintrust**
-  - A monitoring service that helps keep track of system performance, ensuring that all processes run smoothly and any issues are quickly identified.
+⸻
 
-## Security and Performance Considerations
+🧩 Agent Framework
 
-Our application is built to be both performant and secure, even while it remains a hackathon demo with minimal security measures. Here’s how we approach these aspects:
+Feature	Stack	Notes
+Web Agent Framework	Agno Agent SDK	Composable agent
+API Server	FastAPI	Exposes MIP-003 endpoints
+Agent Standards	MIP-003	/start_job, /status, etc.
+VectorDB / RAG	Agno VectorDB	Prompt enrichment & support
+Deployment	Docker / Railway / Fly.io	Portable and containerized
 
-- **Security Measures**:
-  - **Wallet Verification**: The WalletAgent validates user wallet addresses and manages a hot wallet for signing transactions. Although advanced security is not implemented for the demo, this core feature lays the groundwork for future enhancements.
-  - **Data Protection**: Sensitive user data and NFT metadata are stored securely in Supabase/PostgreSQL, following standard data protection practices.
 
-- **Performance Optimizations**:
-  - **Efficient Orchestration**: The JobAgent ensures that all specialized agents (content generation, asset upload, metadata creation, and minting) work together in a coordinated manner, reducing processing time and enhancing responsiveness.
-  - **Standard Image Resolutions**: Images generated via DALL·E are in 1024x1024 resolution, optimizing the balance between image detail and file size, which is ideal for NFTs.
 
-## Conclusion and Overall Tech Stack Summary
+⸻
 
-To summarize, our tech stack is carefully selected to meet the unique requirements of an NFT minting pipeline, ensuring it is robust, scalable, and user-friendly. Below is a recap of our technology choices:
+💳 Payments
 
-- **Frontend**:
-  - Streamlit
+Feature	Stack	Notes
+Crypto Payments	Masumi	User pays to unlock jobs
+Pricing Model	Tiered (ADA)	Tier 1 (upload), Tier 2 (AI generation)
+Payment Flow	Webhook	Masumi webhook updates Supabase job
 
-- **Backend**:
-  - Agno
-  - FastAPI
-  - Supabase / PostgreSQL
 
-- **Infrastructure and Deployment**:
-  - Modern CI/CD pipelines
-  - Hosting on flexible cloud platforms
-  - Version control (e.g., Git)
 
-- **Third-Party Integrations**:
-  - NMKR API (for minting)
-  - IPFS (for decentralized asset storage)
-  - Masumi Payments (for monetization on a pay-per-mint basis)
-  - Braintrust (for monitoring)
+⸻
 
-- **AI and Agent Tools**:
-  - gpt_4o, claude_3_7_sonnet, claude, gemini_2-5 (for intelligent agent operations)
-  - DALL·E (for creative image generation)
+🎨 Content Generation
 
-These choices are designed to work in harmony, ensuring that every step—from generating creative content, handling assets, and generating metadata to finally minting NFTs—is executed smoothly and reliably. The collaborative design, underpinned by a suite of specialized agents, makes our solution unique and effective in managing complex NFT minting workflows.
+Feature	Stack	Notes
+Prompt-to-Image	DALL·E / SDXL	For static NFTs
+Prompt-to-Video	AnimateDiff / RunwayML	For short video NFTs
+RAG Enhancement	Agno VectorDB	Style-aware prompt augmentation
+Job Routing	RabbitMQ	Workers pick up generation tasks
 
-This tech stack not only fulfills the immediate requirements of our project but also provides a solid foundation for future scalability and potential security enhancements as the application evolves.
+
+
+⸻
+
+💎 NFT Minting
+
+Feature	Stack	Notes
+Blockchain	Cardano	Native asset minting
+NFT Service	NMKR API	Upload & mint flow
+Metadata Format	JSON (MIP-002)	Includes tx_hash, prompt, tier
+Storage	Supabase + IPFS	Output hosted on NMKR/IPFS
+
+
+
+⸻
+
+💬 Telegram Bot
+
+Feature	Stack	Notes
+Bot Framework	aiogram (Python)	Handles user input and wallet
+Uploads	Telegram media API	Handles image/video
+Status Check	Inline buttons + /status	
+Notifications	Sent after mint via notify_worker.py	
+
+
+
+⸻
+
+🔄 Queue System
+
+Feature	Stack	Notes
+Queue Engine	RabbitMQ	Reliable async queueing
+Job Lifecycle	Supabase + Enums	awaiting_payment → paid → ...
+Workers	Pika / Celery (Python)	For generation, minting, notification
+Retry Logic	Supabase + Max Retry	Tracks retry_count, last_error
+
+
+
+⸻
+
+📊 Monitoring & Tracing
+
+Feature	Stack	Notes
+Prompt Tracing	Braintrust	Input → Output flow
+Worker Events	Braintrust SDK	Logs + metrics
+DevOps Monitoring	Dashboard UI	Optional alerts via Discord/email
+
+
+
+⸻
+
+🧠 Agent Intelligence
+
+Feature	Stack	Notes
+Language Model	GPT-4 (optional)	RAG-enhanced prompts, support answers
+Prompt Memory	Agno VectorDB	User history, style recall
+Style Enhancer Chain	Agno Chains (opt.)	e.g., Persona → RAG → Generator
+FAQ Assistant	RAG + RetrievalChain	Helps user understand Astryn via /help
+
+
+
+⸻
+
+🛢️ Storage
+
+Feature	Stack	Notes
+Metadata DB	Supabase	Stores jobs, users, payments
+Media Storage	Supabase Storage	Uploads + generated assets
+NFT Metadata	NMKR IPFS / alt	Stored via NMKR for minting
+
+
+
+⸻
+
+🚀 Deployment & CI/CD
+
+Feature	Stack	Notes
+Containerization	Docker	All services containerized
+Cloud Targets	Railway / Fly.io	Flexible deployment options
+Secrets Management	.env files	Mounted at runtime
+CI/CD Pipeline	GitHub Actions	Auto-deploy on push
+
+
+
+🧪 Testing Plan
+
+Layer	Tests
+Agent API	Unit + Integration tests (Agno /start_job)
+Telegram Bot	Full interaction test (upload + payment)
+Content Gen	Prompt → Generation → Quality check
+NFT Minting	NMKR mint test + IPFS validity
+Queue Worker	Stress test with concurrency
+
+
+
+⸻
+
+🧭 Developer Setup
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run local agent API
+uvicorn agent.main:app --reload
+
+# Run Telegram bot
+python telegram_bot/bot.py
+
+# Start queue workers
+python workers/generation_worker.py
+python workers/minting_worker.py
+python workers/notification_worker.py
+
+# Enable Braintrust
+export BRAINTRUST_API_KEY=your_key
+
+
+
+Let me know what format you need — and I can generate the full file.

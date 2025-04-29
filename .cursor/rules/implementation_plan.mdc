@@ -3,97 +3,171 @@ description:
 globs: 
 alwaysApply: true
 ---
-# Implementation plan
+⸻
 
-Below is the step-by-step implementation plan for the automated NFT minting solution on Cardano using a multi-agent system. Each step includes one specific action with references to the project documents (e.g., PRD, Tech Stack) where applicable. Before starting, ensure you have checked the project directory for existing files to avoid redundancy.
+🌌 Astryn – Telegram NFT Agent: Full Implementation Plan
 
----
+(With RabbitMQ queueing, Agno agent interface, RAG via VectorDB, and Masumi payments)
 
-## Phase 1: Environment Setup
+⸻
 
-1. **Prevalidation:** Check if the current directory is already a project (e.g., existing README, folder structures). *(Project Overview: Assumptions)*
-2. **Create Project Structure:** In the project root, create directories: `/backend`, `/frontend`, and `/docs`. *(Project Overview)*
-3. **Cursor Metrics File:** If using Cursor, create a file named `cursor_metrics.md` in the project root. *(IDE: Cursor)*
-4. **Create .cursor Directory:** In the project root, check if a `.cursor` directory exists; if not, create it. *(IDE: Cursor)*
-5. **Create MCP Configuration File:** Within the `.cursor` directory, create a file called `mcp.json`. *(IDE: Cursor)
-6. **Configure MCP for Supabase (macOS):** Add the following JSON configuration:
-   ```json
-   { "mcpServers": { "supabase": { "command": "npx", "args": ["-y", "@modelcontextprotocol/server-postgres", "<connection-string>"] } } }
-   ```
-   *(Tech Stack: Supabase, MCP Setup)*
-7. **Configure MCP for Supabase (Windows):** If on Windows, use this configuration instead:
-   ```json
-   { "mcpServers": { "supabase": { "command": "cmd", "args": ["/c", "npx", "-y", "@modelcontextprotocol/server-postgres", "<connection-string>"] } } }
-   ```
-   *(Tech Stack: Supabase, MCP Setup)*
-8. **Display Connection String Link:** Show the link: [https://supabase.com/docs/guides/getting-started/mcp#connect-to-supabase-using-mcp](https://supabase.com/docs/guides/getting-started/mcp#connect-to-supabase-using-mcp) so the user can retrieve their Supabase connection string, then update `<connection-string>` with the actual value. *(Tech Stack: Supabase)*
-9. **Set up Python Virtual Environment:** Run `python -m venv venv` in the project root. *(Tech Stack: Agent Backend)*
-10. **Activate the Virtual Environment:** Activate the environment (e.g., `source venv/bin/activate` on macOS/Linux or `venv\Scripts\activate` on Windows). *(Tech Stack: Agent Backend)*
-11. **Install Dependencies:** Install FastAPI, uvicorn, and Agno (along with any other required packages) by running:
-    ```bash
-    pip install fastapi uvicorn agno
-    ```
-    *(Tech Stack: Agent Backend)*
-12. **Validation:** Run `uvicorn --version` to confirm uvicorn is installed properly.
+🧱 Phase 1: Architecture & Tiered Flow Design
 
----
+🧠 Stack Overview
 
-## Phase 2: Frontend Development (Streamlit)
+Component	Tech
+Bot Interface	Telegram (aiogram or grammY)
+Agent Framework	Agno Agent SDK (MIP-003)
+Monetization	Masumi
+NFT Minting	NMKR Studio API
+Database/Auth	Supabase with MCP (via Cursor)
+Media Storage	Supabase Storage
+Monitoring	Braintrust
+Content Generation	DALL·E, SDXL, AnimateDiff, RunwayML
+Queue System	🆕 RabbitMQ
+Workers	Async Python workers (Pika or Celery)
+RAG / Retrieval	Agno VectorDB
 
-13. **Create Frontend Directory:** In the project root, ensure the `/frontend` directory exists. *(Project Overview: Frontend)
-14. **Create Streamlit App:** In the `/frontend` directory, create a file named `app.py`.
-15. **Develop UI Form:** In `app.py`, add Streamlit code to render an input form that collects NFT collection details, including prompt, collection name, and wallet address. *(Project Overview: User Flow Summary)*
-16. **Integrate Start Job Button:** Incorporate a button that, when clicked, calls the `/start_job` endpoint of the backend to initiate the NFT minting pipeline. *(Project Overview: User Flow Summary)*
-17. **Validation:** Run `streamlit run app.py` and verify the UI loads and the form appears as expected.
 
----
 
-## Phase 3: Backend Development (Agno + FastAPI)
+⸻
 
-18. **Create Backend Directory:** In the project root, ensure the `/backend` directory exists. *(Project Overview: Agent Backend)
-19. **Initialize FastAPI App:** In `/backend`, create a file named `app.py` and initialize a FastAPI application.
-20. **Define Start Job Endpoint:** In `app.py`, create an endpoint `POST /start_job` that will trigger the entire minting pipeline coordinated by the JobAgent. *(Project Overview: JobAgent Instructions)
-21. **Create Agents Folder:** In `/backend`, create a directory named `/agents` to house all individual agent modules.
-22. **Implement ContentCreatorAgent:** Create `/backend/agents/ContentCreatorAgent.py` that contains logic to call DALL·E for generating surreal/ethereal 1024x1024 images when no asset is provided. *(Core Functionality: Content Generation)
-23. **Validation (Content Agent):** Write and run a simple test script to ensure `ContentCreatorAgent` calls DALL·E properly and returns image URLs/paths.
-24. **Implement AssetAgent:** Create `/backend/agents/AssetAgent.py` to upload received asset file paths or generated image URLs to IPFS via NMKR or web3.storage. *(Core Functionality: Asset Handling)
-25. **Validation (Asset Agent):** Test `AssetAgent` with a sample image to confirm an IPFS URI is returned.
-26. **Implement MetadataAgent:** Create `/backend/agents/MetadataAgent.py` to generate CIP-25 compliant JSON metadata based on collection name, royalties, asset list, and traits. *(Core Functionality: Metadata Generation)
-27. **Validation (Metadata Agent):** Run tests to ensure the generated metadata matches the CIP-25 specification.
-28. **Implement MintAgent:** Create `/backend/agents/MintAgent.py` to interact with the NMKR API and mint NFTs using the metadata and IPFS URIs provided. *(Core Functionality: Minting)
-29. **Validation (Mint Agent):** Simulate a call to the NMKR API and confirm that transaction hashes are returned.
-30. **Implement WalletAgent:** Create `/backend/agents/WalletAgent.py` to validate user wallet addresses and prepare a hot wallet for signing transactions. *(Core Functionality: Wallet)
-31. **Validation (Wallet Agent):** Test wallet validation with sample addresses ensuring basic format rules are enforced.
-32. **Implement PaymentAgent:** Create `/backend/agents/PaymentAgent.py` to integrate Masumi Payments for the pay-per-mint model. *(Core Functionality: Payments)
-33. **Validation (Payment Agent):** Mock a payment process to ensure the PaymentAgent responds as expected.
-34. **Implement JobAgent:** Create `/backend/agents/JobAgent.py` to orchestrate the entire workflow in sequence (ContentCreatorAgent → AssetAgent → MetadataAgent → MintAgent → WalletAgent → PaymentAgent), track job status, and store results.
-35. **Validation (Job Agent):** Simulate a complete job in a test script and verify that each stage is executed and results (status, logs, transaction hashes) are aggregated.
-36. **Configure Supabase Connection:** In `/backend`, create a configuration file `config.py` to manage connection settings, loading the Supabase connection string from environment variables.
-37. **Set Up Database Schema:** Using Supabase/PostgreSQL, define schemas/tables for storing NFT metadata, minting transaction hashes, job statuses, and logs. Document the table names (e.g., `nft_metadata`, `mint_transactions`, `job_statuses`, `logs`). *(Data Storage Requirements)*
-38. **Validation (Database):** Test the connection to Supabase using the MCP configuration and run a simple table creation command via a PostgreSQL client.
+⚙️ Phase 2: Supabase Schema Setup
 
----
+Table	Fields
+users	id, telegram_id, wallet, …
+nft_jobs	id, tier, status, prompt, media_url, generated_media_url, tx_hash, is_paid, retry_count, last_error, created_at, updated_at
+payments	id, job_id, masumi_job_id, status, amount
 
-## Phase 4: Integration
+✅ Status Flow:
 
-39. **Integrate Frontend with Backend:** In the Streamlit `app.py`, add the necessary API call (e.g., using `requests.post`) to the `/start_job` endpoint in the FastAPI app. *(User Flow Summary)
-40. **Incorporate Wallet Validation:** Ensure that the frontend form sends the user wallet address to the backend, where `WalletAgent` validates it. *(Core Functionality: Wallet Integration)
-41. **Log Job Status:** Make sure the JobAgent updates and stores job status and logs to Supabase as the job progresses. *(Core Functionality: Orchestration & Data Storage)
-42. **Validation (End-to-End):** Perform an end-to-end test by submitting a test NFT collection via the Streamlit UI and confirming job progress and responses.
-43. **Error Handling:** Add retry logic and error handling in the JobAgent for cases where one of the agents fails (e.g., network issues with NMKR API) with clear log messages.
-44. **Validation (Error Handling):** Simulate failure conditions and verify that retry logic triggers and errors are logged appropriately.
+awaiting_payment → paid → queued_generation → generating → queued_minting → minting → complete → notified
 
----
 
-## Phase 5: Deployment
 
-45. **Prepare Backend Deployment Configuration:** Create a deployment configuration file (e.g., `uvicorn_config.py` in `/backend`) for running the FastAPI app with uvicorn. *(Deployment: Backend)
-46. **Prepare Frontend Deployment Instructions:** Document how to deploy the Streamlit UI (e.g., via Streamlit Cloud or a containerized setup). *(Deployment: Frontend)
-47. **Optional Docker Setup:** (If desired) Create a `Dockerfile` for the backend and/or frontend to containerize the application. *(Deployment: Optional)
-48. **Validation (Local Deployment):** Run both the backend (`uvicorn --reload backend.app:app`) and the Streamlit frontend (`streamlit run frontend/app.py`) to verify they work together locally.
-49. **Final Workflow Test:** Execute a complete run-through of the NFT minting process—from content generation (or asset upload) through to minting—and verify that all components (including payment and logging) interact as expected.
-50. **Validation (Audit Trail):** Check Supabase to ensure NFT metadata, minting transaction hashes, job statuses, and logs are correctly stored, verifying the audit trail functionality.
+⸻
 
----
+🤖 Phase 3: Telegram Bot Integration
 
-This implementation plan ensures that every component—from agent orchestration to the user interface and the underlying database—meeting both functional and non-functional requirements is properly developed and validated. Enjoy building your hackathon demo NFT minting solution!
+✅ Bot Flow
+	•	/start
+	•	Accepts:
+	•	File upload (Tier 1 – manual content)
+	•	Prompt (Tier 2 – AI-generated content)
+	•	Requests Cardano wallet
+	•	Generates Masumi payment link
+	•	After payment:
+	•	Tier 1 → enqueue to mint_nft
+	•	Tier 2 → enqueue to generate_nft
+
+⸻
+
+💸 Phase 4: Masumi Monetization Integration
+	•	Masumi used for job-level payment gating
+	•	Payment link includes:
+	•	Job ID, tier, wallet address, media type
+	•	On payment confirmation (via webhook):
+	•	Update Supabase (status = paid)
+	•	Enqueue job into appropriate RabbitMQ queue
+
+⸻
+
+🧰 Phase 5: RabbitMQ Job Queueing System
+
+🎯 Queue Names
+
+Queue	Description
+generate_nft	Tier 2 jobs after payment
+mint_nft	All mint-ready jobs
+notify_user	Post-mint Telegram notifications
+
+🧵 Worker Services
+
+generation_worker.py
+	•	Consumes generate_nft
+	•	Uses RAG-enhanced prompt (Agno VectorDB)
+	•	Generates media → uploads to Supabase
+	•	Updates job → pushes to mint_nft
+
+minting_worker.py
+	•	Consumes mint_nft
+	•	Uploads to NMKR → mints to wallet
+	•	Updates tx hash → pushes to notify_user
+
+notification_worker.py
+	•	Sends Telegram message with NFT metadata + links
+
+🔁 Retry & Monitoring
+	•	Max retries: 3 (retry_count)
+	•	Log last_error
+	•	If worker dies, fallback to polling Supabase queue
+
+⸻
+
+🔁 Phase 6: Content Generation
+
+Condition	Action
+tier = ai_generated & is_paid	→ enqueue to generate_nft
+tier = manual & is_paid	→ enqueue directly to mint_nft
+
+	•	RAG system enhances prompts before generation
+	•	Supports multiple models: SDXL, DALL·E, AnimateDiff
+
+⸻
+
+🔥 Phase 7: NMKR Minting Integration
+	•	Receives media from user or generation worker
+	•	Uploads to NMKR (metadata + asset)
+	•	Mints to provided Cardano wallet
+	•	Updates Supabase with tx_hash and status = complete
+
+⸻
+
+🧠 Phase 8: Agno Agent Integration
+	•	Built with Agno SDK for agent composability
+	•	Agent exposes public MIP-003 endpoints:
+	•	/input_schema, /output_schema, /start_job, /status
+	•	Can be used by other Agno agents or tools
+	•	/queue_job allows internal testing and inter-agent coordination
+
+⸻
+
+📚 Phase 9: RAG Integration with Agno VectorDB
+	•	Stores NFT styles, themes, instructions, and user history
+	•	Used to enhance prompts before generation (prompt → RAG → enriched prompt)
+	•	Also powers /help and conversational responses
+	•	Uses RetrievalChain via Agno’s VectorDB SDK
+
+⸻
+
+📊 Phase 10: Monitoring with Braintrust
+	•	All workers integrate Braintrust SDK
+	•	Track:
+	•	Job duration
+	•	Error/retry rate
+	•	Revenue per job
+	•	Expose in dashboard or alert system
+
+⸻
+
+🧬 Phase 11: Polish & Launch
+	•	Inline Telegram UX (buttons, /status, /my_nfts)
+	•	NFT preview thumbnails in bot
+	•	Optional retry button for failed jobs
+	•	Rate limit usage per wallet / user
+	•	Add analytics dashboard (if time allows)
+
+⸻
+
+🧱 Infrastructure Notes
+
+Component	Tool
+Message Broker	RabbitMQ (Docker or CloudAMQP)
+Worker Runtime	Python + asyncio (Pika or Celery)
+Agent Server	FastAPI + Agno SDK
+Deployment	Railway / Fly.io / Docker Compose
+RAG & VectorDB	Agno VectorDB
+Payments	Masumi
+NFT Minting	NMKR Studio API
+
+

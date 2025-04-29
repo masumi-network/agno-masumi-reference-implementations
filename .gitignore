@@ -1,6 +1,6 @@
 # Python virtual environment
 venv/
-.cursor
+
 
 # Environment variables
 .env
@@ -15,3 +15,7 @@ __pycache__/
 
 # OS specific files (optional)
 .DS_Store 
+
+
+# Cursor specific files
+.cursor

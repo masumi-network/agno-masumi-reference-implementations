@@ -3,130 +3,120 @@ description:
 globs: 
 alwaysApply: true
 ---
-## Project Overview
+⸻
 
-* **Type:** NFT Minting Agent
-* **Description:** An NFT minting agent called "MintMind Team" built using the Agno framework (MIP-003 spec with FastAPI) designed to automate the creation and launch of NFT drops on the Cardano blockchain. This hackathon demo focuses on functionality and pipeline demonstration rather than robust security.
-* **Primary Goal:** Automate the NFT drop process by taking user prompts and NFT collection details, generating assets with DALL-E if needed, uploading assets to IPFS, generating CIP-25 compliant metadata, minting NFTs via the NMKR API, and handling basic wallet interactions.
+📜 Astryn – Project-Specific Rules
 
-## Project Structure
+⸻
 
-### Framework-Specific Routing
+🧱 General Architecture Rules
+	1.	Service-Oriented Structure:
+Astryn is composed of modular services:
+	•	telegram_bot/
+	•	agent_api/ (FastAPI, Agno-compliant)
+	•	workers/ (generation_worker.py, minting_worker.py, notify_user.py)
+	•	queue/ (RabbitMQ broker)
+	2.	Asynchronous by Default:
+All services must use asyncio to prevent blocking operations (AI generation, API calls, Telegram messaging, etc.).
+	3.	Supabase as the Source of Truth:
+No job state is kept in-memory alone. All jobs must be persisted in Supabase with atomic updates (job.status, is_paid, etc.).
+	4.	RabbitMQ as Job Dispatcher:
+Long-running or rate-limited tasks (generation, minting, notification) must be queued. Never run blocking tasks directly from HTTP or bot handlers.
 
-* **Directory Rules:**
+⸻
 
-    * `Agno@MIP-003 (FastAPI)`: Utilize a conventional API endpoints structure under the `api/` directory. For instance, routes like `api/agents/[agent_name].py` define individual agent endpoints (e.g., ContentCreatorAgent, AssetAgent, etc.).
-    * Example 1: "FastAPI Endpoint" → `api/main.py` initializes the Agno application with all agent routes.
-    * Example 2: "Streamlit Frontend" → `frontend/app.py` serves as the entry point for the UI.
+💰 Payment & Job Flow Rules
+	1.	No Work Without Payment:
+Jobs should not proceed (generation or minting) until is_paid = true.
+	2.	Tier-Based Pricing:
+	•	Tier 1: tier = manual → lower price, direct mint
+	•	Tier 2: tier = ai_generated → higher price, queued generation
+	3.	Payment Confirmation via Masumi Webhook Only:
+Bot or user cannot manually mark a job as paid. Only Masumi callbacks can do this.
 
-### Core Directories
+⸻
 
-* **Versioned Structure:**
+🎨 Generation Rules
+	1.	Content Creation Only When Paid:
+AI generation is triggered only after is_paid = true and tier = ai_generated.
+	2.	Supported Media Types:
+	•	Image: Static (via DALL·E, SDXL)
+	•	Video: Short loops (via AnimateDiff, RunwayML)
+	3.	Prompt Validity:
+Prompt input must be ≥5 characters and safely filtered (no unsafe/genitalia/etc.)
+	4.	File Size & Format Validation:
+	•	User-uploaded content must be under 20MB
+	•	Accepted: .jpg, .png, .mp4, .mov
 
-    * `api/agents`: Contains all Agno agent implementations utilizing FastAPI, ensuring version-specific compliance with the MIP-003 spec.
-    * `frontend`: Houses all Streamlit-based UI components and pages.
-    * `services`: Contains integrations with third-party APIs (DALL-E, NMKR API, IPFS services), wallet management, and database interactions (Supabase/PostgreSQL with MCP structure).
+⸻
 
-### Key Files
+🧾 Minting Rules
+	1.	One NFT per Job:
+Each job results in a single mint, mapped to a unique tx_hash.
+	2.	NMKR Minting Policy:
+	•	Metadata includes: creator handle, tier, generation method (manual/ai)
+	•	Use dynamic asset names (e.g., AstrynNFT-0001)
+	•	Royalties fixed at 5% to Astryn wallet (editable)
+	3.	Delivery via Telegram:
+Minting must be followed by a Telegram DM with:
+	•	Success message
+	•	NFT link
+	•	Cardano explorer link (for tx_hash)
 
-* **Stack-Versioned Patterns:**
+⸻
 
-    * `api/main.py`: Primary FastAPI application file that aggregates and routes agent endpoints.
-    * `frontend/app.py`: The main Streamlit application file that renders the user interface and handles basic input forms.
-    * `services/utils.py`: Version-specific utility functions for interacting with DALL-E, NMKR, and IPFS.
+🧠 Agent Rules
+	1.	Masumi & Agno Compliant:
+	•	Astryn exposes /start_job, /status, /input_schema, /output_schema
+	•	Only accepts MIP-003 valid job payloads
+	2.	API-Accessible:
+Astryn’s generation + minting capabilities are exposed via public API (with payment gating).
+	3.	No Direct Job Start from API:
+All external jobs must go through /start_job → payment → queue
 
-## Tech Stack Rules
+⸻
 
-* **Version Enforcement:**
+📊 Monitoring & Observability Rules
+	1.	Every Worker Logs to Braintrust:
+	•	Job start time
+	•	Job duration
+	•	Success/failure
+	•	Retry count
+	2.	Error Reporting:
+	•	Max retries = 3
+	•	After 3 failures → set status = error and store last_error
+	3.	Notifications on Failure:
+	•	Telegram user should receive a graceful failure message with support option
 
-    * `Agno@MIP-003`: Must follow the FastAPI-based endpoint conventions with explicit agent separation within the `api/agents` directory.
-    * `Streamlit@latest`: Ensure responsiveness and real-time UI updates with a clear separation from backend agent operations.
-    * `DALL-E`: Always generate 1024x1024 images in a surreal/ethereal style when assets are not provided.
-    * `NMKR API`: Enforce interactions according to the provided API documentation for NFT minting, ensuring CIP-25 metadata compliance.
+⸻
 
-## PRD Compliance
+📁 File & Directory Naming Rules
+	•	All services: snake_case
+	•	Worker files: minting_worker.py, generation_worker.py, notify_worker.py
+	•	Configs: env.py, settings.py
+	•	Agent API routes: /api/job, /api/status, /api/docs
 
-* **Non-Negotiable:**
+⸻
 
-    * "The agent shall generate CIP-25 compliant JSON metadata, handle wallet validations through a basic mechanism, and integrate third-party APIs for asset creation, uploading, and minting." This includes strict adherence to using DALL-E for image generation (1024x1024, surreal style) and managing communications with IPFS, NMKR, and Masumi Payments.
+🧪 Testing & DevOps Rules
+	1.	Testable Components:
+Each worker must be runnable in standalone test mode:
 
-## App Flow Integration
+python workers/minting_worker.py --test job_id
 
-* **Stack-Aligned Flow:**
 
-    * Agents operate in a sequential flow:
-      * **ContentCreatorAgent:** Generates images using DALL-E if no assets are provided.
-      * **AssetAgent:** Uploads generated or provided assets to IPFS, returning a mapping of filenames to URIs.
-      * **MetadataAgent:** Creates CIP-25 compliant metadata for the NFT collection.
-      * **MintAgent:** Uses NMKR API to mint NFTs based on the provided metadata and asset URIs.
-      * **WalletAgent:** Validates wallet addresses and handles hot wallet signing operations.
-      * **JobAgent:** Orchestrates the end-to-end process, tracks job status, and logs metadata and transaction hashes in Supabase.
+	2.	Docker-First Local Dev:
+Local dev must be supported with Docker Compose:
+	•	supabase, rabbitmq, workers, api, bot
+	3.	Secrets & API Keys:
+Stored in .env and managed via environment variables
 
-## Best Practices
+⸻
 
-* **Agno (FastAPI):**
-
-    * Ensure endpoints are modular and adhere to the MIP-003 spec.
-    * Use Pydantic models for request validation.
-    * Implement clear separation of concerns for different agent responsibilities.
-
-* **Streamlit:**
-
-    * Maintain a responsive and user-friendly UI.
-    * Lazy-load data where possible to improve performance.
-    * Clearly display error messages for failed interactions.
-
-* **DALL-E:**
-
-    * Validate image resolution (1024x1024) and style parameters.
-    * Cache repeated prompt responses to minimize duplicate API calls.
-    * Ensure safe fallback mechanisms if image generation fails.
-
-* **NMKR API Integration:**
-
-    * Validate API responses and handle errors gracefully.
-    * Ensure all minted NFTs have CIP-25 compliant metadata attached.
-    * Log transaction hashes and metadata for audit purposes.
-
-* **IPFS Integration:**
-
-    * Confirm successful uploads and map filenames to their generated URIs.
-    * Handle retries for failed uploads.
-    * Maintain consistency in asset URI formatting.
-
-* **Wallet Management:**
-
-    * Perform basic wallet address validation without overcomplicating the demo security model.
-    * Prepare hot wallet environments in isolated and secure modules.
-    * Log wallet interactions for transparency.
-
-* **Supabase/PostgreSQL (MCP Structure):**
-
-    * Ensure all NFT metadata, job statuses, and logs are recorded in a structured manner.
-    * Optimize database queries for scalability.
-    * Use environment-specific configurations for fast deployments in hackathon settings.
-
-## Rules
-
-* Derive folder/file patterns **directly** from `techStackDoc` versions.
-* If a Next.js 14 App Router were used: Enforce an `app/` directory with nested route folders. Since this project uses Agno with FastAPI and Streamlit, follow API and UI directory segregation strictly.
-* Never mix version patterns (for example, do not mix FastAPI agent structures with flat UI file patterns). Align each component strictly to its tech stack requirements.
-
-## Rules Metrics
-
-Before starting the project development, create a metrics file in the root of the project called `cursor_metrics.md`.
-
-### Instructions:
-
-* Each time a cursor rule is used as context, update `cursor_metrics.md`.
-* Use the following format for `cursor_metrics.md:`
-
-```
-# Rules Metrics
-
-## Usage
-
-* rule-name.mdc: 5
-* another-rule.mdc: 2
-* ...other rules
-```
+🤖 Telegram Bot Rules
+	1.	No Minting in DMs Without Wallet
+Every job must contain a valid Cardano wallet address.
+	2.	Status Feedback Loop
+Users can run /status or tap “🔁 Check Status” to view progress of their job
+	3.	No Spamming
+Rate-limit command usage to avoid abuse. Use Bot API throttling if necessary.
