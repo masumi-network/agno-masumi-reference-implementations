@@ -139,7 +139,6 @@ To test the NFT creation workflow directly:
 python agent_definition.py
 
 
-
 ## License
 
 MIT License
