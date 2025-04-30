@@ -219,3 +219,1426 @@ Traceback (most recent call last):
   File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
     raise ValueError(f"Bad request: {error_text}")
 ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-29 19:59:13,035 - root - INFO - Starting application with configuration:
+2025-04-29 19:59:13,036 - root - INFO - PAYMENT_SERVICE_URL: None
+2025-04-29 19:59:40,987 - root - INFO - Starting application with configuration:
+2025-04-29 19:59:40,987 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 19:59:56,632 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 19:59:56,632 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 19:59:56,632 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 19:59:56,632 - root - INFO - Starting job 4718e989-85e3-4df2-b3dd-bff3cb10d4a6 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 19:59:56,632 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 19:59:56,632 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-29 19:59:56,632 - root - INFO - Creating payment request...
+2025-04-29 19:59:56,632 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 19:59:56,633 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T05:59:56.632Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': '7475acf90359e366288586ebee434709d4fa2134e40a73c9b2db39bd12b6ec8e'}
+2025-04-29 19:59:56,769 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-29 19:59:56,771 - root - ERROR - Validation error in request: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 136, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-29 20:01:02,774 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:01:02,774 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:01:02,774 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:01:02,774 - root - INFO - Starting job a1f0c53b-f089-4ce3-a20a-8ce28b0bd262 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:01:02,775 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:01:02,775 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-29 20:01:02,775 - root - INFO - Creating payment request...
+2025-04-29 20:01:02,775 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:01:02,775 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T06:01:02.775Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': '7475acf90359e366288586ebee434709d4fa2134e40a73c9b2db39bd12b6ec8e'}
+2025-04-29 20:01:02,912 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-29 20:01:02,913 - root - ERROR - Validation error in request: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 136, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-29 20:01:38,244 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:01:38,244 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:01:38,244 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:01:38,244 - root - INFO - Starting job 2f702af5-aea1-49de-bc17-f22729602b07 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:01:38,244 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:01:38,244 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-29 20:01:38,245 - root - INFO - Creating payment request...
+2025-04-29 20:01:38,245 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:01:38,245 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T06:01:38.245Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': '7475acf90359e366288586ebee434709d4fa2134e40a73c9b2db39bd12b6ec8e'}
+2025-04-29 20:01:38,396 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-29 20:01:38,396 - root - ERROR - Validation error in request: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 136, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-29 20:06:12,200 - root - INFO - Starting application with configuration:
+2025-04-29 20:06:12,200 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 20:06:24,000 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:06:24,000 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:06:24,000 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:06:24,000 - root - INFO - Starting job 4d0218d7-5a73-480d-b02f-4807dfeaae3d with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:06:24,001 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:06:24,001 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 126, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:06:27,621 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:06:27,621 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:06:27,621 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:06:27,621 - root - INFO - Starting job 9bdf9933-4457-45b6-b02d-05816e5ac96a with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:06:27,621 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:06:27,622 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 126, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:07:43,731 - root - INFO - Received data: identifier_from_purchaser='214124' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 20:07:43,732 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 20:07:43,732 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:07:43,732 - root - INFO - Starting job e2a2d6a0-dab6-4b16-a382-83501f23aeab with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:07:43,732 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:07:43,732 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 126, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:07:52,347 - root - INFO - Received data: identifier_from_purchaser='214124' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 20:07:52,347 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 20:07:52,347 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:07:52,347 - root - INFO - Starting job a9ecb9a3-7dfc-457b-8138-9bf494256c99 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:07:52,347 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:07:52,347 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 126, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:07:58,754 - root - INFO - Received data: identifier_from_purchaser='' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 20:07:58,754 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 20:07:58,754 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:07:58,754 - root - INFO - Starting job 11bec01b-247b-4526-bf8f-e5cadde186d2 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:07:58,754 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:07:58,754 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 126, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:08:31,191 - root - INFO - Starting application with configuration:
+2025-04-29 20:08:31,191 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 20:08:32,965 - root - INFO - Received data: identifier_from_purchaser='' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 20:08:32,966 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 20:08:32,966 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:08:32,966 - root - INFO - Starting job 3a0047fc-590b-4b7d-a993-e64b393672d5 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:08:32,966 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:08:32,966 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 114, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:08:33,845 - root - INFO - Received data: identifier_from_purchaser='' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 20:08:33,846 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h'}
+2025-04-29 20:08:33,846 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:08:33,846 - root - INFO - Starting job 0dc33b14-e863-4d31-be57-50bd2221be20 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:08:33,846 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:08:33,846 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 114, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:08:43,772 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:08:43,772 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:08:43,772 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:08:43,772 - root - INFO - Starting job 1bcee73a-dfd5-45d2-9242-77dc2043d2bc with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:08:43,772 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:08:43,773 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 114, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:08:46,102 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:08:46,102 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:08:46,102 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:08:46,102 - root - INFO - Starting job 582067fa-4fe5-41b3-bb69-68e10d4a4e4c with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:08:46,102 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:08:46,103 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 114, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:08:46,837 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:08:46,837 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:08:46,837 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:08:46,837 - root - INFO - Starting job f95b905d-1d8d-497d-b04f-d5f2d27a7022 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:08:46,837 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:08:46,838 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 114, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:10:11,778 - root - INFO - Starting application with configuration:
+2025-04-29 20:10:11,778 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 20:10:15,547 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:10:15,547 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:10:15,547 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:10:15,547 - root - INFO - Starting job 9fa98800-6877-4767-a3ec-297a7fe98064 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:10:15,548 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:10:15,548 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 113, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:10:22,701 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:10:22,702 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:10:22,702 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:10:22,702 - root - INFO - Starting job cfc1d806-8478-4c70-995c-089ee1b863db with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:10:22,702 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:10:22,702 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 113, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:10:24,657 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:10:24,657 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:10:24,657 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:10:24,657 - root - INFO - Starting job 344137eb-af52-4281-a5d4-0070e17af1d8 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:10:24,657 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:10:24,657 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 113, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:10:24,836 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:10:24,836 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:10:24,836 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:10:24,836 - root - INFO - Starting job ccd8dfbb-4e99-441b-8b5b-824829703b89 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:10:24,836 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:10:24,836 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 113, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:10:25,029 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:10:25,029 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:10:25,029 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:10:25,029 - root - INFO - Starting job 930405f0-c6bd-47dc-9987-b2ada9fa4ffc with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:10:25,029 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:10:25,029 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 113, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:13:12,368 - root - INFO - Starting application with configuration:
+2025-04-29 20:13:12,368 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 20:13:15,257 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:13:15,257 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:13:15,258 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:13:15,258 - root - INFO - Starting job eaaf602e-382f-431a-aaac-5bdc8d54332b with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:13:15,258 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:13:15,258 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:13:16,298 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:13:16,298 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:13:16,298 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:13:16,299 - root - INFO - Starting job 15cdc839-f2bb-4a17-b671-38b501d78e24 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:13:16,299 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:13:16,299 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:13:17,029 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:13:17,030 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:13:17,030 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:13:17,030 - root - INFO - Starting job d163b662-2999-4c75-9264-ed3b6c41f644 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:13:17,030 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:13:17,030 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:15:16,581 - root - INFO - Starting application with configuration:
+2025-04-29 20:15:16,581 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 20:15:21,086 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:15:21,086 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:15:21,086 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:15:21,086 - root - INFO - Starting job 63957b7c-7538-4ccd-91ec-206365f0a9b1 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:15:21,087 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:15:21,087 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:15:22,068 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:15:22,068 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:15:22,068 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:15:22,068 - root - INFO - Starting job a18ae5c9-59aa-4e91-a3c6-5e6deb6bde41 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:15:22,069 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:15:22,069 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:15:22,225 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:15:22,225 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:15:22,226 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:15:22,226 - root - INFO - Starting job ade6066c-3c62-402f-b024-7a050fe15863 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:15:22,226 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:15:22,226 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:15:53,351 - root - INFO - Starting application with configuration:
+2025-04-29 20:15:53,351 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-29 20:15:56,560 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:15:56,560 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:15:56,560 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:15:56,560 - root - INFO - Starting job 6dbd01b7-da86-42f7-acc7-d23a2601df35 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:15:56,560 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:15:56,560 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:15:57,066 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:15:57,066 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:15:57,066 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:15:57,066 - root - INFO - Starting job 179576f5-dd25-4298-8ea6-a2664327461f with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:15:57,066 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:15:57,066 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:15:57,679 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:15:57,679 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:15:57,679 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:15:57,679 - root - INFO - Starting job daebf474-d078-4896-b038-72df23696598 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:15:57,679 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:15:57,679 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:15:57,833 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:15:57,833 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:15:57,833 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:15:57,833 - root - INFO - Starting job 0e868c2a-c4e3-4c95-bdd2-9c1c6ba0abe3 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:15:57,833 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:15:57,833 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:16:06,279 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:16:06,279 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:16:06,279 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:16:06,279 - root - INFO - Starting job 41de816f-7153-44d7-968d-0de2805e700d with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:16:06,279 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:16:06,279 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:16:06,690 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:16:06,690 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:16:06,690 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:16:06,690 - root - INFO - Starting job 1c244a72-fd5a-47ef-a93a-0bdfd447c9b0 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:16:06,690 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:16:06,690 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-29 20:16:06,921 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:16:06,921 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-29 20:16:06,921 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-29 20:16:06,921 - root - INFO - Starting job 9e617408-5408-49a9-9c44-efb1eeb88e51 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-29 20:16:06,921 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-29 20:16:06,921 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:17:43,366 - root - INFO - Starting application with configuration:
+2025-04-30 10:17:43,366 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 10:17:54,453 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:17:54,454 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:17:54,454 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:17:54,454 - root - INFO - Starting job cdf6192f-2df6-4a75-a32a-368e5daff3d3 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:17:54,454 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:17:54,454 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:17:56,062 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:17:56,062 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:17:56,062 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:17:56,062 - root - INFO - Starting job 160df96a-0e03-4bec-ad2a-ecd038ccc48b with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:17:56,062 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:17:56,062 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:17:56,789 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:17:56,789 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:17:56,789 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:17:56,789 - root - INFO - Starting job d884c6a7-72b7-4b0d-ab1d-5d17a85d03aa with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:17:56,790 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:17:56,790 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:17:56,963 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:17:56,963 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:17:56,963 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:17:56,963 - root - INFO - Starting job 01f1eadb-eb6d-41e9-9d84-c38bc8674ca8 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:17:56,963 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:17:56,963 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:18:11,443 - root - INFO - Received data: identifier_from_purchaser='example_purchaser' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:18:11,443 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:18:11,443 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:18:11,444 - root - INFO - Starting job 8191887f-7c4d-4f71-8f6d-e70c74534eb6 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:18:11,444 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:18:11,444 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:18:11,918 - root - INFO - Received data: identifier_from_purchaser='example_purchaser' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:18:11,918 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:18:11,918 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:18:11,918 - root - INFO - Starting job c8333068-d440-4478-bf59-df35ccdb3630 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:18:11,918 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:18:11,918 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:18:12,098 - root - INFO - Received data: identifier_from_purchaser='example_purchaser' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:18:12,098 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:18:12,098 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:18:12,098 - root - INFO - Starting job 29cd58a7-8dad-495e-8c83-86c4cc8b97d4 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:18:12,098 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:18:12,098 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:18:37,002 - root - INFO - Starting application with configuration:
+2025-04-30 10:18:37,002 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 10:18:48,322 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:18:48,322 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:18:48,322 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:18:48,322 - root - INFO - Starting job c6d604b1-c93b-436d-ad13-2264ccb2837e with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:18:48,322 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:18:48,322 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:18:50,682 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:18:50,682 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:18:50,682 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:18:50,682 - root - INFO - Starting job 1f49ae1a-5180-4642-8541-16025938eb8d with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:18:50,682 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:18:50,682 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:18:51,191 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:18:51,191 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:18:51,191 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:18:51,192 - root - INFO - Starting job 0f20b57a-2d00-42dd-a00f-e1eb70624dad with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:18:51,192 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:18:51,192 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:18:51,359 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:18:51,359 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:18:51,359 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:18:51,359 - root - INFO - Starting job c0068377-a394-4110-82bc-f01d018bd440 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:18:51,359 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:18:51,360 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:21:01,022 - root - INFO - Starting application with configuration:
+2025-04-30 10:21:01,022 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 10:21:11,194 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:21:11,195 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:21:11,195 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:21:11,195 - root - INFO - Starting job 72235822-cded-4eeb-b80e-e48a7b0d46be with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:21:11,195 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:21:11,195 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:21:14,780 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:21:14,781 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:21:14,781 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:21:14,781 - root - INFO - Starting job 896c0bb3-f805-4354-b7a8-f1c5cd90fa87 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:21:14,781 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:21:14,781 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:21:15,101 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:21:15,101 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:21:15,102 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:21:15,102 - root - INFO - Starting job 17d83da4-5c3c-4caf-8be3-844c4082a947 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:21:15,102 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:21:15,102 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:21:15,278 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:21:15,278 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:21:15,279 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:21:15,279 - root - INFO - Starting job 72e3423a-1e45-46cb-a94a-e08a1eb3fe8b with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:21:15,279 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:21:15,279 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:21:15,817 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:21:15,817 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:21:15,817 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:21:15,817 - root - INFO - Starting job 2b05f10a-9d03-47e7-9130-edb3e32fab7c with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:21:15,817 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:21:15,817 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:21:16,428 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:21:16,429 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:21:16,429 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:21:16,429 - root - INFO - Starting job 67522b90-baf2-4971-946a-b58a965a4716 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:21:16,429 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:21:16,429 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:24:33,372 - root - INFO - Starting application with configuration:
+2025-04-30 10:24:33,372 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 10:24:36,109 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:24:36,110 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:24:36,110 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:24:36,110 - root - INFO - Starting job a76b49b1-96d8-44a9-866d-51cf2d54b6d3 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:24:36,110 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:24:36,110 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:24:36,542 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:24:36,542 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:24:36,542 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:24:36,542 - root - INFO - Starting job 386ee973-d367-4288-8505-077203207113 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:24:36,542 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:24:36,542 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:24:37,375 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:24:37,375 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:24:37,376 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:24:37,376 - root - INFO - Starting job fa0b80aa-8c34-4753-beac-c65da9c72b5b with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:24:37,376 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:24:37,376 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:24:37,593 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:24:37,593 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:24:37,593 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:24:37,593 - root - INFO - Starting job 080a1ae7-6a0f-43d5-97f8-70ec65a1f882 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:24:37,593 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:24:37,593 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:24:37,756 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:24:37,756 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:24:37,756 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:24:37,756 - root - INFO - Starting job 4f038c70-fb87-48b3-871f-1725d66d5914 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:24:37,757 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:24:37,757 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:24:38,014 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:24:38,014 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:24:38,014 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:24:38,015 - root - INFO - Starting job 3d98e1f5-1e97-42b4-bf90-251b898d1e65 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:24:38,015 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:24:38,015 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:24:45,959 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:24:45,960 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:24:45,960 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:24:45,960 - root - INFO - Starting job 7cc738d1-c7f4-4471-923f-d9480751b2d7 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:24:45,960 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:24:45,960 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:24:46,785 - root - INFO - Received data: identifier_from_purchaser='example_purchaser_123' input_data={'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:24:46,785 - root - INFO - Received data.input_data: {'content_type': 'image', 'display_name': 'Futuristic City NFT', 'prompt': 'A digital painting of a futuristic city with floating islands', 'wallet_address': 'addr_test...'}
+2025-04-30 10:24:46,786 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:24:46,786 - root - INFO - Starting job 24fb623d-7baf-483a-b107-486fdc2bac93 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:24:46,786 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:24:46,786 - root - ERROR - Error in start_job: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 127, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:38:41,987 - root - INFO - Starting application with configuration:
+2025-04-30 10:38:41,988 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 10:38:51,185 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:38:51,186 - root - INFO - Starting job 1ca4a906-3df4-47b4-acd1-0a0de29f4960 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f139023024f5a33889ccb4184883f14e91bf7cf4586e266e767fcbfa90abf6e19a6983dca
+2025-04-30 10:38:51,186 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:38:51,186 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f139023024f5a33889ccb4184883f14e91bf7cf4586e266e767fcbfa90abf6e19a6983dca on None network
+2025-04-30 10:38:51,186 - root - INFO - Creating payment request...
+2025-04-30 10:38:51,186 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f139023024f5a33889ccb4184883f14e91bf7cf4586e266e767fcbfa90abf6e19a6983dca
+2025-04-30 10:38:51,187 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f139023024f5a33889ccb4184883f14e91bf7cf4586e266e767fcbfa90abf6e19a6983dca', 'network': None, 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T20:38:51.187Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'ef3538b72136c26ffa407b663b5125267629c771857cf14f850b92322cb8e931'}
+2025-04-30 10:38:51,324 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 10:38:51,325 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 107, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 10:38:53,358 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:38:53,358 - root - INFO - Starting job bc3ada0f-7401-4d02-9025-911118fa0c81 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f139023024f5a33889ccb4184883f14e91bf7cf4586e266e767fcbfa90abf6e19a6983dca
+2025-04-30 10:38:53,358 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:38:53,358 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f139023024f5a33889ccb4184883f14e91bf7cf4586e266e767fcbfa90abf6e19a6983dca on None network
+2025-04-30 10:38:53,358 - root - INFO - Creating payment request...
+2025-04-30 10:38:53,358 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f139023024f5a33889ccb4184883f14e91bf7cf4586e266e767fcbfa90abf6e19a6983dca
+2025-04-30 10:38:53,358 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f139023024f5a33889ccb4184883f14e91bf7cf4586e266e767fcbfa90abf6e19a6983dca', 'network': None, 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T20:38:53.358Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'ef3538b72136c26ffa407b663b5125267629c771857cf14f850b92322cb8e931'}
+2025-04-30 10:38:53,492 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 10:38:53,494 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 107, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 10:43:37,323 - root - INFO - Starting application with configuration:
+2025-04-30 10:43:37,323 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 10:43:37,323 - root - INFO - NETWORK: Preprod
+2025-04-30 10:43:44,017 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:43:44,017 - root - INFO - Starting job 12cc7a20-25e8-4eb1-9d70-eb2d82785329 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f139023024f5a33889ccb4184883f14e91bf7cf4586e266e767fcbfa90abf6e19a6983dca
+2025-04-30 10:43:44,018 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:43:44,018 - root - INFO - Using network: Preprod
+2025-04-30 10:43:44,018 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f139023024f5a33889ccb4184883f14e91bf7cf4586e266e767fcbfa90abf6e19a6983dca on Preprod network
+2025-04-30 10:43:44,018 - root - INFO - Creating payment request...
+2025-04-30 10:43:44,018 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f139023024f5a33889ccb4184883f14e91bf7cf4586e266e767fcbfa90abf6e19a6983dca
+2025-04-30 10:43:44,018 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f139023024f5a33889ccb4184883f14e91bf7cf4586e266e767fcbfa90abf6e19a6983dca', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T20:43:44.018Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}], 'inputHash': 'ef3538b72136c26ffa407b663b5125267629c771857cf14f850b92322cb8e931'}
+2025-04-30 10:43:44,155 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 10:43:44,155 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 117, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 10:43:55,225 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:43:55,225 - root - INFO - Starting job 7366313f-6b81-4aa2-a376-851aae047fdd with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f139023024f5a33889ccb4184883f14e91bf7cf4586e266e767fcbfa90abf6e19a6983dca
+2025-04-30 10:43:55,225 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:43:55,225 - root - INFO - Using network: Preprod
+2025-04-30 10:43:55,225 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f139023024f5a33889ccb4184883f14e91bf7cf4586e266e767fcbfa90abf6e19a6983dca on Preprod network
+2025-04-30 10:43:55,226 - root - INFO - Creating payment request...
+2025-04-30 10:43:55,226 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f139023024f5a33889ccb4184883f14e91bf7cf4586e266e767fcbfa90abf6e19a6983dca
+2025-04-30 10:43:55,226 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f139023024f5a33889ccb4184883f14e91bf7cf4586e266e767fcbfa90abf6e19a6983dca', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T20:43:55.226Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}], 'inputHash': 'ef3538b72136c26ffa407b663b5125267629c771857cf14f850b92322cb8e931'}
+2025-04-30 10:43:55,372 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 10:43:55,373 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 117, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 10:45:01,224 - root - INFO - Starting application with configuration:
+2025-04-30 10:45:01,224 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 10:45:01,224 - root - INFO - NETWORK: Preprod
+2025-04-30 10:45:11,254 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:45:11,255 - root - INFO - Starting job 60140c69-29f1-459f-9a30-60a1146a286a with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:45:11,255 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:45:11,255 - root - INFO - Using network: Preprod
+2025-04-30 10:45:11,255 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 10:45:11,255 - root - INFO - Creating payment request...
+2025-04-30 10:45:11,256 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:45:11,256 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T20:45:11.256Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}], 'inputHash': 'ef3538b72136c26ffa407b663b5125267629c771857cf14f850b92322cb8e931'}
+2025-04-30 10:45:11,396 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 10:45:11,397 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 117, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 10:50:12,271 - root - INFO - Starting application with configuration:
+2025-04-30 10:50:12,271 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 10:50:12,271 - root - INFO - NETWORK: Preprod
+2025-04-30 10:50:17,439 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:50:17,440 - root - INFO - Starting job 97e1d2b4-fb8e-41a5-aa92-8c4437910288 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:50:17,440 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:50:17,440 - root - INFO - Using network: Preprod
+2025-04-30 10:50:17,440 - root - ERROR - Payment initialization error: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:50:17,440 - root - INFO - Attempting fallback approach with direct API call...
+2025-04-30 10:50:17,440 - root - ERROR - Error in start_job: 500: Payment service error: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 104, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 125, in start_job
+    raise HTTPException(status_code=500, detail=f"Payment service error: {str(e)}")
+fastapi.exceptions.HTTPException: 500: Payment service error: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:50:17,971 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:50:17,971 - root - INFO - Starting job 93775f61-0273-47a3-9faa-7fb4a3966010 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:50:17,971 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:50:17,971 - root - INFO - Using network: Preprod
+2025-04-30 10:50:17,971 - root - ERROR - Payment initialization error: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:50:17,971 - root - INFO - Attempting fallback approach with direct API call...
+2025-04-30 10:50:17,971 - root - ERROR - Error in start_job: 500: Payment service error: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 104, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 125, in start_job
+    raise HTTPException(status_code=500, detail=f"Payment service error: {str(e)}")
+fastapi.exceptions.HTTPException: 500: Payment service error: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:50:26,335 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:50:26,335 - root - INFO - Starting job 1ffdc2c0-48d1-457f-aba6-6e0027475f9a with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:50:26,336 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:50:26,336 - root - INFO - Using network: Preprod
+2025-04-30 10:50:26,336 - root - ERROR - Payment initialization error: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:50:26,336 - root - INFO - Attempting fallback approach with direct API call...
+2025-04-30 10:50:26,336 - root - ERROR - Error in start_job: 500: Payment service error: Payment.__init__() got an unexpected keyword argument 'payment_type'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 104, in start_job
+    payment = Payment(
+TypeError: Payment.__init__() got an unexpected keyword argument 'payment_type'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 125, in start_job
+    raise HTTPException(status_code=500, detail=f"Payment service error: {str(e)}")
+fastapi.exceptions.HTTPException: 500: Payment service error: Payment.__init__() got an unexpected keyword argument 'payment_type'
+2025-04-30 10:52:44,225 - root - INFO - Starting application with configuration:
+2025-04-30 10:52:44,225 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 10:52:44,225 - root - INFO - NETWORK: Preprod
+2025-04-30 10:52:49,991 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:52:49,991 - root - INFO - Starting job 400764ed-60af-41c8-99f6-b4d7f168fe95 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:52:49,992 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:52:49,992 - root - INFO - Using network: Preprod
+2025-04-30 10:52:49,992 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 10:52:49,992 - root - INFO - Creating payment request...
+2025-04-30 10:52:49,992 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:52:49,992 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T20:52:49.992Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}], 'inputHash': 'ef3538b72136c26ffa407b663b5125267629c771857cf14f850b92322cb8e931'}
+2025-04-30 10:52:50,130 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 10:52:50,131 - root - ERROR - Payment initialization error: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 10:52:50,131 - root - ERROR - Error in start_job: 500: Payment service error: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 114, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 120, in start_job
+    raise HTTPException(status_code=500, detail=f"Payment service error: {str(e)}")
+fastapi.exceptions.HTTPException: 500: Payment service error: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 10:53:00,376 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 10:53:00,376 - root - INFO - Starting job 9ed9dda1-9f21-49f3-84bb-ac652ac56397 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:53:00,376 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 10:53:00,376 - root - INFO - Using network: Preprod
+2025-04-30 10:53:00,376 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 10:53:00,377 - root - INFO - Creating payment request...
+2025-04-30 10:53:00,377 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 10:53:00,377 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T20:53:00.377Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}], 'inputHash': 'ef3538b72136c26ffa407b663b5125267629c771857cf14f850b92322cb8e931'}
+2025-04-30 10:53:00,506 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 10:53:00,507 - root - ERROR - Payment initialization error: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 10:53:00,507 - root - ERROR - Error in start_job: 500: Payment service error: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 114, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 120, in start_job
+    raise HTTPException(status_code=500, detail=f"Payment service error: {str(e)}")
+fastapi.exceptions.HTTPException: 500: Payment service error: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:02:16,577 - root - INFO - Starting application with configuration:
+2025-04-30 11:02:16,577 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 11:02:16,577 - root - INFO - NETWORK: Preprod
+2025-04-30 11:02:30,530 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 11:02:30,530 - root - INFO - Starting job 3af885d5-b251-4e4a-9dd8-49f2469b147a with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:02:30,530 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:02:30,530 - root - INFO - Using network: Preprod
+2025-04-30 11:02:30,530 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:02:30,531 - root - INFO - Creating payment request with custom payload...
+2025-04-30 11:02:30,531 - root - INFO - Payment payload: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'inputHash': 'fa475b49a2b504920b2bf8b50dc4d0382da3842aca28e7d37a809e6941d73d42', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T00:00:00.000Z', 'identifierFromPurchaser': 'example_purchaser_123'}
+2025-04-30 11:02:30,531 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:02:30,531 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:02:30.531Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'ef3538b72136c26ffa407b663b5125267629c771857cf14f850b92322cb8e931'}
+2025-04-30 11:02:30,664 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:02:30,665 - root - ERROR - Payment initialization error: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:02:30,666 - root - INFO - Attempting fallback approach with direct API call...
+2025-04-30 11:02:30,806 - root - ERROR - Direct API call failed: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+2025-04-30 11:02:30,806 - root - ERROR - Error in start_job: 500: Payment service API error: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 136, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 159, in start_job
+    response.raise_for_status()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 177, in start_job
+    raise HTTPException(status_code=500, detail=f"Payment service API error: {str(api_error)}")
+fastapi.exceptions.HTTPException: 500: Payment service API error: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+2025-04-30 11:04:29,603 - root - INFO - Starting application with configuration:
+2025-04-30 11:04:29,603 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 11:04:29,603 - root - INFO - NETWORK: Preprod
+2025-04-30 11:04:42,772 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 11:04:42,772 - root - INFO - Starting job 3cd3ad0e-7c1f-44ab-a8b9-682bcf3cfe5c with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:04:42,772 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:04:42,772 - root - INFO - Using network: Preprod
+2025-04-30 11:04:42,773 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:04:42,773 - root - INFO - Creating payment request with custom payload...
+2025-04-30 11:04:42,773 - root - INFO - Payment payload: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'inputHash': 'fa475b49a2b504920b2bf8b50dc4d0382da3842aca28e7d37a809e6941d73d42', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T00:00:00.000Z', 'identifierFromPurchaser': 'example_purchaser_123'}
+2025-04-30 11:04:42,773 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:04:42,773 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:04:42.773Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'ef3538b72136c26ffa407b663b5125267629c771857cf14f850b92322cb8e931'}
+2025-04-30 11:04:42,933 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:04:42,934 - root - ERROR - Payment initialization error: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:04:42,934 - root - INFO - Attempting fallback approach with direct API call...
+2025-04-30 11:04:43,113 - root - ERROR - Direct API call failed: 400 Client Error: Bad Request for url: https://payment.masumi.network/api/v1/payment/
+2025-04-30 11:04:43,113 - root - ERROR - Error in start_job: 500: Payment service API error: 400 Client Error: Bad Request for url: https://payment.masumi.network/api/v1/payment/
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 136, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 159, in start_job
+    response.raise_for_status()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://payment.masumi.network/api/v1/payment/
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 177, in start_job
+    raise HTTPException(status_code=500, detail=f"Payment service API error: {str(api_error)}")
+fastapi.exceptions.HTTPException: 500: Payment service API error: 400 Client Error: Bad Request for url: https://payment.masumi.network/api/v1/payment/
+2025-04-30 11:04:44,065 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 11:04:44,065 - root - INFO - Starting job 3565ca6f-cbc8-4288-8e43-284f0508c434 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:04:44,065 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:04:44,065 - root - INFO - Using network: Preprod
+2025-04-30 11:04:44,066 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:04:44,066 - root - INFO - Creating payment request with custom payload...
+2025-04-30 11:04:44,066 - root - INFO - Payment payload: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'inputHash': 'fa475b49a2b504920b2bf8b50dc4d0382da3842aca28e7d37a809e6941d73d42', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T00:00:00.000Z', 'identifierFromPurchaser': 'example_purchaser_123'}
+2025-04-30 11:04:44,066 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:04:44,066 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:04:44.066Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'ef3538b72136c26ffa407b663b5125267629c771857cf14f850b92322cb8e931'}
+2025-04-30 11:04:44,199 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:04:44,200 - root - ERROR - Payment initialization error: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:04:44,200 - root - INFO - Attempting fallback approach with direct API call...
+2025-04-30 11:04:44,329 - root - ERROR - Direct API call failed: 400 Client Error: Bad Request for url: https://payment.masumi.network/api/v1/payment/
+2025-04-30 11:04:44,330 - root - ERROR - Error in start_job: 500: Payment service API error: 400 Client Error: Bad Request for url: https://payment.masumi.network/api/v1/payment/
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 136, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 159, in start_job
+    response.raise_for_status()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://payment.masumi.network/api/v1/payment/
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 177, in start_job
+    raise HTTPException(status_code=500, detail=f"Payment service API error: {str(api_error)}")
+fastapi.exceptions.HTTPException: 500: Payment service API error: 400 Client Error: Bad Request for url: https://payment.masumi.network/api/v1/payment/
+2025-04-30 11:04:44,697 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 11:04:44,697 - root - INFO - Starting job a027e3a0-926e-41b0-8c18-4ff7dd6382c9 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:04:44,697 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:04:44,697 - root - INFO - Using network: Preprod
+2025-04-30 11:04:44,697 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:04:44,697 - root - INFO - Creating payment request with custom payload...
+2025-04-30 11:04:44,697 - root - INFO - Payment payload: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'inputHash': 'fa475b49a2b504920b2bf8b50dc4d0382da3842aca28e7d37a809e6941d73d42', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T00:00:00.000Z', 'identifierFromPurchaser': 'example_purchaser_123'}
+2025-04-30 11:04:44,697 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:04:44,697 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:04:44.697Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'ef3538b72136c26ffa407b663b5125267629c771857cf14f850b92322cb8e931'}
+2025-04-30 11:04:44,827 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:04:44,828 - root - ERROR - Payment initialization error: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:04:44,828 - root - INFO - Attempting fallback approach with direct API call...
+2025-04-30 11:04:44,962 - root - ERROR - Direct API call failed: 400 Client Error: Bad Request for url: https://payment.masumi.network/api/v1/payment/
+2025-04-30 11:04:44,963 - root - ERROR - Error in start_job: 500: Payment service API error: 400 Client Error: Bad Request for url: https://payment.masumi.network/api/v1/payment/
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 136, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 159, in start_job
+    response.raise_for_status()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://payment.masumi.network/api/v1/payment/
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 177, in start_job
+    raise HTTPException(status_code=500, detail=f"Payment service API error: {str(api_error)}")
+fastapi.exceptions.HTTPException: 500: Payment service API error: 400 Client Error: Bad Request for url: https://payment.masumi.network/api/v1/payment/
+2025-04-30 11:06:41,848 - root - INFO - Starting application with configuration:
+2025-04-30 11:06:41,848 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 11:06:41,848 - root - INFO - NETWORK: Preprod
+2025-04-30 11:06:43,491 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 11:06:43,491 - root - INFO - Starting job 0166db6c-18f2-4fb5-87dd-53a9762ee851 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:06:43,491 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:06:43,491 - root - INFO - Using network: Preprod
+2025-04-30 11:06:43,491 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:06:43,491 - root - INFO - Creating payment request with custom payload...
+2025-04-30 11:06:43,491 - root - INFO - Payment payload: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'inputHash': 'fa475b49a2b504920b2bf8b50dc4d0382da3842aca28e7d37a809e6941d73d42', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T00:00:00.000Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}]}
+2025-04-30 11:06:43,491 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:06:43,492 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:06:43.491Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'ef3538b72136c26ffa407b663b5125267629c771857cf14f850b92322cb8e931'}
+2025-04-30 11:06:43,614 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:06:43,615 - root - ERROR - Payment initialization error: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:06:43,615 - root - INFO - Attempting fallback approach with direct API call...
+2025-04-30 11:06:43,754 - root - ERROR - Direct API call failed: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+2025-04-30 11:06:43,754 - root - ERROR - Error in start_job: 500: Payment service API error: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 142, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 165, in start_job
+    response.raise_for_status()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 183, in start_job
+    raise HTTPException(status_code=500, detail=f"Payment service API error: {str(api_error)}")
+fastapi.exceptions.HTTPException: 500: Payment service API error: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+2025-04-30 11:06:46,251 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 11:06:46,251 - root - INFO - Starting job c3e72305-67fd-45fe-8ae0-8ba3f4b5c84e with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:06:46,251 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:06:46,251 - root - INFO - Using network: Preprod
+2025-04-30 11:06:46,251 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:06:46,251 - root - INFO - Creating payment request with custom payload...
+2025-04-30 11:06:46,251 - root - INFO - Payment payload: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'inputHash': 'fa475b49a2b504920b2bf8b50dc4d0382da3842aca28e7d37a809e6941d73d42', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T00:00:00.000Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}]}
+2025-04-30 11:06:46,251 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:06:46,251 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:06:46.251Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'ef3538b72136c26ffa407b663b5125267629c771857cf14f850b92322cb8e931'}
+2025-04-30 11:06:46,418 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:06:46,419 - root - ERROR - Payment initialization error: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:06:46,419 - root - INFO - Attempting fallback approach with direct API call...
+2025-04-30 11:06:46,551 - root - ERROR - Direct API call failed: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+2025-04-30 11:06:46,552 - root - ERROR - Error in start_job: 500: Payment service API error: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 142, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 165, in start_job
+    response.raise_for_status()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 183, in start_job
+    raise HTTPException(status_code=500, detail=f"Payment service API error: {str(api_error)}")
+fastapi.exceptions.HTTPException: 500: Payment service API error: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+2025-04-30 11:06:46,601 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 11:06:46,601 - root - INFO - Starting job 579c7fec-82a6-4ec1-82ff-03c5a75812b7 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:06:46,601 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:06:46,601 - root - INFO - Using network: Preprod
+2025-04-30 11:06:46,601 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:06:46,601 - root - INFO - Creating payment request with custom payload...
+2025-04-30 11:06:46,601 - root - INFO - Payment payload: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'inputHash': 'fa475b49a2b504920b2bf8b50dc4d0382da3842aca28e7d37a809e6941d73d42', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T00:00:00.000Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}]}
+2025-04-30 11:06:46,601 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:06:46,601 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:06:46.601Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'ef3538b72136c26ffa407b663b5125267629c771857cf14f850b92322cb8e931'}
+2025-04-30 11:06:46,727 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:06:46,727 - root - ERROR - Payment initialization error: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:06:46,727 - root - INFO - Attempting fallback approach with direct API call...
+2025-04-30 11:06:46,852 - root - ERROR - Direct API call failed: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+2025-04-30 11:06:46,852 - root - ERROR - Error in start_job: 500: Payment service API error: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 142, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 165, in start_job
+    response.raise_for_status()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 183, in start_job
+    raise HTTPException(status_code=500, detail=f"Payment service API error: {str(api_error)}")
+fastapi.exceptions.HTTPException: 500: Payment service API error: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+2025-04-30 11:06:47,035 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 11:06:47,035 - root - INFO - Starting job 6aaa0cca-dcdf-4a00-bdf8-3176936c404b with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:06:47,035 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:06:47,035 - root - INFO - Using network: Preprod
+2025-04-30 11:06:47,035 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:06:47,036 - root - INFO - Creating payment request with custom payload...
+2025-04-30 11:06:47,036 - root - INFO - Payment payload: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'inputHash': 'fa475b49a2b504920b2bf8b50dc4d0382da3842aca28e7d37a809e6941d73d42', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T00:00:00.000Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}]}
+2025-04-30 11:06:47,036 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:06:47,036 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:06:47.036Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'ef3538b72136c26ffa407b663b5125267629c771857cf14f850b92322cb8e931'}
+2025-04-30 11:06:47,160 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:06:47,161 - root - ERROR - Payment initialization error: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:06:47,161 - root - INFO - Attempting fallback approach with direct API call...
+2025-04-30 11:06:47,277 - root - ERROR - Direct API call failed: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+2025-04-30 11:06:47,278 - root - ERROR - Error in start_job: 500: Payment service API error: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 142, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 165, in start_job
+    response.raise_for_status()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 183, in start_job
+    raise HTTPException(status_code=500, detail=f"Payment service API error: {str(api_error)}")
+fastapi.exceptions.HTTPException: 500: Payment service API error: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+2025-04-30 11:06:53,386 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 11:06:53,386 - root - INFO - Starting job 38c0dc1b-4007-4696-8b29-78660163c802 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:06:53,386 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:06:53,386 - root - INFO - Using network: Preprod
+2025-04-30 11:06:53,386 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:06:53,386 - root - INFO - Creating payment request with custom payload...
+2025-04-30 11:06:53,387 - root - INFO - Payment payload: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'inputHash': 'fa475b49a2b504920b2bf8b50dc4d0382da3842aca28e7d37a809e6941d73d42', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T00:00:00.000Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}]}
+2025-04-30 11:06:53,387 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:06:53,387 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:06:53.387Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'ef3538b72136c26ffa407b663b5125267629c771857cf14f850b92322cb8e931'}
+2025-04-30 11:06:53,514 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:06:53,515 - root - ERROR - Payment initialization error: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:06:53,515 - root - INFO - Attempting fallback approach with direct API call...
+2025-04-30 11:06:53,651 - root - ERROR - Direct API call failed: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+2025-04-30 11:06:53,651 - root - ERROR - Error in start_job: 500: Payment service API error: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 142, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 165, in start_job
+    response.raise_for_status()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 183, in start_job
+    raise HTTPException(status_code=500, detail=f"Payment service API error: {str(api_error)}")
+fastapi.exceptions.HTTPException: 500: Payment service API error: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+2025-04-30 11:07:22,544 - root - INFO - Starting application with configuration:
+2025-04-30 11:07:22,544 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 11:07:22,544 - root - INFO - NETWORK: Preprod
+2025-04-30 11:07:23,952 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 11:07:23,953 - root - INFO - Starting job 13a5728f-bd66-4652-9187-4f04cc938208 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:07:23,953 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:07:23,953 - root - INFO - Using network: Preprod
+2025-04-30 11:07:23,953 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:07:23,954 - root - INFO - Creating payment request with custom payload...
+2025-04-30 11:07:23,954 - root - INFO - Payment payload: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'inputHash': 'fa475b49a2b504920b2bf8b50dc4d0382da3842aca28e7d37a809e6941d73d42', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T00:00:00.000Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}]}
+2025-04-30 11:07:23,954 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:07:23,954 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:07:23.954Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'ef3538b72136c26ffa407b663b5125267629c771857cf14f850b92322cb8e931'}
+2025-04-30 11:07:24,084 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:07:24,086 - root - ERROR - Payment initialization error: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:07:24,086 - root - INFO - Attempting fallback approach with direct API call...
+2025-04-30 11:07:24,217 - root - ERROR - Direct API call failed: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+2025-04-30 11:07:24,217 - root - ERROR - Error in start_job: 500: Payment service API error: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 142, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 165, in start_job
+    response.raise_for_status()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 183, in start_job
+    raise HTTPException(status_code=500, detail=f"Payment service API error: {str(api_error)}")
+fastapi.exceptions.HTTPException: 500: Payment service API error: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+2025-04-30 11:07:24,959 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 11:07:24,959 - root - INFO - Starting job 2e945f1a-4c44-45d9-a823-dc79a708d316 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:07:24,959 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:07:24,959 - root - INFO - Using network: Preprod
+2025-04-30 11:07:24,959 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:07:24,959 - root - INFO - Creating payment request with custom payload...
+2025-04-30 11:07:24,959 - root - INFO - Payment payload: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'inputHash': 'fa475b49a2b504920b2bf8b50dc4d0382da3842aca28e7d37a809e6941d73d42', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T00:00:00.000Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}]}
+2025-04-30 11:07:24,959 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:07:24,960 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:07:24.959Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'ef3538b72136c26ffa407b663b5125267629c771857cf14f850b92322cb8e931'}
+2025-04-30 11:07:25,088 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:07:25,089 - root - ERROR - Payment initialization error: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:07:25,090 - root - INFO - Attempting fallback approach with direct API call...
+2025-04-30 11:07:25,210 - root - ERROR - Direct API call failed: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+2025-04-30 11:07:25,210 - root - ERROR - Error in start_job: 500: Payment service API error: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 142, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 165, in start_job
+    response.raise_for_status()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 183, in start_job
+    raise HTTPException(status_code=500, detail=f"Payment service API error: {str(api_error)}")
+fastapi.exceptions.HTTPException: 500: Payment service API error: 404 Client Error: Not Found for url: https://payment.masumi.network/api/v1/api/v1/payment/
+2025-04-30 11:21:44,775 - root - INFO - Starting application with configuration:
+2025-04-30 11:21:44,775 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 11:21:51,354 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 11:21:51,355 - root - INFO - Starting job ede5722f-3cdf-4238-9fcc-11cb752c3308 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:21:51,355 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:21:51,355 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:21:51,355 - root - INFO - Creating payment request...
+2025-04-30 11:21:51,355 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:21:51,355 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:21:51.355Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 11:21:51,498 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:21:51,499 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:22:27,791 - root - INFO - Starting application with configuration:
+2025-04-30 11:22:27,791 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 11:22:38,666 - root - INFO - Starting application with configuration:
+2025-04-30 11:22:38,666 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 11:26:26,174 - root - INFO - Starting application with configuration:
+2025-04-30 11:26:26,174 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 11:26:37,739 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 11:26:37,739 - root - INFO - Starting job c84cc871-c967-41b6-8d09-6906bbcf2211 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:26:37,739 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:26:37,739 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:26:37,739 - root - INFO - Creating payment request...
+2025-04-30 11:26:37,739 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:26:37,739 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:26:37.739Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 11:26:37,881 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:26:37,882 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+  File "/Users/keanuklestil/.pyenv/versions/3.10.0/lib/python3.10/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:31:48,817 - root - INFO - Starting application with configuration:
+2025-04-30 11:31:48,817 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 11:31:52,037 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 11:31:52,037 - root - INFO - Starting job 9d345f12-d0cb-4c4d-b9c4-25bac46ee384 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:31:52,037 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:31:52,037 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:31:52,037 - root - INFO - Creating payment request...
+2025-04-30 11:31:52,038 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:31:52,038 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:31:52.038Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 11:31:52,213 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:31:52,214 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:31:52,912 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 11:31:52,912 - root - INFO - Starting job d42334a7-ad7f-44ff-8bac-4f0a56ac6de1 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:31:52,913 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:31:52,913 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:31:52,913 - root - INFO - Creating payment request...
+2025-04-30 11:31:52,913 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:31:52,913 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:31:52.913Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 11:31:53,036 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:31:53,037 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:31:53,081 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 11:31:53,081 - root - INFO - Starting job 88119197-eed6-4a13-a45a-cbdb4e74f4e0 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:31:53,081 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:31:53,081 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:31:53,081 - root - INFO - Creating payment request...
+2025-04-30 11:31:53,081 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:31:53,081 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:31:53.081Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 11:31:53,193 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:31:53,194 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:31:53,271 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 11:31:53,271 - root - INFO - Starting job a694cd85-87e1-4d25-9746-16edfb885f72 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:31:53,271 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:31:53,271 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:31:53,271 - root - INFO - Creating payment request...
+2025-04-30 11:31:53,271 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:31:53,271 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:31:53.271Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 11:31:53,391 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:31:53,392 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:31:53,448 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 11:31:53,448 - root - INFO - Starting job 07ac497f-22a3-4196-bc84-c20ac66fc820 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:31:53,448 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:31:53,448 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:31:53,448 - root - INFO - Creating payment request...
+2025-04-30 11:31:53,448 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:31:53,449 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:31:53.448Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 11:31:53,577 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:31:53,578 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:31:59,246 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 11:31:59,246 - root - INFO - Starting job 880672c6-edca-4c0b-b7ca-c788bb3a8a1c with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:31:59,246 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:31:59,246 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:31:59,246 - root - INFO - Creating payment request...
+2025-04-30 11:31:59,246 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:31:59,246 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:31:59.246Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 11:31:59,363 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:31:59,364 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:44:29,819 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 11:44:29,819 - root - INFO - Starting job 071b6a9c-b942-4d69-a174-b584a42cdc9b with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:44:29,819 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:44:29,819 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:44:29,819 - root - INFO - Creating payment request...
+2025-04-30 11:44:29,820 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:44:29,820 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:44:29.820Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 11:44:29,952 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:44:29,952 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:44:31,629 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 11:44:31,629 - root - INFO - Starting job f4384f59-3530-4a84-b98a-44a8a856fe1a with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:44:31,629 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:44:31,629 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:44:31,629 - root - INFO - Creating payment request...
+2025-04-30 11:44:31,629 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:44:31,629 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:44:31.629Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 11:44:31,745 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:44:31,746 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:55:00,146 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 11:55:00,146 - root - INFO - Starting job 5336052e-c094-4baa-a819-7d156c674de1 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:55:00,146 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:55:00,146 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:55:00,147 - root - INFO - Creating payment request...
+2025-04-30 11:55:00,147 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:55:00,147 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:55:00.147Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 11:55:00,295 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:55:00,296 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:56:12,305 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 11:56:12,306 - root - INFO - Starting job d4733810-c1b8-43d9-bcb5-afc224b9f14c with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:56:12,306 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:56:12,306 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:56:12,306 - root - INFO - Creating payment request...
+2025-04-30 11:56:12,306 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:56:12,306 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:56:12.306Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 11:56:12,470 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:56:12,471 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:56:13,595 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 11:56:13,595 - root - INFO - Starting job 1fd25f8e-54ba-482a-9e0b-3f0de2fab089 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:56:13,595 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 11:56:13,595 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259 on Preprod network
+2025-04-30 11:56:13,595 - root - INFO - Creating payment request...
+2025-04-30 11:56:13,595 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259
+2025-04-30 11:56:13,595 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302e2e4bfc6ac25c84418044d612394ad992507225dfee85142a2b93c6c59822259', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T21:56:13.595Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 11:56:13,883 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 11:56:13,884 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}

@@ -1,13 +1,12 @@
 import os
 import uvicorn
 import uuid
-import json
 from dotenv import load_dotenv
 from fastapi import FastAPI, Query, HTTPException
 from pydantic import BaseModel, Field, field_validator
 from masumi.config import Config
 from masumi.payment import Payment, Amount
-from agent_definition import ContentToNFTWorkflow, run_workflow
+from agent_definition import run_workflow
 from logging_config import setup_logging
 
 # Configure logging
@@ -20,6 +19,7 @@ load_dotenv(override=True)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 PAYMENT_SERVICE_URL = os.getenv("PAYMENT_SERVICE_URL")
 PAYMENT_API_KEY = os.getenv("PAYMENT_API_KEY")
+NETWORK = os.getenv("NETWORK")
 
 logger.info("Starting application with configuration:")
 logger.info(f"PAYMENT_SERVICE_URL: {PAYMENT_SERVICE_URL}")
@@ -50,30 +50,14 @@ config = Config(
 # ─────────────────────────────────────────────────────────────────────────────
 class StartJobRequest(BaseModel):
     identifier_from_purchaser: str
-    input_data: dict = Field(...)
-    
-    @field_validator('input_data')
-    def validate_input_data(cls, v):
-        required_fields = ["prompt", "content_type", "display_name", "wallet_address"]
-        for field in required_fields:
-            if field not in v:
-                raise ValueError(f"Missing required field: {field}")
-        
-        # Validate content_type
-        if v["content_type"] not in ["image", "video"]:
-            raise ValueError("content_type must be either 'image' or 'video'")
-        
-        return v
+    input_data: dict[str, str]
     
     class Config:
         json_schema_extra = {
             "example": {
                 "identifier_from_purchaser": "example_purchaser_123",
                 "input_data": {
-                    "prompt": "A digital painting of a futuristic city with floating islands",
-                    "content_type": "image",
-                    "display_name": "Futuristic City NFT",
-                    "wallet_address": "addr_test..."
+                    "text": "Write a story about a robot learning to paint"
                 }
             }
         }
@@ -82,18 +66,14 @@ class ProvideInputRequest(BaseModel):
     job_id: str
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Agno Task Execution
+# CrewAI Task Execution
 # ─────────────────────────────────────────────────────────────────────────────
-async def execute_agno_task(input_data: str) -> str:
-    """ Execute a Agno task with Content to NFT Workflow """
-    logger.info(f"Starting Agno task with input: {input_data}")
-    result = run_workflow(
-        prompt=input_data["prompt"],
-        content_type=input_data["content_type"],
-        wallet_address=input_data["wallet_address"],
-        display_name=input_data["display_name"]
-    )
-    logger.info("Agno task completed successfully")
+async def execute_crew_task(input_data: str) -> str:
+    """ Execute a agno nft task """
+    logger.info(f"Starting agno nft task with input: {input_data}")
+    crew = run_workflow(input_data)
+    result = crew.crew.kickoff(inputs={"text": input_data})
+    logger.info("agno nft task completed successfully")
     return result
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -102,17 +82,16 @@ async def execute_agno_task(input_data: str) -> str:
 @app.post("/start_job")
 async def start_job(data: StartJobRequest):
     """ Initiates a job and creates a payment request """
-    logger.info(f"Received data: {data}")
-    logger.info(f"Received data.input_data: {data.input_data}")
+    print(f"Received data: {data}")
+    print(f"Received data.input_data: {data.input_data}")
     try:
-        # Generate job ID and get agent identifier
         job_id = str(uuid.uuid4())
         agent_identifier = os.getenv("AGENT_IDENTIFIER")
         
-        # Log the input prompt (truncate if too long)
-        input_prompt = data.input_data["prompt"]
-        truncated_input = input_prompt[:100] + "..." if len(input_prompt) > 100 else input_prompt
-        logger.info(f"Received job request with prompt: '{truncated_input}'")
+        # Log the input text (truncate if too long)
+        input_text = data.input_data["text"]
+        truncated_input = input_text[:100] + "..." if len(input_text) > 100 else input_text
+        logger.info(f"Received job request with input: '{truncated_input}'")
         logger.info(f"Starting job {job_id} with agent {agent_identifier}")
 
         # Define payment amounts
@@ -125,11 +104,11 @@ async def start_job(data: StartJobRequest):
         # Create a payment request using Masumi
         payment = Payment(
             agent_identifier=agent_identifier,
-            network="Preprod",
             #amounts=amounts,
             config=config,
             identifier_from_purchaser=data.identifier_from_purchaser,
-            input_data=data.input_data
+            input_data=data.input_data,
+            network=NETWORK
         )
         
         logger.info("Creating payment request...")
@@ -174,37 +153,31 @@ async def start_job(data: StartJobRequest):
         logger.error(f"Missing required field in request: {str(e)}", exc_info=True)
         raise HTTPException(
             status_code=400,
-            detail=f"Bad Request: Missing field {str(e)}"
-        )
-    except ValueError as e:
-        logger.error(f"Validation error in request: {str(e)}", exc_info=True)
-        raise HTTPException(
-            status_code=400,
-            detail=f"Bad Request: {str(e)}"
+            detail="Bad Request: If input_data or identifier_from_purchaser is missing, invalid, or does not adhere to the schema."
         )
     except Exception as e:
         logger.error(f"Error in start_job: {str(e)}", exc_info=True)
         raise HTTPException(
             status_code=400,
-            detail="Bad Request: If input_data or identifier_from_purchaser is missing, invalid, or does not adhere to the schema."
+            detail="Input_data or identifier_from_purchaser is missing, invalid, or does not adhere to the schema."
         )
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 2) Process Payment and Execute AI Task
 # ─────────────────────────────────────────────────────────────────────────────
 async def handle_payment_status(job_id: str, payment_id: str) -> None:
-    """ Executes Agno task after payment confirmation """
+    """ Executes agno nft task after payment confirmation """
     try:
         logger.info(f"Payment {payment_id} completed for job {job_id}, executing task...")
         
         # Update job status to running
         jobs[job_id]["status"] = "running"
-        logger.info(f"Input data: {jobs[job_id]['input_data']}")
+        logger.info(f"Input data: {jobs[job_id]["input_data"]}")
 
         # Execute the AI task
-        result = await execute_agno_task(jobs[job_id]['input_data'])
-        result_dict = result
-        logger.info(f"Agno task completed for job {job_id}")
+        result = await execute_crew_task(jobs[job_id]["input_data"])
+        result_dict = result.json_dict
+        logger.info(f"agno nft task completed for job {job_id}")
         
         # Mark payment as completed on Masumi
         # Use a shorter string for the result hash
@@ -291,42 +264,12 @@ async def input_schema():
     return {
         "input_data": [
             {
-                "id": "prompt",
+                "id": "text",
                 "type": "string",
-                "name": "NFT Content Description",
+                "name": "Task Description",
                 "data": {
-                    "description": "Describe the NFT content you want to create",
-                    "placeholder": "Describe the image or video you want for your NFT"
-                }
-            },
-            {
-                "id": "content_type",
-                "type": "select",
-                "name": "Content Type",
-                "data": {
-                    "description": "Select the type of NFT content you want to create",
-                    "options": [
-                        {"value": "image", "label": "Image"},
-                        {"value": "video", "label": "Video"}
-                    ]
-                }
-            },
-            {
-                "id": "display_name",
-                "type": "string",
-                "name": "NFT Display Name",
-                "data": {
-                    "description": "The display name for your NFT",
-                    "placeholder": "Test NFT"
-                }
-            },
-            {
-                "id": "wallet_address",
-                "type": "string",
-                "name": "Wallet Address",
-                "data": {
-                    "description": "Your wallet address to receive the NFT",
-                    "placeholder": "Enter your wallet address"
+                    "description": "The text input for the AI task",
+                    "placeholder": "Enter your task description here"
                 }
             }
         ]
@@ -348,7 +291,7 @@ async def health():
 # Main Logic if Called as a Script
 # ─────────────────────────────────────────────────────────────────────────────
 def main():
-    print("Running Agno as standalone script is not supported when using payments.")
+    print("Running CrewAI as standalone script is not supported when using payments.")
     print("Start the API using `python main.py api` instead.")
 
 if __name__ == "__main__":
