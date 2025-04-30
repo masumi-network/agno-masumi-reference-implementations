@@ -48,16 +48,37 @@ config = Config(
 # ─────────────────────────────────────────────────────────────────────────────
 # Pydantic Models
 # ─────────────────────────────────────────────────────────────────────────────
+class NFTCreationInput(BaseModel):
+    prompt: str = Field(..., description="Text description for generating NFT content")
+    content_type: str = Field(default="image", description="Type of content to generate (image or video)")
+    wallet_address: str = Field(..., description="Cardano wallet address to receive the NFT")
+    display_name: str = Field(default="Agno Test NFT", description="Display name for the NFT")
+    
+    @field_validator('content_type')
+    def validate_content_type(cls, v):
+        if v not in ["image", "video"]:
+            raise ValueError('content_type must be either "image" or "video"')
+        return v
+    
+    @field_validator('wallet_address')
+    def validate_wallet_address(cls, v):
+        if not v.startswith(("addr_", "addr1", "stake_", "stake1")):
+            raise ValueError('wallet_address must be a valid Cardano address')
+        return v
+
 class StartJobRequest(BaseModel):
     identifier_from_purchaser: str
-    input_data: dict[str, str]
+    input_data: dict[str, str]  # Keep this as the original dict to maintain compatibility
     
     class Config:
         json_schema_extra = {
             "example": {
                 "identifier_from_purchaser": "example_purchaser_123",
                 "input_data": {
-                    "text": "Write a story about a robot learning to paint"
+                    "prompt": "A digital painting of a futuristic city with floating islands",
+                    "content_type": "image",
+                    "wallet_address": "addr_test1qz47ranxl4p5l97hwtd6793tavxqzzn6mtgmg6ztwf7356x6cluln4vc579dv335axeyk9a9fg9seql3h2d230vve5wscmmu9h",
+                    "display_name": "Agno Test NFT"
                 }
             }
         }
@@ -68,11 +89,23 @@ class ProvideInputRequest(BaseModel):
 # ─────────────────────────────────────────────────────────────────────────────
 # CrewAI Task Execution
 # ─────────────────────────────────────────────────────────────────────────────
-async def execute_crew_task(input_data: str) -> str:
+async def execute_crew_task(input_data: dict) -> str:
     """ Execute a agno nft task """
     logger.info(f"Starting agno nft task with input: {input_data}")
-    crew = run_workflow(input_data)
-    result = crew.crew.kickoff(inputs={"text": input_data})
+    
+    # Extract parameters from input data - handle both old and new formats
+    prompt = input_data.get("prompt", input_data.get("text", ""))
+    content_type = input_data.get("content_type", "image")
+    wallet_address = input_data.get("wallet_address", "")
+    display_name = input_data.get("display_name", "Agno Test NFT")
+    
+    # Run the workflow with the parameters
+    result = run_workflow(
+        prompt=prompt,
+        content_type=content_type,
+        wallet_address=wallet_address,
+        display_name=display_name
+    )
     logger.info("agno nft task completed successfully")
     return result
 
@@ -88,8 +121,8 @@ async def start_job(data: StartJobRequest):
         job_id = str(uuid.uuid4())
         agent_identifier = os.getenv("AGENT_IDENTIFIER")
         
-        # Log the input text (truncate if too long)
-        input_text = data.input_data["text"]
+        # Extract input text, handling both old and new formats
+        input_text = data.input_data.get("prompt", data.input_data.get("text", ""))
         truncated_input = input_text[:100] + "..." if len(input_text) > 100 else input_text
         logger.info(f"Received job request with input: '{truncated_input}'")
         logger.info(f"Starting job {job_id} with agent {agent_identifier}")
@@ -264,12 +297,44 @@ async def input_schema():
     return {
         "input_data": [
             {
-                "id": "text",
+                "id": "prompt",
                 "type": "string",
-                "name": "Task Description",
+                "name": "Content Description",
                 "data": {
-                    "description": "The text input for the AI task",
-                    "placeholder": "Enter your task description here"
+                    "description": "Description of the content to generate for the NFT",
+                    "placeholder": "A digital painting of a futuristic city with floating islands"
+                }
+            },
+            {
+                "id": "content_type",
+                "type": "select",
+                "name": "Content Type",
+                "data": {
+                    "description": "Type of content to generate",
+                    "options": [
+                        {"label": "Image", "value": "image"},
+                        {"label": "Video", "value": "video"}
+                    ],
+                    "default": "image"
+                }
+            },
+            {
+                "id": "wallet_address",
+                "type": "string",
+                "name": "Wallet Address",
+                "data": {
+                    "description": "Cardano wallet address to receive the NFT",
+                    "placeholder": "addr_test1qz..."
+                }
+            },
+            {
+                "id": "display_name",
+                "type": "string",
+                "name": "NFT Display Name",
+                "data": {
+                    "description": "Display name for the NFT",
+                    "placeholder": "Agno Test NFT",
+                    "default": "Agno Test NFT"
                 }
             }
         ]

@@ -1642,3 +1642,408 @@ Traceback (most recent call last):
   File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
     raise ValueError(f"Bad request: {error_text}")
 ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 13:12:44,307 - root - INFO - Starting application with configuration:
+2025-04-30 13:12:44,307 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 13:12:54,341 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 13:12:54,341 - root - INFO - Starting job 0e18be92-fde2-409b-8ea2-ad8bc72e39a6 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 13:12:54,341 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 13:12:54,341 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40 on Preprod network
+2025-04-30 13:12:54,341 - root - INFO - Creating payment request...
+2025-04-30 13:12:54,342 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 13:12:54,342 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T23:12:54.342Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 13:12:54,501 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 13:12:54,502 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 13:13:10,716 - root - INFO - Starting application with configuration:
+2025-04-30 13:13:10,716 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 13:13:12,683 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 13:13:12,684 - root - INFO - Starting job 1f2c0d86-10b7-4e3f-b746-4c112ec4e895 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 13:13:12,684 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 13:13:12,684 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40 on Preprod network
+2025-04-30 13:13:12,684 - root - INFO - Creating payment request...
+2025-04-30 13:13:12,685 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 13:13:12,685 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T23:13:12.685Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 13:13:12,841 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 13:13:12,843 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 13:16:22,425 - root - INFO - Starting application with configuration:
+2025-04-30 13:16:22,425 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 13:16:25,623 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 13:16:25,623 - root - INFO - Starting job f611321f-fdc9-4eb8-85a7-827c4ef0c577 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 13:16:25,623 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 13:16:25,623 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40 on PREPROD network
+2025-04-30 13:16:25,623 - root - INFO - Creating payment request...
+2025-04-30 13:16:25,623 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 13:16:25,624 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40', 'network': 'PREPROD', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T23:16:25.623Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 13:16:25,828 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 13:16:25,829 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 13:18:13,900 - root - INFO - Starting application with configuration:
+2025-04-30 13:18:13,900 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 13:18:19,267 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 13:18:19,268 - root - INFO - Starting job c4cfcba0-1509-4f44-8929-c3709dba0a8c with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 13:18:19,268 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 13:18:19,268 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40 on PREPROD network
+2025-04-30 13:18:19,268 - root - INFO - Creating payment request...
+2025-04-30 13:18:19,268 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 13:18:19,268 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40', 'network': 'PREPROD', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T23:18:19.268Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 13:18:19,401 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 13:18:19,402 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 13:18:21,757 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 13:18:21,757 - root - INFO - Starting job fde3b58e-0a4e-4a8e-977e-81d097d31578 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 13:18:21,757 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 13:18:21,757 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40 on PREPROD network
+2025-04-30 13:18:21,758 - root - INFO - Creating payment request...
+2025-04-30 13:18:21,758 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 13:18:21,758 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40', 'network': 'PREPROD', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-04-30T23:18:21.758Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 13:18:21,899 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 13:18:21,899 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 16:36:12,094 - root - INFO - Starting application with configuration:
+2025-04-30 16:36:12,094 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 16:36:23,367 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 16:36:23,368 - root - INFO - Starting job 97bd8d0c-f7f9-4dcd-b8c5-b6d239d15aa9 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 16:36:23,368 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 16:36:23,368 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40 on PREPROD network
+2025-04-30 16:36:23,368 - root - INFO - Creating payment request...
+2025-04-30 16:36:23,368 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 16:36:23,368 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40', 'network': 'PREPROD', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T02:36:23.368Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}], 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 16:36:23,559 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 16:36:23,560 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 16:40:12,112 - root - INFO - Starting application with configuration:
+2025-04-30 16:40:12,112 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 16:40:22,642 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 16:40:22,642 - root - INFO - Starting job dbc97066-195f-45e0-a01c-2aacf63a4454 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 16:40:22,643 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 16:40:22,643 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40 on PREPROD network
+2025-04-30 16:40:22,643 - root - INFO - Creating payment request...
+2025-04-30 16:40:22,643 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 16:40:22,643 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40', 'network': 'PREPROD', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T02:40:22.643Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}], 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 16:40:22,781 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 16:40:22,783 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 17:16:03,701 - root - INFO - Starting application with configuration:
+2025-04-30 17:16:03,701 - root - INFO - PAYMENT_SERVICE_URL: http://payment.masumi.network/api/v1
+2025-04-30 17:16:14,611 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 17:16:14,612 - root - INFO - Starting job 6904220f-ed04-4945-9699-d591258cd33f with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:16:14,612 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 17:16:14,612 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40 on PREPROD network
+2025-04-30 17:16:14,612 - root - INFO - Creating payment request...
+2025-04-30 17:16:14,612 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:16:14,612 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40', 'network': 'PREPROD', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T03:16:14.612Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}], 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 17:16:14,771 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 17:16:14,772 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Required"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Required"}}
+2025-04-30 17:17:42,675 - root - INFO - Starting application with configuration:
+2025-04-30 17:17:42,675 - root - INFO - PAYMENT_SERVICE_URL: https://payment.masumi.network/api/v1
+2025-04-30 17:17:45,291 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 17:17:45,291 - root - INFO - Starting job 53b90b0e-a8a0-45e1-aca3-89c785db21a5 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:17:45,291 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 17:17:45,291 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40 on PREPROD network
+2025-04-30 17:17:45,292 - root - INFO - Creating payment request...
+2025-04-30 17:17:45,292 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:17:45,292 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40', 'network': 'PREPROD', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T03:17:45.292Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}], 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 17:17:45,382 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Invalid enum value. Expected 'Preprod' | 'Mainnet', received 'PREPROD'"}}
+2025-04-30 17:17:45,383 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Invalid enum value. Expected 'Preprod' | 'Mainnet', received 'PREPROD'"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Invalid enum value. Expected 'Preprod' | 'Mainnet', received 'PREPROD'"}}
+2025-04-30 17:17:46,877 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 17:17:46,877 - root - INFO - Starting job d770801b-daa9-420d-88ec-1418052662f4 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:17:46,877 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 17:17:46,877 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40 on PREPROD network
+2025-04-30 17:17:46,877 - root - INFO - Creating payment request...
+2025-04-30 17:17:46,877 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:17:46,877 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40', 'network': 'PREPROD', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T03:17:46.877Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}], 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 17:17:46,961 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Invalid enum value. Expected 'Preprod' | 'Mainnet', received 'PREPROD'"}}
+2025-04-30 17:17:46,961 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Invalid enum value. Expected 'Preprod' | 'Mainnet', received 'PREPROD'"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Invalid enum value. Expected 'Preprod' | 'Mainnet', received 'PREPROD'"}}
+2025-04-30 17:17:47,330 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 17:17:47,331 - root - INFO - Starting job c2e8748c-b967-41c7-b1a0-84742dde42bc with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:17:47,331 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 17:17:47,331 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40 on PREPROD network
+2025-04-30 17:17:47,331 - root - INFO - Creating payment request...
+2025-04-30 17:17:47,331 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:17:47,331 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40', 'network': 'PREPROD', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T03:17:47.331Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}], 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 17:17:47,427 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Invalid enum value. Expected 'Preprod' | 'Mainnet', received 'PREPROD'"}}
+2025-04-30 17:17:47,428 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Invalid enum value. Expected 'Preprod' | 'Mainnet', received 'PREPROD'"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Invalid enum value. Expected 'Preprod' | 'Mainnet', received 'PREPROD'"}}
+2025-04-30 17:18:25,222 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 17:18:25,223 - root - INFO - Starting job 97983f95-e4d2-46a9-be00-b3a37d7e9dfc with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:18:25,223 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 17:18:25,223 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40 on PREPROD network
+2025-04-30 17:18:25,223 - root - INFO - Creating payment request...
+2025-04-30 17:18:25,223 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:18:25,223 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40', 'network': 'PREPROD', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T03:18:25.223Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}], 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 17:18:25,310 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"network: Invalid enum value. Expected 'Preprod' | 'Mainnet', received 'PREPROD'"}}
+2025-04-30 17:18:25,311 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"network: Invalid enum value. Expected 'Preprod' | 'Mainnet', received 'PREPROD'"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"network: Invalid enum value. Expected 'Preprod' | 'Mainnet', received 'PREPROD'"}}
+2025-04-30 17:18:29,373 - root - INFO - Starting application with configuration:
+2025-04-30 17:18:29,373 - root - INFO - PAYMENT_SERVICE_URL: https://payment.masumi.network/api/v1
+2025-04-30 17:18:30,655 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 17:18:30,655 - root - INFO - Starting job 77057fd0-d9ee-4e16-a091-990466c37839 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:18:30,655 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 17:18:30,655 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40 on Preprod network
+2025-04-30 17:18:30,655 - root - INFO - Creating payment request...
+2025-04-30 17:18:30,655 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:18:30,656 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T03:18:30.655Z', 'identifierFromPurchaser': 'example_purchaser_123', 'RequestedFunds': [{'amount': '10000000', 'unit': 'lovelace'}], 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 17:18:30,900 - masumi.payment - ERROR - Bad request error: {"status":"error","error":{"message":"For fixed pricing, RequestedFunds must be null"}}
+2025-04-30 17:18:30,900 - root - ERROR - Error in start_job: Bad request: {"status":"error","error":{"message":"For fixed pricing, RequestedFunds must be null"}}
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 115, in start_job
+    payment_request = await payment.create_payment_request()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 145, in create_payment_request
+    raise ValueError(f"Bad request: {error_text}")
+ValueError: Bad request: {"status":"error","error":{"message":"For fixed pricing, RequestedFunds must be null"}}
+2025-04-30 17:19:14,478 - root - INFO - Starting application with configuration:
+2025-04-30 17:19:14,478 - root - INFO - PAYMENT_SERVICE_URL: https://payment.masumi.network/api/v1
+2025-04-30 17:19:19,949 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 17:19:19,950 - root - INFO - Starting job f831bfb2-ca41-4c17-a1b4-fb92b7a07fad with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:19:19,950 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 17:19:19,950 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40 on Preprod network
+2025-04-30 17:19:19,950 - root - INFO - Creating payment request...
+2025-04-30 17:19:19,950 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:19:19,950 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T03:19:19.950Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 17:19:20,399 - root - INFO - Created payment request with ID: eyJkYXRhIjoie1wiaW5wdXRIYXNoXCI6XCJjOGEzNDNkMWQ4NDllOWNlZDg4NTMwMzA5ZGEyNDViN2NjNjM2NmQwOTMyYzYwODZiMmZjMzg0OTc4OTJkNGVjXCIsXCJhZ2VudElkZW50aWZpZXJcIjpcIjBjMjkxMmQ0MDg4ZmJjNmEwYzcyNWRiZTUyMzM3MzU4MjExMDliZDc0MWFjZmE5ZjEzOTAyMzAyZjcyY2RjMzBkY2Y3M2QyZjc3NTAwM2FiZjBmYjA4NjBlNjMwZTUyZGJlMGVmMjAzMGI0Y2Y3YWI1MTg2OGM0MFwiLFwicHVyY2hhc2VySWRlbnRpZmllclwiOlwiZXhhbXBsZV9wdXJjaGFzZXJfMTIzXCIsXCJzZWxsZXJBZGRyZXNzXCI6XCJhZGRyX3Rlc3QxcXJ1NTJodXJ3d3MwMnc5a3lncHc3bTR1NTNzcDNwNnJ4ejU2aHJzejByOHVsbWptdWo2Nnlxam5lNHpyamp6cGt1bWU4ajBtbXVndWc4ajJkdXdjeHJsejVmZnFtZHNwdjRcIixcInNlbGxlcklkZW50aWZpZXJcIjpcInJjZG91b3Jvd253dmZuYzdxaDhkbGp3clwiLFwiUmVxdWVzdGVkRnVuZHNcIjpbe1wiYW1vdW50XCI6XCIxMDAwMDAwMFwiLFwidW5pdFwiOlwiXCJ9XSxcInN1Ym1pdFJlc3VsdFRpbWVcIjpcIjE3NDYwNjk1NTk5NTBcIixcInVubG9ja1RpbWVcIjpcIjE3NDYwOTExNTk5NTBcIixcImV4dGVybmFsRGlzcHV0ZVVubG9ja1RpbWVcIjpcIjE3NDYxMTI3NTk5NTBcIn0iLCJzaWduYXR1cmUiOiI4NDU4NjlhMzAxMjcwNDU4MjAyNDMwZjExZDlkNDg2YTM3N2Q1ZGY5YzQxMDY3NmMyMTBjNWIxOTJkNWQxMzZjZGI1ZTBjNDllOWNhMDViMmI2Njc2MTY0NjQ3MjY1NzM3MzU4MzkwMGY5NDU1ZjgzNzNhMGY1MzhiNjIyMDJlZjZlYmNhNDYwMTg4NzQzMzBhOWFiOGUwMjc4Y2ZjZmVlNWJlNGI1YTIwMjUzY2Q0NDM5NDg0MWI3Mzc5M2M5ZmJkZjExYzQxZTRhNmYxZDgzMGZlMmEyNTJhMTY2Njg2MTczNjg2NTY0ZjQ0MDU4NDA5ZmRjMzMwM2I0NzYzZmM2N2RjMzRiNjdmMmU3MGRiNzg3OTRhNWNhYjdiMTgwN2I4ODdiZDM4YTFhNTQ0MDQzMzcyM2NjZjA5YjI2N2IwZTdmYmJhZTVlMDkxODkxZjgwYmI3NDk5ZjFkZmQ1YmVkZjMzMmI3ZGEzMzczNzAwZCIsImtleSI6ImE0MDEwMTAzMjcwNjIxMjE1ODIwMjQzMGYxMWQ5ZDQ4NmEzNzdkNWRmOWM0MTA2NzZjMjEwYzViMTkyZDVkMTM2Y2RiNWUwYzQ5ZTljYTA1YjJiNiJ9
+2025-04-30 17:19:20,399 - root - INFO - Starting payment status monitoring for job f831bfb2-ca41-4c17-a1b4-fb92b7a07fad
+2025-04-30 17:19:20,399 - masumi.payment - INFO - Starting payment status monitoring with 60 second interval
+2025-04-30 17:19:20,400 - masumi.payment - INFO - Payment status monitoring task started
+2025-04-30 17:19:20,400 - masumi.payment - INFO - Checking payment status for 1 payments
+2025-04-30 17:19:20,500 - masumi.payment - INFO - Status check completed, found 10 payments
+2025-04-30 17:19:20,500 - masumi.payment - INFO - Payment eyJkYXRhIjoie1wiaW5wdXRIYXNoXCI6XCJjOGEzNDNkMWQ4NDllOWNlZDg4NTMwMzA5ZGEyNDViN2NjNjM2NmQwOTMyYzYwODZiMmZjMzg0OTc4OTJkNGVjXCIsXCJhZ2VudElkZW50aWZpZXJcIjpcIjBjMjkxMmQ0MDg4ZmJjNmEwYzcyNWRiZTUyMzM3MzU4MjExMDliZDc0MWFjZmE5ZjEzOTAyMzAyZjcyY2RjMzBkY2Y3M2QyZjc3NTAwM2FiZjBmYjA4NjBlNjMwZTUyZGJlMGVmMjAzMGI0Y2Y3YWI1MTg2OGM0MFwiLFwicHVyY2hhc2VySWRlbnRpZmllclwiOlwiZXhhbXBsZV9wdXJjaGFzZXJfMTIzXCIsXCJzZWxsZXJBZGRyZXNzXCI6XCJhZGRyX3Rlc3QxcXJ1NTJodXJ3d3MwMnc5a3lncHc3bTR1NTNzcDNwNnJ4ejU2aHJzejByOHVsbWptdWo2Nnlxam5lNHpyamp6cGt1bWU4ajBtbXVndWc4ajJkdXdjeHJsejVmZnFtZHNwdjRcIixcInNlbGxlcklkZW50aWZpZXJcIjpcInJjZG91b3Jvd253dmZuYzdxaDhkbGp3clwiLFwiUmVxdWVzdGVkRnVuZHNcIjpbe1wiYW1vdW50XCI6XCIxMDAwMDAwMFwiLFwidW5pdFwiOlwiXCJ9XSxcInN1Ym1pdFJlc3VsdFRpbWVcIjpcIjE3NDYwNjk1NTk5NTBcIixcInVubG9ja1RpbWVcIjpcIjE3NDYwOTExNTk5NTBcIixcImV4dGVybmFsRGlzcHV0ZVVubG9ja1RpbWVcIjpcIjE3NDYxMTI3NTk5NTBcIn0iLCJzaWduYXR1cmUiOiI4NDU4NjlhMzAxMjcwNDU4MjAyNDMwZjExZDlkNDg2YTM3N2Q1ZGY5YzQxMDY3NmMyMTBjNWIxOTJkNWQxMzZjZGI1ZTBjNDllOWNhMDViMmI2Njc2MTY0NjQ3MjY1NzM3MzU4MzkwMGY5NDU1ZjgzNzNhMGY1MzhiNjIyMDJlZjZlYmNhNDYwMTg4NzQzMzBhOWFiOGUwMjc4Y2ZjZmVlNWJlNGI1YTIwMjUzY2Q0NDM5NDg0MWI3Mzc5M2M5ZmJkZjExYzQxZTRhNmYxZDgzMGZlMmEyNTJhMTY2Njg2MTczNjg2NTY0ZjQ0MDU4NDA5ZmRjMzMwM2I0NzYzZmM2N2RjMzRiNjdmMmU3MGRiNzg3OTRhNWNhYjdiMTgwN2I4ODdiZDM4YTFhNTQ0MDQzMzcyM2NjZjA5YjI2N2IwZTdmYmJhZTVlMDkxODkxZjgwYmI3NDk5ZjFkZmQ1YmVkZjMzMmI3ZGEzMzczNzAwZCIsImtleSI6ImE0MDEwMTAzMjcwNjIxMjE1ODIwMjQzMGYxMWQ5ZDQ4NmEzNzdkNWRmOWM0MTA2NzZjMjEwYzViMTkyZDVkMTM2Y2RiNWUwYzQ5ZTljYTA1YjJiNiJ9: onChainState=None, NextAction=WaitingForExternalAction
+2025-04-30 17:19:20,500 - masumi.payment - INFO - Waiting 60 seconds before next status check
+2025-04-30 17:20:20,502 - masumi.payment - INFO - Checking payment status for 1 payments
+2025-04-30 17:20:20,616 - masumi.payment - INFO - Status check completed, found 10 payments
+2025-04-30 17:20:20,616 - masumi.payment - INFO - Payment eyJkYXRhIjoie1wiaW5wdXRIYXNoXCI6XCJjOGEzNDNkMWQ4NDllOWNlZDg4NTMwMzA5ZGEyNDViN2NjNjM2NmQwOTMyYzYwODZiMmZjMzg0OTc4OTJkNGVjXCIsXCJhZ2VudElkZW50aWZpZXJcIjpcIjBjMjkxMmQ0MDg4ZmJjNmEwYzcyNWRiZTUyMzM3MzU4MjExMDliZDc0MWFjZmE5ZjEzOTAyMzAyZjcyY2RjMzBkY2Y3M2QyZjc3NTAwM2FiZjBmYjA4NjBlNjMwZTUyZGJlMGVmMjAzMGI0Y2Y3YWI1MTg2OGM0MFwiLFwicHVyY2hhc2VySWRlbnRpZmllclwiOlwiZXhhbXBsZV9wdXJjaGFzZXJfMTIzXCIsXCJzZWxsZXJBZGRyZXNzXCI6XCJhZGRyX3Rlc3QxcXJ1NTJodXJ3d3MwMnc5a3lncHc3bTR1NTNzcDNwNnJ4ejU2aHJzejByOHVsbWptdWo2Nnlxam5lNHpyamp6cGt1bWU4ajBtbXVndWc4ajJkdXdjeHJsejVmZnFtZHNwdjRcIixcInNlbGxlcklkZW50aWZpZXJcIjpcInJjZG91b3Jvd253dmZuYzdxaDhkbGp3clwiLFwiUmVxdWVzdGVkRnVuZHNcIjpbe1wiYW1vdW50XCI6XCIxMDAwMDAwMFwiLFwidW5pdFwiOlwiXCJ9XSxcInN1Ym1pdFJlc3VsdFRpbWVcIjpcIjE3NDYwNjk1NTk5NTBcIixcInVubG9ja1RpbWVcIjpcIjE3NDYwOTExNTk5NTBcIixcImV4dGVybmFsRGlzcHV0ZVVubG9ja1RpbWVcIjpcIjE3NDYxMTI3NTk5NTBcIn0iLCJzaWduYXR1cmUiOiI4NDU4NjlhMzAxMjcwNDU4MjAyNDMwZjExZDlkNDg2YTM3N2Q1ZGY5YzQxMDY3NmMyMTBjNWIxOTJkNWQxMzZjZGI1ZTBjNDllOWNhMDViMmI2Njc2MTY0NjQ3MjY1NzM3MzU4MzkwMGY5NDU1ZjgzNzNhMGY1MzhiNjIyMDJlZjZlYmNhNDYwMTg4NzQzMzBhOWFiOGUwMjc4Y2ZjZmVlNWJlNGI1YTIwMjUzY2Q0NDM5NDg0MWI3Mzc5M2M5ZmJkZjExYzQxZTRhNmYxZDgzMGZlMmEyNTJhMTY2Njg2MTczNjg2NTY0ZjQ0MDU4NDA5ZmRjMzMwM2I0NzYzZmM2N2RjMzRiNjdmMmU3MGRiNzg3OTRhNWNhYjdiMTgwN2I4ODdiZDM4YTFhNTQ0MDQzMzcyM2NjZjA5YjI2N2IwZTdmYmJhZTVlMDkxODkxZjgwYmI3NDk5ZjFkZmQ1YmVkZjMzMmI3ZGEzMzczNzAwZCIsImtleSI6ImE0MDEwMTAzMjcwNjIxMjE1ODIwMjQzMGYxMWQ5ZDQ4NmEzNzdkNWRmOWM0MTA2NzZjMjEwYzViMTkyZDVkMTM2Y2RiNWUwYzQ5ZTljYTA1YjJiNiJ9: onChainState=None, NextAction=WaitingForExternalAction
+2025-04-30 17:20:20,616 - masumi.payment - INFO - Waiting 60 seconds before next status check
+2025-04-30 17:22:19,859 - root - INFO - Starting application with configuration:
+2025-04-30 17:22:19,859 - root - INFO - PAYMENT_SERVICE_URL: https://payment.masumi.network/api/v1
+2025-04-30 17:22:29,121 - root - ERROR - Missing required field in request: 'text'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 95, in start_job
+    input_text = data.input_data["text"]
+                 ~~~~~~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+2025-04-30 17:23:24,439 - root - ERROR - Missing required field in request: 'text'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 95, in start_job
+    input_text = data.input_data["text"]
+                 ~~~~~~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+2025-04-30 17:23:24,923 - root - ERROR - Missing required field in request: 'text'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 95, in start_job
+    input_text = data.input_data["text"]
+                 ~~~~~~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+2025-04-30 17:23:25,143 - root - ERROR - Missing required field in request: 'text'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 95, in start_job
+    input_text = data.input_data["text"]
+                 ~~~~~~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+2025-04-30 17:24:43,339 - root - INFO - Starting application with configuration:
+2025-04-30 17:24:43,339 - root - INFO - PAYMENT_SERVICE_URL: https://payment.masumi.network/api/v1
+2025-04-30 17:24:45,244 - root - ERROR - Missing required field in request: 'text'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 92, in start_job
+    input_text = data.input_data["text"]
+                 ~~~~~~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+2025-04-30 17:24:47,248 - root - ERROR - Missing required field in request: 'text'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 92, in start_job
+    input_text = data.input_data["text"]
+                 ~~~~~~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+2025-04-30 17:24:47,994 - root - ERROR - Missing required field in request: 'text'
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 92, in start_job
+    input_text = data.input_data["text"]
+                 ~~~~~~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+2025-04-30 17:27:12,799 - root - INFO - Starting application with configuration:
+2025-04-30 17:27:12,799 - root - INFO - PAYMENT_SERVICE_URL: https://payment.masumi.network/api/v1
+2025-04-30 17:27:25,872 - root - INFO - Received job request with input: 'Write a story about a robot learning to paint'
+2025-04-30 17:27:25,873 - root - INFO - Starting job a08ef5b7-dccd-482d-b15c-c0655e584a37 with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:27:25,873 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 17:27:25,873 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40 on Preprod network
+2025-04-30 17:27:25,873 - root - INFO - Creating payment request...
+2025-04-30 17:27:25,873 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:27:25,873 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T03:27:25.873Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'c8a343d1d849e9ced88530309da245b7cc6366d0932c6086b2fc38497892d4ec'}
+2025-04-30 17:27:26,270 - root - INFO - Created payment request with ID: eyJkYXRhIjoie1wiaW5wdXRIYXNoXCI6XCJjOGEzNDNkMWQ4NDllOWNlZDg4NTMwMzA5ZGEyNDViN2NjNjM2NmQwOTMyYzYwODZiMmZjMzg0OTc4OTJkNGVjXCIsXCJhZ2VudElkZW50aWZpZXJcIjpcIjBjMjkxMmQ0MDg4ZmJjNmEwYzcyNWRiZTUyMzM3MzU4MjExMDliZDc0MWFjZmE5ZjEzOTAyMzAyZjcyY2RjMzBkY2Y3M2QyZjc3NTAwM2FiZjBmYjA4NjBlNjMwZTUyZGJlMGVmMjAzMGI0Y2Y3YWI1MTg2OGM0MFwiLFwicHVyY2hhc2VySWRlbnRpZmllclwiOlwiZXhhbXBsZV9wdXJjaGFzZXJfMTIzXCIsXCJzZWxsZXJBZGRyZXNzXCI6XCJhZGRyX3Rlc3QxcXJ1NTJodXJ3d3MwMnc5a3lncHc3bTR1NTNzcDNwNnJ4ejU2aHJzejByOHVsbWptdWo2Nnlxam5lNHpyamp6cGt1bWU4ajBtbXVndWc4ajJkdXdjeHJsejVmZnFtZHNwdjRcIixcInNlbGxlcklkZW50aWZpZXJcIjpcImE1NnhnbzB4NHl1ZmJleHU0czJud3FtZlwiLFwiUmVxdWVzdGVkRnVuZHNcIjpbe1wiYW1vdW50XCI6XCIxMDAwMDAwMFwiLFwidW5pdFwiOlwiXCJ9XSxcInN1Ym1pdFJlc3VsdFRpbWVcIjpcIjE3NDYwNzAwNDU4NzNcIixcInVubG9ja1RpbWVcIjpcIjE3NDYwOTE2NDU4NzNcIixcImV4dGVybmFsRGlzcHV0ZVVubG9ja1RpbWVcIjpcIjE3NDYxMTMyNDU4NzNcIn0iLCJzaWduYXR1cmUiOiI4NDU4NjlhMzAxMjcwNDU4MjAyNDMwZjExZDlkNDg2YTM3N2Q1ZGY5YzQxMDY3NmMyMTBjNWIxOTJkNWQxMzZjZGI1ZTBjNDllOWNhMDViMmI2Njc2MTY0NjQ3MjY1NzM3MzU4MzkwMGY5NDU1ZjgzNzNhMGY1MzhiNjIyMDJlZjZlYmNhNDYwMTg4NzQzMzBhOWFiOGUwMjc4Y2ZjZmVlNWJlNGI1YTIwMjUzY2Q0NDM5NDg0MWI3Mzc5M2M5ZmJkZjExYzQxZTRhNmYxZDgzMGZlMmEyNTJhMTY2Njg2MTczNjg2NTY0ZjQ0MDU4NDA5ZmRjMzMwM2I0NzYzZmM2N2RjMzRiNjdmMmU3MGRiNzg3OTRhNWNhYjdiMTgwN2I4ODdiZDM4YTFhNTQ0MDQzMzcyM2NjZjA5YjI2N2IwZTdmYmJhZTVlMDkxODkxZjgwYmI3NDk5ZjFkZmQ1YmVkZjMzMmI3ZGEzMzczNzAwZCIsImtleSI6ImE0MDEwMTAzMjcwNjIxMjE1ODIwMjQzMGYxMWQ5ZDQ4NmEzNzdkNWRmOWM0MTA2NzZjMjEwYzViMTkyZDVkMTM2Y2RiNWUwYzQ5ZTljYTA1YjJiNiJ9
+2025-04-30 17:27:26,271 - root - INFO - Starting payment status monitoring for job a08ef5b7-dccd-482d-b15c-c0655e584a37
+2025-04-30 17:27:26,271 - masumi.payment - INFO - Starting payment status monitoring with 60 second interval
+2025-04-30 17:27:26,272 - masumi.payment - INFO - Payment status monitoring task started
+2025-04-30 17:27:26,272 - masumi.payment - INFO - Checking payment status for 1 payments
+2025-04-30 17:27:26,386 - masumi.payment - INFO - Status check completed, found 10 payments
+2025-04-30 17:27:26,386 - masumi.payment - INFO - Payment eyJkYXRhIjoie1wiaW5wdXRIYXNoXCI6XCJjOGEzNDNkMWQ4NDllOWNlZDg4NTMwMzA5ZGEyNDViN2NjNjM2NmQwOTMyYzYwODZiMmZjMzg0OTc4OTJkNGVjXCIsXCJhZ2VudElkZW50aWZpZXJcIjpcIjBjMjkxMmQ0MDg4ZmJjNmEwYzcyNWRiZTUyMzM3MzU4MjExMDliZDc0MWFjZmE5ZjEzOTAyMzAyZjcyY2RjMzBkY2Y3M2QyZjc3NTAwM2FiZjBmYjA4NjBlNjMwZTUyZGJlMGVmMjAzMGI0Y2Y3YWI1MTg2OGM0MFwiLFwicHVyY2hhc2VySWRlbnRpZmllclwiOlwiZXhhbXBsZV9wdXJjaGFzZXJfMTIzXCIsXCJzZWxsZXJBZGRyZXNzXCI6XCJhZGRyX3Rlc3QxcXJ1NTJodXJ3d3MwMnc5a3lncHc3bTR1NTNzcDNwNnJ4ejU2aHJzejByOHVsbWptdWo2Nnlxam5lNHpyamp6cGt1bWU4ajBtbXVndWc4ajJkdXdjeHJsejVmZnFtZHNwdjRcIixcInNlbGxlcklkZW50aWZpZXJcIjpcImE1NnhnbzB4NHl1ZmJleHU0czJud3FtZlwiLFwiUmVxdWVzdGVkRnVuZHNcIjpbe1wiYW1vdW50XCI6XCIxMDAwMDAwMFwiLFwidW5pdFwiOlwiXCJ9XSxcInN1Ym1pdFJlc3VsdFRpbWVcIjpcIjE3NDYwNzAwNDU4NzNcIixcInVubG9ja1RpbWVcIjpcIjE3NDYwOTE2NDU4NzNcIixcImV4dGVybmFsRGlzcHV0ZVVubG9ja1RpbWVcIjpcIjE3NDYxMTMyNDU4NzNcIn0iLCJzaWduYXR1cmUiOiI4NDU4NjlhMzAxMjcwNDU4MjAyNDMwZjExZDlkNDg2YTM3N2Q1ZGY5YzQxMDY3NmMyMTBjNWIxOTJkNWQxMzZjZGI1ZTBjNDllOWNhMDViMmI2Njc2MTY0NjQ3MjY1NzM3MzU4MzkwMGY5NDU1ZjgzNzNhMGY1MzhiNjIyMDJlZjZlYmNhNDYwMTg4NzQzMzBhOWFiOGUwMjc4Y2ZjZmVlNWJlNGI1YTIwMjUzY2Q0NDM5NDg0MWI3Mzc5M2M5ZmJkZjExYzQxZTRhNmYxZDgzMGZlMmEyNTJhMTY2Njg2MTczNjg2NTY0ZjQ0MDU4NDA5ZmRjMzMwM2I0NzYzZmM2N2RjMzRiNjdmMmU3MGRiNzg3OTRhNWNhYjdiMTgwN2I4ODdiZDM4YTFhNTQ0MDQzMzcyM2NjZjA5YjI2N2IwZTdmYmJhZTVlMDkxODkxZjgwYmI3NDk5ZjFkZmQ1YmVkZjMzMmI3ZGEzMzczNzAwZCIsImtleSI6ImE0MDEwMTAzMjcwNjIxMjE1ODIwMjQzMGYxMWQ5ZDQ4NmEzNzdkNWRmOWM0MTA2NzZjMjEwYzViMTkyZDVkMTM2Y2RiNWUwYzQ5ZTljYTA1YjJiNiJ9: onChainState=None, NextAction=WaitingForExternalAction
+2025-04-30 17:27:26,386 - masumi.payment - INFO - Waiting 60 seconds before next status check
+2025-04-30 17:28:26,387 - masumi.payment - INFO - Checking payment status for 1 payments
+2025-04-30 17:28:26,502 - masumi.payment - INFO - Status check completed, found 10 payments
+2025-04-30 17:28:26,502 - masumi.payment - INFO - Payment eyJkYXRhIjoie1wiaW5wdXRIYXNoXCI6XCJjOGEzNDNkMWQ4NDllOWNlZDg4NTMwMzA5ZGEyNDViN2NjNjM2NmQwOTMyYzYwODZiMmZjMzg0OTc4OTJkNGVjXCIsXCJhZ2VudElkZW50aWZpZXJcIjpcIjBjMjkxMmQ0MDg4ZmJjNmEwYzcyNWRiZTUyMzM3MzU4MjExMDliZDc0MWFjZmE5ZjEzOTAyMzAyZjcyY2RjMzBkY2Y3M2QyZjc3NTAwM2FiZjBmYjA4NjBlNjMwZTUyZGJlMGVmMjAzMGI0Y2Y3YWI1MTg2OGM0MFwiLFwicHVyY2hhc2VySWRlbnRpZmllclwiOlwiZXhhbXBsZV9wdXJjaGFzZXJfMTIzXCIsXCJzZWxsZXJBZGRyZXNzXCI6XCJhZGRyX3Rlc3QxcXJ1NTJodXJ3d3MwMnc5a3lncHc3bTR1NTNzcDNwNnJ4ejU2aHJzejByOHVsbWptdWo2Nnlxam5lNHpyamp6cGt1bWU4ajBtbXVndWc4ajJkdXdjeHJsejVmZnFtZHNwdjRcIixcInNlbGxlcklkZW50aWZpZXJcIjpcImE1NnhnbzB4NHl1ZmJleHU0czJud3FtZlwiLFwiUmVxdWVzdGVkRnVuZHNcIjpbe1wiYW1vdW50XCI6XCIxMDAwMDAwMFwiLFwidW5pdFwiOlwiXCJ9XSxcInN1Ym1pdFJlc3VsdFRpbWVcIjpcIjE3NDYwNzAwNDU4NzNcIixcInVubG9ja1RpbWVcIjpcIjE3NDYwOTE2NDU4NzNcIixcImV4dGVybmFsRGlzcHV0ZVVubG9ja1RpbWVcIjpcIjE3NDYxMTMyNDU4NzNcIn0iLCJzaWduYXR1cmUiOiI4NDU4NjlhMzAxMjcwNDU4MjAyNDMwZjExZDlkNDg2YTM3N2Q1ZGY5YzQxMDY3NmMyMTBjNWIxOTJkNWQxMzZjZGI1ZTBjNDllOWNhMDViMmI2Njc2MTY0NjQ3MjY1NzM3MzU4MzkwMGY5NDU1ZjgzNzNhMGY1MzhiNjIyMDJlZjZlYmNhNDYwMTg4NzQzMzBhOWFiOGUwMjc4Y2ZjZmVlNWJlNGI1YTIwMjUzY2Q0NDM5NDg0MWI3Mzc5M2M5ZmJkZjExYzQxZTRhNmYxZDgzMGZlMmEyNTJhMTY2Njg2MTczNjg2NTY0ZjQ0MDU4NDA5ZmRjMzMwM2I0NzYzZmM2N2RjMzRiNjdmMmU3MGRiNzg3OTRhNWNhYjdiMTgwN2I4ODdiZDM4YTFhNTQ0MDQzMzcyM2NjZjA5YjI2N2IwZTdmYmJhZTVlMDkxODkxZjgwYmI3NDk5ZjFkZmQ1YmVkZjMzMmI3ZGEzMzczNzAwZCIsImtleSI6ImE0MDEwMTAzMjcwNjIxMjE1ODIwMjQzMGYxMWQ5ZDQ4NmEzNzdkNWRmOWM0MTA2NzZjMjEwYzViMTkyZDVkMTM2Y2RiNWUwYzQ5ZTljYTA1YjJiNiJ9: onChainState=None, NextAction=WaitingForExternalAction
+2025-04-30 17:28:26,503 - masumi.payment - INFO - Waiting 60 seconds before next status check
+2025-04-30 17:29:26,505 - masumi.payment - INFO - Checking payment status for 1 payments
+2025-04-30 17:29:26,605 - masumi.payment - INFO - Status check completed, found 10 payments
+2025-04-30 17:29:26,605 - masumi.payment - INFO - Payment eyJkYXRhIjoie1wiaW5wdXRIYXNoXCI6XCJjOGEzNDNkMWQ4NDllOWNlZDg4NTMwMzA5ZGEyNDViN2NjNjM2NmQwOTMyYzYwODZiMmZjMzg0OTc4OTJkNGVjXCIsXCJhZ2VudElkZW50aWZpZXJcIjpcIjBjMjkxMmQ0MDg4ZmJjNmEwYzcyNWRiZTUyMzM3MzU4MjExMDliZDc0MWFjZmE5ZjEzOTAyMzAyZjcyY2RjMzBkY2Y3M2QyZjc3NTAwM2FiZjBmYjA4NjBlNjMwZTUyZGJlMGVmMjAzMGI0Y2Y3YWI1MTg2OGM0MFwiLFwicHVyY2hhc2VySWRlbnRpZmllclwiOlwiZXhhbXBsZV9wdXJjaGFzZXJfMTIzXCIsXCJzZWxsZXJBZGRyZXNzXCI6XCJhZGRyX3Rlc3QxcXJ1NTJodXJ3d3MwMnc5a3lncHc3bTR1NTNzcDNwNnJ4ejU2aHJzejByOHVsbWptdWo2Nnlxam5lNHpyamp6cGt1bWU4ajBtbXVndWc4ajJkdXdjeHJsejVmZnFtZHNwdjRcIixcInNlbGxlcklkZW50aWZpZXJcIjpcImE1NnhnbzB4NHl1ZmJleHU0czJud3FtZlwiLFwiUmVxdWVzdGVkRnVuZHNcIjpbe1wiYW1vdW50XCI6XCIxMDAwMDAwMFwiLFwidW5pdFwiOlwiXCJ9XSxcInN1Ym1pdFJlc3VsdFRpbWVcIjpcIjE3NDYwNzAwNDU4NzNcIixcInVubG9ja1RpbWVcIjpcIjE3NDYwOTE2NDU4NzNcIixcImV4dGVybmFsRGlzcHV0ZVVubG9ja1RpbWVcIjpcIjE3NDYxMTMyNDU4NzNcIn0iLCJzaWduYXR1cmUiOiI4NDU4NjlhMzAxMjcwNDU4MjAyNDMwZjExZDlkNDg2YTM3N2Q1ZGY5YzQxMDY3NmMyMTBjNWIxOTJkNWQxMzZjZGI1ZTBjNDllOWNhMDViMmI2Njc2MTY0NjQ3MjY1NzM3MzU4MzkwMGY5NDU1ZjgzNzNhMGY1MzhiNjIyMDJlZjZlYmNhNDYwMTg4NzQzMzBhOWFiOGUwMjc4Y2ZjZmVlNWJlNGI1YTIwMjUzY2Q0NDM5NDg0MWI3Mzc5M2M5ZmJkZjExYzQxZTRhNmYxZDgzMGZlMmEyNTJhMTY2Njg2MTczNjg2NTY0ZjQ0MDU4NDA5ZmRjMzMwM2I0NzYzZmM2N2RjMzRiNjdmMmU3MGRiNzg3OTRhNWNhYjdiMTgwN2I4ODdiZDM4YTFhNTQ0MDQzMzcyM2NjZjA5YjI2N2IwZTdmYmJhZTVlMDkxODkxZjgwYmI3NDk5ZjFkZmQ1YmVkZjMzMmI3ZGEzMzczNzAwZCIsImtleSI6ImE0MDEwMTAzMjcwNjIxMjE1ODIwMjQzMGYxMWQ5ZDQ4NmEzNzdkNWRmOWM0MTA2NzZjMjEwYzViMTkyZDVkMTM2Y2RiNWUwYzQ5ZTljYTA1YjJiNiJ9: onChainState=None, NextAction=WaitingForExternalAction
+2025-04-30 17:29:26,606 - masumi.payment - INFO - Waiting 60 seconds before next status check
+2025-04-30 17:30:26,607 - masumi.payment - INFO - Checking payment status for 1 payments
+2025-04-30 17:30:26,728 - masumi.payment - INFO - Status check completed, found 10 payments
+2025-04-30 17:30:26,728 - masumi.payment - INFO - Payment eyJkYXRhIjoie1wiaW5wdXRIYXNoXCI6XCJjOGEzNDNkMWQ4NDllOWNlZDg4NTMwMzA5ZGEyNDViN2NjNjM2NmQwOTMyYzYwODZiMmZjMzg0OTc4OTJkNGVjXCIsXCJhZ2VudElkZW50aWZpZXJcIjpcIjBjMjkxMmQ0MDg4ZmJjNmEwYzcyNWRiZTUyMzM3MzU4MjExMDliZDc0MWFjZmE5ZjEzOTAyMzAyZjcyY2RjMzBkY2Y3M2QyZjc3NTAwM2FiZjBmYjA4NjBlNjMwZTUyZGJlMGVmMjAzMGI0Y2Y3YWI1MTg2OGM0MFwiLFwicHVyY2hhc2VySWRlbnRpZmllclwiOlwiZXhhbXBsZV9wdXJjaGFzZXJfMTIzXCIsXCJzZWxsZXJBZGRyZXNzXCI6XCJhZGRyX3Rlc3QxcXJ1NTJodXJ3d3MwMnc5a3lncHc3bTR1NTNzcDNwNnJ4ejU2aHJzejByOHVsbWptdWo2Nnlxam5lNHpyamp6cGt1bWU4ajBtbXVndWc4ajJkdXdjeHJsejVmZnFtZHNwdjRcIixcInNlbGxlcklkZW50aWZpZXJcIjpcImE1NnhnbzB4NHl1ZmJleHU0czJud3FtZlwiLFwiUmVxdWVzdGVkRnVuZHNcIjpbe1wiYW1vdW50XCI6XCIxMDAwMDAwMFwiLFwidW5pdFwiOlwiXCJ9XSxcInN1Ym1pdFJlc3VsdFRpbWVcIjpcIjE3NDYwNzAwNDU4NzNcIixcInVubG9ja1RpbWVcIjpcIjE3NDYwOTE2NDU4NzNcIixcImV4dGVybmFsRGlzcHV0ZVVubG9ja1RpbWVcIjpcIjE3NDYxMTMyNDU4NzNcIn0iLCJzaWduYXR1cmUiOiI4NDU4NjlhMzAxMjcwNDU4MjAyNDMwZjExZDlkNDg2YTM3N2Q1ZGY5YzQxMDY3NmMyMTBjNWIxOTJkNWQxMzZjZGI1ZTBjNDllOWNhMDViMmI2Njc2MTY0NjQ3MjY1NzM3MzU4MzkwMGY5NDU1ZjgzNzNhMGY1MzhiNjIyMDJlZjZlYmNhNDYwMTg4NzQzMzBhOWFiOGUwMjc4Y2ZjZmVlNWJlNGI1YTIwMjUzY2Q0NDM5NDg0MWI3Mzc5M2M5ZmJkZjExYzQxZTRhNmYxZDgzMGZlMmEyNTJhMTY2Njg2MTczNjg2NTY0ZjQ0MDU4NDA5ZmRjMzMwM2I0NzYzZmM2N2RjMzRiNjdmMmU3MGRiNzg3OTRhNWNhYjdiMTgwN2I4ODdiZDM4YTFhNTQ0MDQzMzcyM2NjZjA5YjI2N2IwZTdmYmJhZTVlMDkxODkxZjgwYmI3NDk5ZjFkZmQ1YmVkZjMzMmI3ZGEzMzczNzAwZCIsImtleSI6ImE0MDEwMTAzMjcwNjIxMjE1ODIwMjQzMGYxMWQ5ZDQ4NmEzNzdkNWRmOWM0MTA2NzZjMjEwYzViMTkyZDVkMTM2Y2RiNWUwYzQ5ZTljYTA1YjJiNiJ9: onChainState=None, NextAction=WaitingForExternalAction
+2025-04-30 17:30:26,729 - masumi.payment - INFO - Waiting 60 seconds before next status check
+2025-04-30 17:31:01,716 - root - INFO - Starting application with configuration:
+2025-04-30 17:31:01,716 - root - INFO - PAYMENT_SERVICE_URL: https://payment.masumi.network/api/v1
+2025-04-30 17:31:12,725 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 17:31:12,725 - root - INFO - Starting job c2dc7431-9525-456b-8508-d01d2495733d with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:31:12,725 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 17:31:12,725 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40 on Preprod network
+2025-04-30 17:31:12,725 - root - ERROR - Error in start_job: Object of type NFTCreationInput is not JSON serializable
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 138, in start_job
+    payment = Payment(
+              ^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 88, in __init__
+    self.input_hash = _hash_input(input_data, self.identifier_from_purchaser) if input_data else None
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/helper_functions.py", line 9, in _hash_input
+    input_json = canonicaljson.encode_canonical_json(input_data).decode('utf-8')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/canonicaljson/__init__.py", line 84, in encode_canonical_json
+    s = _canonical_encoder.encode(data)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/.pyenv/versions/3.12.8/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/.pyenv/versions/3.12.8/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/.pyenv/versions/3.12.8/lib/python3.12/functools.py", line 909, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/canonicaljson/__init__.py", line 30, in _preprocess_for_serialisation
+    raise TypeError(
+TypeError: Object of type NFTCreationInput is not JSON serializable
+2025-04-30 17:31:15,210 - root - INFO - Received job request with prompt: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 17:31:15,210 - root - INFO - Starting job de2ee6cf-0c1b-4c36-83c9-7f91288014dd with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:31:15,210 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 17:31:15,210 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40 on Preprod network
+2025-04-30 17:31:15,211 - root - ERROR - Error in start_job: Object of type NFTCreationInput is not JSON serializable
+Traceback (most recent call last):
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/main.py", line 138, in start_job
+    payment = Payment(
+              ^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/payment.py", line 88, in __init__
+    self.input_hash = _hash_input(input_data, self.identifier_from_purchaser) if input_data else None
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/masumi/helper_functions.py", line 9, in _hash_input
+    input_json = canonicaljson.encode_canonical_json(input_data).decode('utf-8')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/canonicaljson/__init__.py", line 84, in encode_canonical_json
+    s = _canonical_encoder.encode(data)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/.pyenv/versions/3.12.8/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/.pyenv/versions/3.12.8/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/.pyenv/versions/3.12.8/lib/python3.12/functools.py", line 909, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/keanuklestil/Documents/GitHub/agno-nft-creator-agent/agno_nft_agent/venv/lib/python3.12/site-packages/canonicaljson/__init__.py", line 30, in _preprocess_for_serialisation
+    raise TypeError(
+TypeError: Object of type NFTCreationInput is not JSON serializable
+2025-04-30 17:33:07,685 - root - INFO - Starting application with configuration:
+2025-04-30 17:33:07,685 - root - INFO - PAYMENT_SERVICE_URL: https://payment.masumi.network/api/v1
+2025-04-30 17:33:09,860 - root - INFO - Received job request with input: 'A digital painting of a futuristic city with floating islands'
+2025-04-30 17:33:09,860 - root - INFO - Starting job 56f7257a-b0c7-4542-b8e4-9571e87ac6af with agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:33:09,860 - root - INFO - Using payment amount: 10000000 lovelace
+2025-04-30 17:33:09,860 - masumi.payment - INFO - Initializing Payment instance for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40 on Preprod network
+2025-04-30 17:33:09,861 - root - INFO - Creating payment request...
+2025-04-30 17:33:09,861 - masumi.payment - INFO - Creating new payment request for agent 0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40
+2025-04-30 17:33:09,861 - masumi.payment - INFO - Payment request payload prepared: {'agentIdentifier': '0c2912d4088fbc6a0c725dbe5233735821109bd741acfa9f13902302f72cdc30dcf73d2f775003abf0fb0860e630e52dbe0ef2030b4cf7ab51868c40', 'network': 'Preprod', 'paymentType': 'Web3CardanoV1', 'submitResultTime': '2025-05-01T03:33:09.861Z', 'identifierFromPurchaser': 'example_purchaser_123', 'inputHash': 'ef3538b72136c26ffa407b663b5125267629c771857cf14f850b92322cb8e931'}
+2025-04-30 17:33:10,325 - root - INFO - Created payment request with ID: eyJkYXRhIjoie1wiaW5wdXRIYXNoXCI6XCJlZjM1MzhiNzIxMzZjMjZmZmE0MDdiNjYzYjUxMjUyNjc2MjljNzcxODU3Y2YxNGY4NTBiOTIzMjJjYjhlOTMxXCIsXCJhZ2VudElkZW50aWZpZXJcIjpcIjBjMjkxMmQ0MDg4ZmJjNmEwYzcyNWRiZTUyMzM3MzU4MjExMDliZDc0MWFjZmE5ZjEzOTAyMzAyZjcyY2RjMzBkY2Y3M2QyZjc3NTAwM2FiZjBmYjA4NjBlNjMwZTUyZGJlMGVmMjAzMGI0Y2Y3YWI1MTg2OGM0MFwiLFwicHVyY2hhc2VySWRlbnRpZmllclwiOlwiZXhhbXBsZV9wdXJjaGFzZXJfMTIzXCIsXCJzZWxsZXJBZGRyZXNzXCI6XCJhZGRyX3Rlc3QxcXJ1NTJodXJ3d3MwMnc5a3lncHc3bTR1NTNzcDNwNnJ4ejU2aHJzejByOHVsbWptdWo2Nnlxam5lNHpyamp6cGt1bWU4ajBtbXVndWc4ajJkdXdjeHJsejVmZnFtZHNwdjRcIixcInNlbGxlcklkZW50aWZpZXJcIjpcImRkeWdrbWxiank0NDgxNGVuZW5yMjhkd1wiLFwiUmVxdWVzdGVkRnVuZHNcIjpbe1wiYW1vdW50XCI6XCIxMDAwMDAwMFwiLFwidW5pdFwiOlwiXCJ9XSxcInN1Ym1pdFJlc3VsdFRpbWVcIjpcIjE3NDYwNzAzODk4NjFcIixcInVubG9ja1RpbWVcIjpcIjE3NDYwOTE5ODk4NjFcIixcImV4dGVybmFsRGlzcHV0ZVVubG9ja1RpbWVcIjpcIjE3NDYxMTM1ODk4NjFcIn0iLCJzaWduYXR1cmUiOiI4NDU4NjlhMzAxMjcwNDU4MjAyNDMwZjExZDlkNDg2YTM3N2Q1ZGY5YzQxMDY3NmMyMTBjNWIxOTJkNWQxMzZjZGI1ZTBjNDllOWNhMDViMmI2Njc2MTY0NjQ3MjY1NzM3MzU4MzkwMGY5NDU1ZjgzNzNhMGY1MzhiNjIyMDJlZjZlYmNhNDYwMTg4NzQzMzBhOWFiOGUwMjc4Y2ZjZmVlNWJlNGI1YTIwMjUzY2Q0NDM5NDg0MWI3Mzc5M2M5ZmJkZjExYzQxZTRhNmYxZDgzMGZlMmEyNTJhMTY2Njg2MTczNjg2NTY0ZjQ0MDU4NDA5ZmRjMzMwM2I0NzYzZmM2N2RjMzRiNjdmMmU3MGRiNzg3OTRhNWNhYjdiMTgwN2I4ODdiZDM4YTFhNTQ0MDQzMzcyM2NjZjA5YjI2N2IwZTdmYmJhZTVlMDkxODkxZjgwYmI3NDk5ZjFkZmQ1YmVkZjMzMmI3ZGEzMzczNzAwZCIsImtleSI6ImE0MDEwMTAzMjcwNjIxMjE1ODIwMjQzMGYxMWQ5ZDQ4NmEzNzdkNWRmOWM0MTA2NzZjMjEwYzViMTkyZDVkMTM2Y2RiNWUwYzQ5ZTljYTA1YjJiNiJ9
+2025-04-30 17:33:10,325 - root - INFO - Starting payment status monitoring for job 56f7257a-b0c7-4542-b8e4-9571e87ac6af
+2025-04-30 17:33:10,325 - masumi.payment - INFO - Starting payment status monitoring with 60 second interval
+2025-04-30 17:33:10,326 - masumi.payment - INFO - Payment status monitoring task started
+2025-04-30 17:33:10,326 - masumi.payment - INFO - Checking payment status for 1 payments
+2025-04-30 17:33:10,422 - masumi.payment - INFO - Status check completed, found 10 payments
+2025-04-30 17:33:10,423 - masumi.payment - INFO - Payment eyJkYXRhIjoie1wiaW5wdXRIYXNoXCI6XCJlZjM1MzhiNzIxMzZjMjZmZmE0MDdiNjYzYjUxMjUyNjc2MjljNzcxODU3Y2YxNGY4NTBiOTIzMjJjYjhlOTMxXCIsXCJhZ2VudElkZW50aWZpZXJcIjpcIjBjMjkxMmQ0MDg4ZmJjNmEwYzcyNWRiZTUyMzM3MzU4MjExMDliZDc0MWFjZmE5ZjEzOTAyMzAyZjcyY2RjMzBkY2Y3M2QyZjc3NTAwM2FiZjBmYjA4NjBlNjMwZTUyZGJlMGVmMjAzMGI0Y2Y3YWI1MTg2OGM0MFwiLFwicHVyY2hhc2VySWRlbnRpZmllclwiOlwiZXhhbXBsZV9wdXJjaGFzZXJfMTIzXCIsXCJzZWxsZXJBZGRyZXNzXCI6XCJhZGRyX3Rlc3QxcXJ1NTJodXJ3d3MwMnc5a3lncHc3bTR1NTNzcDNwNnJ4ejU2aHJzejByOHVsbWptdWo2Nnlxam5lNHpyamp6cGt1bWU4ajBtbXVndWc4ajJkdXdjeHJsejVmZnFtZHNwdjRcIixcInNlbGxlcklkZW50aWZpZXJcIjpcImRkeWdrbWxiank0NDgxNGVuZW5yMjhkd1wiLFwiUmVxdWVzdGVkRnVuZHNcIjpbe1wiYW1vdW50XCI6XCIxMDAwMDAwMFwiLFwidW5pdFwiOlwiXCJ9XSxcInN1Ym1pdFJlc3VsdFRpbWVcIjpcIjE3NDYwNzAzODk4NjFcIixcInVubG9ja1RpbWVcIjpcIjE3NDYwOTE5ODk4NjFcIixcImV4dGVybmFsRGlzcHV0ZVVubG9ja1RpbWVcIjpcIjE3NDYxMTM1ODk4NjFcIn0iLCJzaWduYXR1cmUiOiI4NDU4NjlhMzAxMjcwNDU4MjAyNDMwZjExZDlkNDg2YTM3N2Q1ZGY5YzQxMDY3NmMyMTBjNWIxOTJkNWQxMzZjZGI1ZTBjNDllOWNhMDViMmI2Njc2MTY0NjQ3MjY1NzM3MzU4MzkwMGY5NDU1ZjgzNzNhMGY1MzhiNjIyMDJlZjZlYmNhNDYwMTg4NzQzMzBhOWFiOGUwMjc4Y2ZjZmVlNWJlNGI1YTIwMjUzY2Q0NDM5NDg0MWI3Mzc5M2M5ZmJkZjExYzQxZTRhNmYxZDgzMGZlMmEyNTJhMTY2Njg2MTczNjg2NTY0ZjQ0MDU4NDA5ZmRjMzMwM2I0NzYzZmM2N2RjMzRiNjdmMmU3MGRiNzg3OTRhNWNhYjdiMTgwN2I4ODdiZDM4YTFhNTQ0MDQzMzcyM2NjZjA5YjI2N2IwZTdmYmJhZTVlMDkxODkxZjgwYmI3NDk5ZjFkZmQ1YmVkZjMzMmI3ZGEzMzczNzAwZCIsImtleSI6ImE0MDEwMTAzMjcwNjIxMjE1ODIwMjQzMGYxMWQ5ZDQ4NmEzNzdkNWRmOWM0MTA2NzZjMjEwYzViMTkyZDVkMTM2Y2RiNWUwYzQ5ZTljYTA1YjJiNiJ9: onChainState=None, NextAction=WaitingForExternalAction
+2025-04-30 17:33:10,423 - masumi.payment - INFO - Waiting 60 seconds before next status check
+2025-04-30 17:34:10,424 - masumi.payment - INFO - Checking payment status for 1 payments
+2025-04-30 17:34:10,557 - masumi.payment - INFO - Status check completed, found 10 payments
+2025-04-30 17:34:10,557 - masumi.payment - INFO - Payment eyJkYXRhIjoie1wiaW5wdXRIYXNoXCI6XCJlZjM1MzhiNzIxMzZjMjZmZmE0MDdiNjYzYjUxMjUyNjc2MjljNzcxODU3Y2YxNGY4NTBiOTIzMjJjYjhlOTMxXCIsXCJhZ2VudElkZW50aWZpZXJcIjpcIjBjMjkxMmQ0MDg4ZmJjNmEwYzcyNWRiZTUyMzM3MzU4MjExMDliZDc0MWFjZmE5ZjEzOTAyMzAyZjcyY2RjMzBkY2Y3M2QyZjc3NTAwM2FiZjBmYjA4NjBlNjMwZTUyZGJlMGVmMjAzMGI0Y2Y3YWI1MTg2OGM0MFwiLFwicHVyY2hhc2VySWRlbnRpZmllclwiOlwiZXhhbXBsZV9wdXJjaGFzZXJfMTIzXCIsXCJzZWxsZXJBZGRyZXNzXCI6XCJhZGRyX3Rlc3QxcXJ1NTJodXJ3d3MwMnc5a3lncHc3bTR1NTNzcDNwNnJ4ejU2aHJzejByOHVsbWptdWo2Nnlxam5lNHpyamp6cGt1bWU4ajBtbXVndWc4ajJkdXdjeHJsejVmZnFtZHNwdjRcIixcInNlbGxlcklkZW50aWZpZXJcIjpcImRkeWdrbWxiank0NDgxNGVuZW5yMjhkd1wiLFwiUmVxdWVzdGVkRnVuZHNcIjpbe1wiYW1vdW50XCI6XCIxMDAwMDAwMFwiLFwidW5pdFwiOlwiXCJ9XSxcInN1Ym1pdFJlc3VsdFRpbWVcIjpcIjE3NDYwNzAzODk4NjFcIixcInVubG9ja1RpbWVcIjpcIjE3NDYwOTE5ODk4NjFcIixcImV4dGVybmFsRGlzcHV0ZVVubG9ja1RpbWVcIjpcIjE3NDYxMTM1ODk4NjFcIn0iLCJzaWduYXR1cmUiOiI4NDU4NjlhMzAxMjcwNDU4MjAyNDMwZjExZDlkNDg2YTM3N2Q1ZGY5YzQxMDY3NmMyMTBjNWIxOTJkNWQxMzZjZGI1ZTBjNDllOWNhMDViMmI2Njc2MTY0NjQ3MjY1NzM3MzU4MzkwMGY5NDU1ZjgzNzNhMGY1MzhiNjIyMDJlZjZlYmNhNDYwMTg4NzQzMzBhOWFiOGUwMjc4Y2ZjZmVlNWJlNGI1YTIwMjUzY2Q0NDM5NDg0MWI3Mzc5M2M5ZmJkZjExYzQxZTRhNmYxZDgzMGZlMmEyNTJhMTY2Njg2MTczNjg2NTY0ZjQ0MDU4NDA5ZmRjMzMwM2I0NzYzZmM2N2RjMzRiNjdmMmU3MGRiNzg3OTRhNWNhYjdiMTgwN2I4ODdiZDM4YTFhNTQ0MDQzMzcyM2NjZjA5YjI2N2IwZTdmYmJhZTVlMDkxODkxZjgwYmI3NDk5ZjFkZmQ1YmVkZjMzMmI3ZGEzMzczNzAwZCIsImtleSI6ImE0MDEwMTAzMjcwNjIxMjE1ODIwMjQzMGYxMWQ5ZDQ4NmEzNzdkNWRmOWM0MTA2NzZjMjEwYzViMTkyZDVkMTM2Y2RiNWUwYzQ5ZTljYTA1YjJiNiJ9: onChainState=None, NextAction=WaitingForExternalAction
+2025-04-30 17:34:10,557 - masumi.payment - INFO - Waiting 60 seconds before next status check
