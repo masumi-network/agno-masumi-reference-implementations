@@ -1,6 +1,7 @@
 import os
 import uvicorn
 import uuid
+import json
 from dotenv import load_dotenv
 from fastapi import FastAPI, Query, HTTPException
 from pydantic import BaseModel, Field, field_validator
@@ -68,7 +69,7 @@ class NFTCreationInput(BaseModel):
 
 class StartJobRequest(BaseModel):
     identifier_from_purchaser: str
-    input_data: dict[str, str]  # Keep this as the original dict to maintain compatibility
+    input_data: dict[str, str]
     
     class Config:
         json_schema_extra = {
@@ -99,15 +100,24 @@ async def execute_crew_task(input_data: dict) -> str:
     wallet_address = input_data.get("wallet_address", "")
     display_name = input_data.get("display_name", "Agno Test NFT")
     
-    # Run the workflow with the parameters
-    result = run_workflow(
+    # Run the workflow with the parameters - directly using the run_workflow function
+    # from agent_definition.py with the extracted parameters
+    responses = list(run_workflow(
         prompt=prompt,
         content_type=content_type,
         wallet_address=wallet_address,
         display_name=display_name
-    )
-    logger.info("agno nft task completed successfully")
-    return result
+    ))
+    
+    # Get the final response
+    final_response = responses[-1] if responses else None
+    
+    if final_response and final_response.content:
+        logger.info(f"agno nft task completed successfully: {final_response.content[:100]}...")
+        return final_response
+    else:
+        logger.error("No response from workflow")
+        raise Exception("Failed to get response from NFT creation workflow")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 1) Start Job (MIP-003: /start_job)
@@ -205,22 +215,36 @@ async def handle_payment_status(job_id: str, payment_id: str) -> None:
         
         # Update job status to running
         jobs[job_id]["status"] = "running"
-        logger.info(f"Input data: {jobs[job_id]["input_data"]}")
+        logger.info(f"Input data: {jobs[job_id]['input_data']}")
 
         # Execute the AI task
         result = await execute_crew_task(jobs[job_id]["input_data"])
-        result_dict = result.json_dict
+        
+        # Handle the result correctly - if it's a RunResponse object
+        if hasattr(result, 'content'):
+            result_content = result.content
+            # Try to parse as JSON if it's a string
+            if isinstance(result_content, str):
+                try:
+                    result_dict = json.loads(result_content)
+                except json.JSONDecodeError:
+                    result_dict = {"result": result_content}
+            else:
+                result_dict = {"result": str(result_content)}
+        else:
+            # If result is already a dict
+            result_dict = result if isinstance(result, dict) else {"result": str(result)}
+            
         logger.info(f"agno nft task completed for job {job_id}")
         
         # Mark payment as completed on Masumi
-        # Use a shorter string for the result hash
         await payment_instances[job_id].complete_payment(payment_id, result_dict)
         logger.info(f"Payment completed for job {job_id}")
 
-        # Update job status
+        # Update job status with the formatted result
         jobs[job_id]["status"] = "completed"
         jobs[job_id]["payment_status"] = "completed"
-        jobs[job_id]["result"] = result
+        jobs[job_id]["result"] = result_content if hasattr(result, 'content') else str(result)
 
         # Stop monitoring payment status
         if job_id in payment_instances:
@@ -262,9 +286,19 @@ async def get_status(job_id: str):
             logger.error(f"Error checking payment status: {str(e)}", exc_info=True)
             job["payment_status"] = "error"
 
-
+    # Get the result - ensure it's properly formatted
     result_data = job.get("result")
-    result = result_data.raw if result_data and hasattr(result_data, "raw") else None
+    
+    # If result_data is a RunResponse object or has a 'raw' attribute, extract the content
+    if result_data:
+        if hasattr(result_data, 'raw'):
+            result = result_data.raw
+        elif hasattr(result_data, 'content'):
+            result = result_data.content
+        else:
+            result = result_data
+    else:
+        result = None
 
     return {
         "job_id": job_id,
