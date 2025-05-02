@@ -8,38 +8,15 @@ This repository contains multiple specialized AI agents, each designed to perfor
 
 ## Agents
 
-### Completed Agents
-
-1. **agno_nft_agent** ✅
-   - Generates AI art and mints it as NFTs on the Cardano blockchain
-   - Supports both image and video generation
-   - Handles NFT minting and transfer to customer wallets
-
-### Agents In Development
-
-2. **agno_llm_txt_agent** 🚧
-   - Text generation capabilities using Large Language Models
-   - Content generation for various purposes
-
-3. **agno_crypto_report** 🚧
-   - Cryptocurrency market analysis and reporting
-   - Custom insights on crypto projects
-
-4. **agno_data_analyst** 🚧
-   - Data analysis and visualization
-   - Insights generation from structured data
-
-5. **agno_lawyer_agent** 🚧
-   - Legal document analysis and generation
-   - Contract review assistance
-
-6. **agno_seo_agent** 🚧
-   - SEO optimization recommendations
-   - Content analysis for search visibility
-
-7. **agno_trip_planner** 🚧
-   - Travel itinerary generation
-   - Trip recommendations based on preferences
+| Agent | Status | Description |
+|-------|--------|-------------|
+| **agno_nft_agent** | ✅ Complete | • Generates AI art and mints it as NFTs on the Cardano blockchain<br>• Supports both image and video generation<br>• Handles NFT minting and transfer to customer wallets |
+| **agno_llm_txt_agent** | 🚧 In Development | • Text generation capabilities using Large Language Models<br>• Content generation for various purposes |
+| **agno_crypto_report** | 🚧 In Development | • Cryptocurrency market analysis and reporting<br>• Custom insights on crypto projects |
+| **agno_data_analyst** | 🚧 In Development | • Data analysis and visualization<br>• Insights generation from structured data |
+| **agno_lawyer_agent** | 🚧 In Development | • Legal document analysis and generation<br>• Contract review assistance |
+| **agno_seo_agent** | 🚧 In Development | • SEO optimization recommendations<br>• Content analysis for search visibility |
+| **agno_trip_planner** | 🚧 In Development | • Travel itinerary generation<br>• Trip recommendations based on preferences |
 
 ## General Architecture
 
