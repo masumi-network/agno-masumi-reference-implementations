@@ -60,10 +60,10 @@ class ContentToNFTWorkflow(Workflow):
         show_tool_calls=True,
     )
     
-    # Create NMKR toolkit with preprod environment
+    # Create NMKR toolkit 
     nmkr_toolkit = NMKRToolkit(
-        api_key=os.environ.get("NMKR_PREPROD_API_KEY"), 
-        environment="preprod"
+        api_key=os.environ.get("NMKR_API_KEY"),
+        environment=os.environ.get("NMKR_ENVIRONMENT")
     )
     
     # NFT minting agent using NMKR API
@@ -75,12 +75,12 @@ class ContentToNFTWorkflow(Workflow):
         instructions=[
             "You are an NFT minting specialist using NMKR Studio.",
             "Your job is to mint digital content (images/videos) as NFTs.",
-            "Use the existing project with UID 'f0cc6560-4ec4-41e1-908d-174d4eea656c' for all NFT operations.",
+            f"Use the existing project with UID '{os.environ.get('NMKR_PROJECT_UID')}' for all NFT operations.",
             "For NFT uploading, use the upload_file_and_metadata function with:",
             "  - preview_image parameter with a dictionary: {'mimetype': 'image/jpeg', 'fileFromsUrl': 'URL_HERE'}",
             "Do NOT use the upload_to_ipfs method as it may not work correctly.",
             "Instead, directly upload the NFT to the project using the content URL.",
-            "Always use the preprod environment unless explicitly instructed otherwise.",
+            f"Always use the {os.environ.get('NMKR_ENVIRONMENT')} environment unless explicitly instructed otherwise.",
             "After uploading, mint and send the NFT to the provided wallet address using mint_and_send_specific.",
             "Return clear success/failure messages with transaction details.",
         ],
@@ -97,8 +97,8 @@ class ContentToNFTWorkflow(Workflow):
         self.wallet_address = kwargs.get("wallet_address", "")
         self.display_name = kwargs.get("display_name", "Agno Test NFT")
         self.project_name = kwargs.get("project_name", "Agno NFT Project")
-        # Fixed project ID that works
-        self.project_uid = "f0cc6560-4ec4-41e1-908d-174d4eea656c"
+        # Get project UID from environment with fallback to default
+        self.project_uid = os.environ.get("NMKR_PROJECT_UID")
     
     def run(self) -> Iterator[RunResponse]:
         """
@@ -292,7 +292,7 @@ nft_agent = Agent(
         "You use AI to generate images or videos and mint them as NFTs on the Cardano blockchain.",
         "You'll generate content based on a text description, then mint it as an NFT.",
         "The NFT will be sent to the user's provided wallet address.",
-        "All operations are performed in the preprod (testnet) environment.",
+        f"All operations are performed in the {os.environ.get('NMKR_ENVIRONMENT')} environment.",
         "Provide clear status updates and transaction details throughout the process.",
     ],
     markdown=True,
