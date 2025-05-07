@@ -7,7 +7,7 @@ from fastapi import FastAPI, Query, HTTPException
 from pydantic import BaseModel, Field, field_validator
 from masumi.config import Config
 from masumi.payment import Payment, Amount
-from agent_definition import run_workflow
+from agent_definition import MeetingPreparationAgent
 from logging_config import setup_logging
 
 # Configure logging
@@ -18,6 +18,7 @@ load_dotenv(override=True)
 
 # Retrieve API Keys and URLs
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+SERPER_API_KEY = os.getenv("SERPER_API_KEY")
 PAYMENT_SERVICE_URL = os.getenv("PAYMENT_SERVICE_URL")
 PAYMENT_API_KEY = os.getenv("PAYMENT_API_KEY")
 NETWORK = os.getenv("NETWORK")
@@ -49,29 +50,40 @@ config = Config(
 # ─────────────────────────────────────────────────────────────────────────────
 # Pydantic Models
 # ─────────────────────────────────────────────────────────────────────────────
-class LLMsTxtGeneratorInput(BaseModel):
-    urls: list[str] = Field(..., description="List of website URLs to generate LLMs.txt from")
-    max_urls: int = Field(default=15, description="Maximum number of URLs to analyze per site")
-    show_full_text: bool = Field(default=True, description="Whether to include full text content")
+class MeetingPrepInput(BaseModel):
+    company_name: str = Field(..., description="Name of the company for the meeting")
+    meeting_objective: str = Field(..., description="Main objective of the meeting")
+    attendees: str = Field(..., description="List of attendees and their roles (one per line)")
+    meeting_duration: int = Field(default=60, description="Meeting duration in minutes")
+    focus_areas: str = Field(default="", description="Specific areas of focus or concerns")
+    reference_links: list[str] = Field(default=None, description="Optional list of reference links to include in the preparation")
     
-    @field_validator('urls')
-    def validate_urls(cls, v):
-        if not v or not isinstance(v, list):
-            raise ValueError('urls must be a non-empty list of valid URLs')
+    @field_validator('meeting_duration')
+    def validate_meeting_duration(cls, v):
+        if v <= 0:
+            raise ValueError('meeting_duration must be a positive integer')
         return v
 
 class StartJobRequest(BaseModel):
     identifier_from_purchaser: str
-    input_data: dict
+    input_data: dict[str, str | int | list[str] | None]
     
     class Config:
         json_schema_extra = {
             "example": {
                 "identifier_from_purchaser": "example_purchaser_123",
                 "input_data": {
-                    "urls": ["https://masumi.network", "https://docs.masumi.network"],
-                    "max_urls": 15,
-                    "show_full_text": True
+                    "company_name": "Masumi Network",
+                    "meeting_objective": "Discuss new marketing strategies for Sokosumi",
+                    "attendees": "Patrick Tobler, CEO\nKeanu Klestil, CTO\nPhil, Sales Director\nFlo, Product Manager",
+                    "meeting_duration": 90,
+                    "focus_areas": "Market expansion opportunities and competitive analysis",
+                    "reference_links": [
+                        "https://masumi.network/about",
+                        "https://dev.sokosumi.com",
+                        "https://sokosumi.com",
+                        "https://masumi.network"
+                    ]
                 }
             }
         }
@@ -80,33 +92,42 @@ class ProvideInputRequest(BaseModel):
     job_id: str
 
 # ─────────────────────────────────────────────────────────────────────────────
-# LLMs.txt Generator Task Execution
+# CrewAI Task Execution
 # ─────────────────────────────────────────────────────────────────────────────
-async def execute_crew_task(input_data: dict) -> str:
-    """ Execute a LLMs.txt generation task """
-    logger.info(f"Starting LLMs.txt generation task with input: {input_data}")
+async def execute_meeting_prep_task(input_data: dict) -> str:
+    """ Execute a meeting preparation task """
+    logger.info(f"Starting meeting preparation task with input: {input_data}")
     
-    # Extract parameters from input data - support both 'url' and 'urls'
-    urls = input_data.get("urls", input_data.get("url", ""))
-    max_urls = input_data.get("max_urls", 15)
-    show_full_text = input_data.get("show_full_text", True)
+    # Extract parameters from input data
+    company_name = input_data.get("company_name", "")
+    meeting_objective = input_data.get("meeting_objective", "")
+    attendees = input_data.get("attendees", "")
+    meeting_duration = input_data.get("meeting_duration", 60)
+    focus_areas = input_data.get("focus_areas", "")
+    reference_links = input_data.get("reference_links", None)
     
-    # Run the workflow with the parameters
-    responses = list(run_workflow(
-        urls=urls,
-        max_urls=max_urls,
-        show_full_text=show_full_text
-    ))
+    # Create an instance of the MeetingPreparationAgent
+    agent = MeetingPreparationAgent(
+        openai_api_key=OPENAI_API_KEY,
+        serper_api_key=SERPER_API_KEY
+    )
     
-    # Get the final response
-    final_response = responses[-1] if responses else None
+    # Run the meeting preparation task
+    result = agent.prepare_meeting(
+        company_name=company_name,
+        meeting_objective=meeting_objective,
+        attendees=attendees,
+        meeting_duration=meeting_duration,
+        focus_areas=focus_areas,
+        reference_links=reference_links
+    )
     
-    if final_response and final_response.content:
-        logger.info(f"LLMs.txt generation task completed successfully: {final_response.content[:100]}...")
-        return final_response
+    if result:
+        logger.info(f"Meeting preparation task completed successfully")
+        return result
     else:
-        logger.error("No response from workflow")
-        raise Exception("Failed to get response from LLMs.txt generation workflow")
+        logger.error("No response from meeting preparation agent")
+        raise Exception("Failed to get response from meeting preparation agent")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 1) Start Job (MIP-003: /start_job)
@@ -120,9 +141,9 @@ async def start_job(data: StartJobRequest):
         job_id = str(uuid.uuid4())
         agent_identifier = os.getenv("AGENT_IDENTIFIER")
         
-        # Extract input URLs
-        urls = data.input_data.get("urls", data.input_data.get("url", ""))
-        truncated_input = str(urls)[:100] + "..." if len(str(urls)) > 100 else str(urls)
+        # Extract input text, handling both old and new formats
+        input_text = data.input_data.get("prompt", data.input_data.get("text", ""))
+        truncated_input = input_text[:100] + "..." if len(input_text) > 100 else input_text
         logger.info(f"Received job request with input: '{truncated_input}'")
         logger.info(f"Starting job {job_id} with agent {agent_identifier}")
 
@@ -198,7 +219,7 @@ async def start_job(data: StartJobRequest):
 # 2) Process Payment and Execute AI Task
 # ─────────────────────────────────────────────────────────────────────────────
 async def handle_payment_status(job_id: str, payment_id: str) -> None:
-    """ Executes LLMs.txt generation task after payment confirmation """
+    """ Executes crewai task after payment confirmation """
     try:
         logger.info(f"Payment {payment_id} completed for job {job_id}, executing task...")
         
@@ -207,7 +228,7 @@ async def handle_payment_status(job_id: str, payment_id: str) -> None:
         logger.info(f"Input data: {jobs[job_id]['input_data']}")
 
         # Execute the AI task
-        result = await execute_crew_task(jobs[job_id]["input_data"])
+        result = await execute_meeting_prep_task(jobs[job_id]["input_data"])
         
         # Handle the result correctly - if it's a RunResponse object
         if hasattr(result, 'content'):
@@ -224,7 +245,7 @@ async def handle_payment_status(job_id: str, payment_id: str) -> None:
             # If result is already a dict
             result_dict = result if isinstance(result, dict) else {"result": str(result)}
             
-        logger.info(f"LLMs.txt generation task completed for job {job_id}")
+        logger.info(f"crewai task completed for job {job_id}")
         
         # Mark payment as completed on Masumi
         await payment_instances[job_id].complete_payment(payment_id, result_dict)
@@ -320,30 +341,59 @@ async def input_schema():
     return {
         "input_data": [
             {
-                "id": "urls",
-                "type": "array",
-                "name": "Website URLs",
+                "id": "company_name",
+                "type": "string",
+                "name": "Company Name",
                 "data": {
-                    "description": "List of website URLs to generate LLMs.txt from",
-                    "placeholder": ["https://example.com", "https://another-example.com"]
+                    "description": "Name of the company for the meeting",
+                    "placeholder": "Masumi Network"
                 }
             },
             {
-                "id": "max_urls",
+                "id": "meeting_objective",
+                "type": "string",
+                "name": "Meeting Objective",
+                "data": {
+                    "description": "Main objective of the meeting",
+                    "placeholder": "Discuss new marketing strategies for Sokosumi"
+                }
+            },
+            {
+                "id": "attendees",
+                "type": "text",
+                "name": "Attendees",
+                "data": {
+                    "description": "List of attendees and their roles (one per line)",
+                    "placeholder": "Patrick Tobler, CEO\nKeanu Klestil, CTO\nPhil, Sales Director\nFlo, Product Manager"
+                }
+            },
+            {
+                "id": "meeting_duration",
                 "type": "number",
-                "name": "Max URLs",
+                "name": "Meeting Duration",
                 "data": {
-                    "description": "Maximum number of URLs to analyze per site",
-                    "default": 15
+                    "description": "Meeting duration in minutes",
+                    "min": 1,
+                    "default": 60
                 }
             },
             {
-                "id": "show_full_text",
-                "type": "boolean",
-                "name": "Show Full Text",
+                "id": "focus_areas",
+                "type": "text",
+                "name": "Focus Areas",
                 "data": {
-                    "description": "Whether to include full text content",
-                    "default": True
+                    "description": "Specific areas of focus or concerns",
+                    "placeholder": "Market expansion opportunities and competitive analysis"
+                }
+            },
+            {
+                "id": "reference_links",
+                "type": "array",
+                "name": "Reference Links",
+                "data": {
+                    "description": "Optional list of reference links to include in the preparation",
+                    "itemType": "string",
+                    "placeholder": "https://masumi.network/about"
                 }
             }
         ]
@@ -365,7 +415,7 @@ async def health():
 # Main Logic if Called as a Script
 # ─────────────────────────────────────────────────────────────────────────────
 def main():
-    print("Running LLMs.txt generator as standalone script is not supported when using payments.")
+    print("Running CrewAI as standalone script is not supported when using payments.")
     print("Start the API using `python main.py api` instead.")
 
 if __name__ == "__main__":

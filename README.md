@@ -11,7 +11,7 @@ This repository contains multiple specialized AI agents, each designed to perfor
 | Agent | Status | Description |
 |-------|--------|-------------|
 | **agno_nft_agent** | ✅ Complete | • Generates AI art and mints it as NFTs on the Cardano blockchain<br>• Supports both image and video generation<br>• Handles NFT minting and transfer to customer wallets |
-| **agno_llm_txt_agent** | 🚧 In Development | • Text generation capabilities using Large Language Models<br>• Content generation for various purposes |
+| **agno_llm_txt_agent** | ✅ Complete | • Text generation capabilities using Large Language Models<br>• Generates LLMs.txt files from websites<br>• Combines multiple website content into a single downloadable file |
 | **agno_crypto_report** | 🚧 In Development | • Cryptocurrency market analysis and reporting<br>• Custom insights on crypto projects |
 | **agno_data_analyst** | 🚧 In Development | • Data analysis and visualization<br>• Insights generation from structured data |
 | **agno_lawyer_agent** | 🚧 In Development | • Legal document analysis and generation<br>• Contract review assistance |
