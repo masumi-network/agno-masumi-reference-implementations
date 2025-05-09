@@ -75,7 +75,7 @@ class StartJobRequest(BaseModel):
                 "input_data": {
                     "company_name": "Masumi Network",
                     "meeting_objective": "Discuss new marketing strategies for Sokosumi",
-                    "attendees": "Patrick Tobler, CEO\nKeanu Klestil, CTO\nPhil, Sales Director\nFlo, Product Manager",
+                    "attendees": "Patrick Tobler, CEO\nKeanu Klestil, working Student",
                     "meeting_duration": 90,
                     "focus_areas": "Market expansion opportunities and competitive analysis",
                     "reference_links": [
@@ -364,7 +364,7 @@ async def input_schema():
                 "name": "Attendees",
                 "data": {
                     "description": "List of attendees and their roles (one per line)",
-                    "placeholder": "Patrick Tobler, CEO\nKeanu Klestil, CTO\nPhil, Sales Director\nFlo, Product Manager"
+                    "placeholder": "Patrick Tobler, CEO\nKeanu Klestil, dev"
                 }
             },
             {

@@ -239,9 +239,7 @@ def main():
     company = "Masumi Network"
     objective = "Besprechung von neuer Marketing von Sokosumi"
     attendees = """Patrick Tobler, CEO
-Keanu Klestil, CTO
-Phil, Sales Director
-Flo, Product Manager"""
+Keanu Klestil, dev"""
     duration = 90
     focus = "Market expansion opportunities and competitive analysis"
     reference_links = [
