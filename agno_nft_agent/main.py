@@ -313,11 +313,7 @@ async def get_status(job_id: str):
 @app.get("/availability")
 async def check_availability():
     """ Checks if the server is operational """
-    return {
-        "status": "available",
-        "agentIdentifier": os.getenv("AGENT_IDENTIFIER"),
-        "message": "The server is running smoothly."
-    }
+    return {"status": "available", "type": "masumi-agent", "message": "The server is running smoothly."}
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 5) Retrieve Input Schema (MIP-003: /input_schema)
