@@ -337,7 +337,7 @@ async def input_schema():
             },
             {
                 "id": "content_type",
-                "type": "select",
+                "type": "string",
                 "name": "Content Type",
                 "data": {
                     "description": "Type of content to generate",
