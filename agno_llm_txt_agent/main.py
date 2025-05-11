@@ -50,28 +50,32 @@ config = Config(
 # Pydantic Models
 # ─────────────────────────────────────────────────────────────────────────────
 class LLMsTxtGeneratorInput(BaseModel):
-    urls: list[str] = Field(..., description="List of website URLs to generate LLMs.txt from")
-    max_urls: int = Field(default=15, description="Maximum number of URLs to analyze per site")
-    show_full_text: bool = Field(default=True, description="Whether to include full text content")
+    urls: str = Field(..., description="Comma-separated list of website URLs to generate LLMs.txt from")
+    max_urls: str = Field(default="15", description="Maximum number of URLs to analyze per site")
+    show_full_text: str = Field(default="true", description="Whether to include full text content")
     
     @field_validator('urls')
     def validate_urls(cls, v):
-        if not v or not isinstance(v, list):
-            raise ValueError('urls must be a non-empty list of valid URLs')
+        if not v:
+            raise ValueError('urls must be a non-empty string of valid URLs')
+        # Split by comma and validate each URL
+        urls = [url.strip() for url in v.split(',')]
+        if not urls:
+            raise ValueError('urls must contain at least one valid URL')
         return v
 
 class StartJobRequest(BaseModel):
     identifier_from_purchaser: str
-    input_data: dict
+    input_data: dict[str, str]
     
     class Config:
         json_schema_extra = {
             "example": {
                 "identifier_from_purchaser": "example_purchaser_123",
                 "input_data": {
-                    "urls": ["https://masumi.network", "https://docs.masumi.network"],
-                    "max_urls": 15,
-                    "show_full_text": True
+                    "urls": "https://masumi.network,https://docs.masumi.network",
+                    "max_urls": "15",
+                    "show_full_text": "true"
                 }
             }
         }
@@ -321,30 +325,48 @@ async def input_schema():
         "input_data": [
             {
                 "id": "urls",
-                "type": "array",
+                "type": "string",
                 "name": "Website URLs",
                 "data": {
-                    "description": "List of website URLs to generate LLMs.txt from",
-                    "placeholder": ["https://example.com", "https://another-example.com"]
-                }
+                    "description": "Comma-separated list of website URLs to generate LLMs.txt from",
+                    "placeholder": "https://example.com,https://another-example.com"
+                },
+                "validations": [
+                    {
+                        "validation": "format",
+                        "value": "nonempty"
+                    }
+                ]
             },
             {
                 "id": "max_urls",
-                "type": "number",
+                "type": "string",
                 "name": "Max URLs",
                 "data": {
                     "description": "Maximum number of URLs to analyze per site",
-                    "default": 15
-                }
+                    "default": "15"
+                },
+                "validations": [
+                    {
+                        "validation": "format",
+                        "value": "integer"
+                    }
+                ]
             },
             {
                 "id": "show_full_text",
-                "type": "boolean",
+                "type": "string",
                 "name": "Show Full Text",
                 "data": {
                     "description": "Whether to include full text content",
-                    "default": True
-                }
+                    "default": "true"
+                },
+                "validations": [
+                    {
+                        "validation": "format",
+                        "value": "boolean"
+                    }
+                ]
             }
         ]
     }
