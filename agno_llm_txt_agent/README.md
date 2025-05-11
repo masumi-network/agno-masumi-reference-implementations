@@ -1,6 +1,6 @@
 # Agno LLM Text Agent
 
-An API service that provides text generation capabilities through an LLM agent with integrated Masumi payment processing on the Cardano blockchain.
+An AI agent that generates an llms.txt file to help language models understand and use your website content effectively.
 
 ## Features
 
