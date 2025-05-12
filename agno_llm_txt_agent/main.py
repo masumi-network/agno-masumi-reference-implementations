@@ -348,8 +348,12 @@ async def input_schema():
                 },
                 "validations": [
                     {
-                        "validation": "format",
-                        "value": "integer"
+                        "validation": "min",
+                        "value": "1"
+                    },
+                    {
+                        "validation": "max",
+                        "value": "100"
                     }
                 ]
             },
