@@ -94,14 +94,19 @@ async def execute_crew_task(input_data: dict) -> str:
     """ Execute a agno nft task """
     logger.info(f"Starting agno nft task with input: {input_data}")
     
-    # Extract parameters from input data - handle both old and new formats
-    prompt = input_data.get("prompt", input_data.get("text", ""))
+    # Extract parameters from input data 
+    prompt = input_data.get("prompt", "")
     content_type = input_data.get("content_type", "image")
     wallet_address = input_data.get("wallet_address", "")
     display_name = input_data.get("display_name", "Agno Test NFT")
     
-    # Run the workflow with the parameters - directly using the run_workflow function
-    # from agent_definition.py with the extracted parameters
+    # Force these parameters to strings to avoid type mismatches
+    prompt = str(prompt)
+    content_type = str(content_type)
+    wallet_address = str(wallet_address)
+    display_name = str(display_name)
+    
+    # Run the workflow with the parameters
     responses = list(run_workflow(
         prompt=prompt,
         content_type=content_type,
