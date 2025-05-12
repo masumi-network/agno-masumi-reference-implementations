@@ -345,7 +345,7 @@ async def input_schema():
                 "type": "string",
                 "name": "Content Type",
                 "data": {
-                    "description": "Type of content to generate",
+                    "description": "Type of content to generate (image or video)",
                     "options": [
                         {"label": "Image", "value": "image"},
                         {"label": "Video", "value": "video"}
