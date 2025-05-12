@@ -12,7 +12,7 @@ from agno.workflow import Workflow
 from agno.utils.log import logger
 from dotenv import load_dotenv
 import logging
-from urllib.parse import urlparse
+from urllib.parse import urlparse, quote
 import re
 
 
@@ -75,31 +75,25 @@ class LLMsTxtGeneratorWorkflow(Workflow):
 
     def run(self) -> Iterator[RunResponse]:
         """
-        Execute the LLMs.txt generation and upload workflow
+        Execute the LLMs.txt generation and upload workflow, returning Markdown output.
         
         Returns:
-            Iterator of RunResponse objects with results of each step
+            Iterator of RunResponse objects with results of each step in Markdown format.
         """
-        # Validate input data
+        # Validate input data - Return Markdown errors
         if not self.urls:
-            yield RunResponse(
-                run_id=self.run_id, 
-                content="Error: At least one website URL is required."
-            )
+            error_md = "# LLMs.txt Generation Failed\n\n**Error:** At least one website URL is required."
+            yield RunResponse(run_id=self.run_id, content=error_md)
             return
         
         if not self.api_key:
-            yield RunResponse(
-                run_id=self.run_id, 
-                content="Error: Firecrawl API key is not configured."
-            )
+            error_md = "# LLMs.txt Generation Failed\n\n**Error:** Firecrawl API key is not configured."
+            yield RunResponse(run_id=self.run_id, content=error_md)
             return
             
         if not self.do_key or not self.do_secret or not self.do_bucket:
-            yield RunResponse(
-                run_id=self.run_id, 
-                content="Error: Digital Ocean Spaces credentials are not configured."
-            )
+            error_md = "# LLMs.txt Generation Failed\n\n**Error:** Digital Ocean Spaces credentials are not configured."
+            yield RunResponse(run_id=self.run_id, content=error_md)
             return
             
         # Process each URL and combine the results
@@ -111,8 +105,6 @@ class LLMsTxtGeneratorWorkflow(Workflow):
             try:
                 # Generate LLMs.txt file
                 logger.info(f"Generating LLMs.txt for URL: {url}")
-                
-                # Call Firecrawl API to generate LLMs.txt
                 llms_txt_response = self._generate_llms_txt(url)
                 
                 if not llms_txt_response or not isinstance(llms_txt_response, dict) or not llms_txt_response.get("success"):
@@ -123,7 +115,6 @@ class LLMsTxtGeneratorWorkflow(Workflow):
                 generation_id = llms_txt_response.get("id")
                 logger.info(f"LLMs.txt generation started with ID: {generation_id}")
                 
-                # Check generation status until complete
                 llms_txt_content = self._check_generation_status(generation_id)
                 
                 if not llms_txt_content:
@@ -131,7 +122,6 @@ class LLMsTxtGeneratorWorkflow(Workflow):
                     failed_urls.append(url)
                     continue
                 
-                # Add URL-specific header and content to combined results
                 combined_content.append(f"\n\n{'='*50}\n# URL: {url}\n{'='*50}\n\n{llms_txt_content}")
                 processed_urls.append(url)
                 
@@ -139,38 +129,51 @@ class LLMsTxtGeneratorWorkflow(Workflow):
                 logger.error(f"Error processing URL {url}: {str(e)}")
                 failed_urls.append(url)
         
+        # --- Format Output as Markdown ---
+        
         if not processed_urls:
-            yield RunResponse(
-                run_id=self.run_id, 
-                content=f"Error: Failed to process any URLs. Failed URLs: {failed_urls}"
-            )
+            failed_urls_md = "\n".join([f"- {url}" for url in failed_urls])
+            error_md = f"# LLMs.txt Generation Failed\n\n**Error:** Failed to process any URLs.\n\n**Failed URLs:**\n{failed_urls_md}"
+            yield RunResponse(run_id=self.run_id, content=error_md)
             return
         
         # Combine all content
         combined_text = "# Combined LLMs.txt\n" + "\n".join(combined_content)
         
-        # Upload to Digital Ocean Spaces with combined filename
+        # Upload to Digital Ocean Spaces
         logger.info("Uploading combined LLMs.txt to Digital Ocean Spaces...")
         file_name = self._generate_file_name(processed_urls)
-        download_url = self._upload_to_do_spaces(combined_text, file_name)
+        # Ensure filename is URL-safe for the download link
+        safe_file_name = quote(file_name) 
+        download_url = self._upload_to_do_spaces(combined_text, file_name) # Use original filename for upload
         
         if not download_url:
-            yield RunResponse(
-                run_id=self.run_id, 
-                content="Failed to upload combined LLMs.txt to Digital Ocean Spaces."
-            )
+            error_md = "# LLMs.txt Generation Failed\n\n**Error:** Failed to upload combined LLMs.txt to Digital Ocean Spaces."
+            yield RunResponse(run_id=self.run_id, content=error_md)
             return
+
+        # Construct the success Markdown output
+        markdown_output = ["# LLMs.txt Generation Report", ""] 
+        markdown_output.append("**Status:** Success")
+        markdown_output.append("")
         
-        # Return successful result with download link
-        result = {
-            "status": "success",
-            "processed_urls": processed_urls,
-            "failed_urls": failed_urls,
-            "file_name": file_name,
-            "download_url": download_url
-        }
+        markdown_output.append("**Processed URLs:**")
+        for url in processed_urls:
+            markdown_output.append(f"- {url}")
+        markdown_output.append("")
+
+        if failed_urls:
+            markdown_output.append("**Failed URLs:**")
+            for url in failed_urls:
+                markdown_output.append(f"- {url}")
+            markdown_output.append("")
+            
+        # Use the original filename for display, safe filename for the URL itself
+        markdown_output.append(f"**Download Link:** [{file_name}]({download_url.replace(file_name, safe_file_name)})") 
         
-        yield RunResponse(run_id=self.run_id, content=json.dumps(result))
+        final_markdown = "\n".join(markdown_output)
+        
+        yield RunResponse(run_id=self.run_id, content=final_markdown)
     
     def _generate_llms_txt(self, url: str) -> Dict[str, Any]:
         """Call Firecrawl API to start LLMs.txt generation"""
