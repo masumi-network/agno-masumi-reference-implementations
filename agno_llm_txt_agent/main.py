@@ -91,9 +91,24 @@ async def execute_crew_task(input_data: dict) -> str:
     logger.info(f"Starting LLMs.txt generation task with input: {input_data}")
     
     # Extract parameters from input data - support both 'url' and 'urls'
-    urls = input_data.get("urls", input_data.get("url", ""))
-    max_urls = input_data.get("max_urls", 15)
-    show_full_text = input_data.get("show_full_text", True)
+    urls_input = input_data.get("urls", input_data.get("url", ""))
+    
+    # Process URLs - split if comma-separated string
+    if isinstance(urls_input, str) and "," in urls_input:
+        urls = [url.strip() for url in urls_input.split(",")]
+    else:
+        urls = urls_input
+        
+    # Convert string "true"/"false" to boolean if needed
+    show_full_text_input = input_data.get("show_full_text", True)
+    if isinstance(show_full_text_input, str):
+        show_full_text = show_full_text_input.lower() == "true"
+    else:
+        show_full_text = bool(show_full_text_input)
+    
+    # Convert max_urls to integer if it's a string
+    max_urls_input = input_data.get("max_urls", 15)
+    max_urls = int(max_urls_input) if isinstance(max_urls_input, str) else max_urls_input
     
     # Run the workflow with the parameters
     responses = list(run_workflow(
