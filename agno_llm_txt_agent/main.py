@@ -97,18 +97,18 @@ async def execute_crew_task(input_data: dict) -> str:
     if isinstance(urls_input, str) and "," in urls_input:
         urls = [url.strip() for url in urls_input.split(",")]
     else:
-        urls = urls_input
+        urls = [urls_input] if isinstance(urls_input, str) and urls_input else []
         
     # Convert string "true"/"false" to boolean if needed
-    show_full_text_input = input_data.get("show_full_text", True)
-    if isinstance(show_full_text_input, str):
-        show_full_text = show_full_text_input.lower() == "true"
-    else:
-        show_full_text = bool(show_full_text_input)
+    show_full_text_input = input_data.get("show_full_text", "true")
+    show_full_text = show_full_text_input.lower() == "true" if isinstance(show_full_text_input, str) else bool(show_full_text_input)
     
     # Convert max_urls to integer if it's a string
-    max_urls_input = input_data.get("max_urls", 15)
-    max_urls = int(max_urls_input) if isinstance(max_urls_input, str) else max_urls_input
+    max_urls_input = input_data.get("max_urls", "15")
+    try:
+        max_urls = int(max_urls_input) if isinstance(max_urls_input, str) else max_urls_input
+    except (ValueError, TypeError):
+        max_urls = 15  # Default if conversion fails
     
     # Run the workflow with the parameters
     responses = list(run_workflow(
@@ -345,13 +345,7 @@ async def input_schema():
                 "data": {
                     "description": "Comma-separated list of website URLs to generate LLMs.txt from",
                     "placeholder": "https://example.com,https://another-example.com"
-                },
-                "validations": [
-                    {
-                        "validation": "format",
-                        "value": "nonempty"
-                    }
-                ]
+                }
             },
             {
                 "id": "max_urls",
@@ -360,17 +354,7 @@ async def input_schema():
                 "data": {
                     "description": "Maximum number of URLs to analyze per site",
                     "default": "15"
-                },
-                "validations": [
-                    {
-                        "validation": "min",
-                        "value": "1"
-                    },
-                    {
-                        "validation": "max",
-                        "value": "100"
-                    }
-                ]
+                }
             },
             {
                 "id": "show_full_text",
@@ -379,13 +363,7 @@ async def input_schema():
                 "data": {
                     "description": "Whether to include full text content",
                     "default": "true"
-                },
-                "validations": [
-                    {
-                        "validation": "format",
-                        "value": "boolean"
-                    }
-                ]
+                }
             }
         ]
     }
