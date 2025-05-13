@@ -194,7 +194,20 @@ class ContentToNFTWorkflow(Workflow):
                 "wallet_address": self.wallet_address
             }
             
-            yield RunResponse(run_id=self.run_id, content=json.dumps(result))
+            # Format the result as markdown
+            markdown_result = f"""### NFT Creation Status
+
+- **Overall Status:** {result['status']}
+- **Content Type:** {result['content_type']}
+- **Display Name:** {result['display_name']}
+- **Target Wallet Address:** {result['wallet_address']}
+- **Generated Content URL:** [View Content]({result['content_url']})
+
+---
+#### NFT Minting Agent Response:
+{result['nft_details']}
+"""
+            yield RunResponse(run_id=self.run_id, content=markdown_result)
             
         except Exception as e:
             logger.error(f"Error in ContentToNFTWorkflow: {str(e)}")
@@ -272,13 +285,8 @@ async def execute_agno_task(input_data: Dict[str, str]) -> Dict[str, Any]:
     final_response = responses[-1] if responses else None
     
     if final_response and final_response.content:
-        try:
-            # Try to parse the content as JSON
-            result = json.loads(final_response.content)
-            return result
-        except json.JSONDecodeError:
-            # If not JSON, return as plain text
-            return {"result": final_response.content}
+        # Return the content as markdown
+        return {"result": final_response.content, "format": "markdown"}
     else:
         return {"error": "No response from workflow"}
 
