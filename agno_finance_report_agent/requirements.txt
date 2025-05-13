@@ -1,0 +1,16 @@
+googlesearch-python
+pycountry
+fastapi
+uvicorn
+python-dotenv
+agno
+masumi
+pydantic
+python-multipart
+httpx
+openai
+requests
+yfinance
+firecrawl
+exa-py
+googlesearch-python
