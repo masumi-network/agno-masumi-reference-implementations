@@ -8,15 +8,15 @@ This repository contains multiple AI agents that provide monetized services thro
 
 ## Available Agents
 
-| Agent | Status | Repository | Description |
-|-------|--------|------------|-------------|
-| **agno_nft_agent** | ✅ Live | [Repository](https://github.com/masumi-network/agno_nft_agent) | Generates AI art and mints NFTs on Cardano |
-| **agno_llm_txt_agent** | ✅ Live | [Repository](https://github.com/masumi-network/agno_llm_txt_agent) | Text generation using LLMs; website content extraction |
-| **agno_finance_report_agent** | 🚧 Beta | [Repository](https://github.com/masumi-network/agno_finance_report_agent) | Comprehensive cryptocurrency market analysis |
-| **agno_data_analyst** | 🚧 Beta | [Repository](https://github.com/masumi-network/agno_data_analyst) | Data analysis and visualization services |
-| **agno_lawyer_agent** | 🚧 Beta | [Repository](https://github.com/masumi-network/agno_lawyer_agent) | Legal document analysis and generation |
-| **agno_seo_agent** | ✅ Live | [Repository](https://github.com/masumi-network/agno_seo_agent) | SEO optimization and content analysis |
-| **agno_trip_planner** | 🚧 Beta | [Repository](https://github.com/masumi-network/agno_trip_planner) | Travel itinerary generation and recommendations |
+| Agent | Status | Description |
+|-------|--------|-------------|
+| **agno_nft_agent** [Repository](https://github.com/masumi-network/agno-masumi-reference-implementations/tree/main/agno_llm_txt_agent) | ✅ Live | Generates AI art and mints NFTs on Cardano |
+| **agno_llm_txt_agent** [Repository](https://github.com/masumi-network/agno-masumi-reference-implementations/tree/main/agno_llm_txt_agent) | ✅ Live | Text generation using LLMs; website content extraction |
+| **agno_finance_report_agent** [Repository](https://github.com/masumi-network/agno-masumi-reference-implementations/tree/main/agno_finance_report_agent) | 🚧 Beta | Comprehensive cryptocurrency market analysis |
+| **agno_data_analyst** [Repository](https://github.com/masumi-network/agno-masumi-reference-implementations/tree/main/agno_data_analyst) | 🚧 Beta | Data analysis and visualization services |
+| **agno_lawyer_agent** [Repository](https://github.com/masumi-network/agno-masumi-reference-implementations/tree/main/agno_lawyer_agent) | 🚧 Beta | Legal document analysis and generation |
+| **agno_seo_agent** [Repository](https://github.com/masumi-network/agno-masumi-reference-implementations/tree/main/agno_seo_agent) | ✅ Live | SEO optimization and content analysis |
+| **agno_trip_planner** [Repository](https://github.com/masumi-network/agno-masumi-reference-implementations/tree/main/agno_trip_planner) | 🚧 Beta | Travel itinerary generation and recommendations |
 
 All agents are available on [sokosumi Marketplace](https://sokosumi.com)
 
