@@ -226,7 +226,7 @@ python agent_definition.py
 
 MIT License
 
-Copyright (c) 2025 Agno Content to NFT Service
+Copyright (c) 2025 Masumi
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -252,3 +252,4 @@ SOFTWARE.
 - AI content generation via [Replicate](https://replicate.com/)
 - NFT minting via [NMKR Studio](https://www.nmkr.io/)
 - Payment processing via [Masumi Protocol](https://www.masumiprotocol.io/)
+- Agno 

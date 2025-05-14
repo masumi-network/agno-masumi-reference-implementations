@@ -71,6 +71,42 @@ Once running, visit http://localhost:8000/docs for interactive Swagger documenta
 - `GET /input_schema`: Get input schema for job requests
 - `GET /health`: Health check endpoint
 
+## Agent Workflow Overview
+
+The core logic of the `agent_definition.py` is encapsulated in the `LLMsTxtGeneratorWorkflow`. Here's a flowchart outlining its `run()` method, which is the primary process for generating `llms.txt` files:
+
+```mermaid
+graph TD
+    A[Start `run()`] --> B{Validate Inputs? (URLs, API Keys)};
+    B -- Valid --> C[Initialize];
+    B -- Invalid --> B_Error[Yield Error & Exit];
+
+    C --> D{Loop through URLs};
+    D -- For each URL --> E[Call Firecrawl to Start Generation (`_generate_llms_txt`)];
+    E -- Success --> F[Poll Firecrawl for Completion (`_check_generation_status`)];
+    E -- Failure --> G[Log Error, Add to Failed URLs list];
+    G --> D;
+
+    F -- Completed --> H[Add Content to `combined_content`, URL to `processed_urls`];
+    F -- Failed/Timeout --> G;
+    H --> D;
+
+    D -- All URLs Processed --> I{Any URLs Processed?};
+    I -- Yes --> J[Combine Content from `combined_content`];
+    I -- No --> I_Error[Yield Error (No URLs Processed) & Exit];
+
+    J --> K[Generate Filename (`_generate_file_name`)];
+    K --> L[Upload to DigitalOcean Spaces (`_upload_to_do_spaces`)];
+    L -- Success --> M[Construct Success Markdown with Download Link];
+    L -- Failure --> L_Error[Yield Error (Upload Failed) & Exit];
+
+    M --> N[Yield Final Markdown];
+    N --> Z[End];
+    B_Error --> Z;
+    I_Error --> Z;
+    L_Error --> Z;
+```
+
 ## Troubleshooting
 
 ### Common Issues
