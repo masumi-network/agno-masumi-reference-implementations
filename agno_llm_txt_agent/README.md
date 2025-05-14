@@ -77,7 +77,7 @@ The core logic of the `agent_definition.py` is encapsulated in the `LLMsTxtGener
 
 ```mermaid
 graph TD
-    A[Start run] --> B{Validate Inputs? (URLs, API Keys)};
+    A[Start run] --> B{Validate Inputs - URLs and API Keys};
     B -- Valid --> C[Initialize];
     B -- Invalid --> B_Error[Yield Error & Exit];
 
@@ -91,14 +91,14 @@ graph TD
     F -- Failed/Timeout --> G;
     H --> D;
 
-    D -- All URLs Processed --> I{Any URLs Processed?};
+    D -- All URLs Processed --> I{Any URLs Processed};
     I -- Yes --> J[Combine Content from combined_content];
-    I -- No --> I_Error[Yield Error (No URLs Processed) & Exit];
+    I -- No --> I_Error[Yield Error - No URLs Processed & Exit];
 
     J --> K[Generate Filename _generate_file_name];
     K --> L[Upload to DigitalOcean Spaces _upload_to_do_spaces];
     L -- Success --> M[Construct Success Markdown with Download Link];
-    L -- Failure --> L_Error[Yield Error (Upload Failed) & Exit];
+    L -- Failure --> L_Error[Yield Error - Upload Failed & Exit];
 
     M --> N[Yield Final Markdown];
     N --> Z[End];
