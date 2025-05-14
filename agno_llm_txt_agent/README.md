@@ -77,26 +77,26 @@ The core logic of the `agent_definition.py` is encapsulated in the `LLMsTxtGener
 
 ```mermaid
 graph TD
-    A[Start `run()`] --> B{Validate Inputs? (URLs, API Keys)};
+    A[Start run()] --> B{Validate Inputs? (URLs, API Keys)};
     B -- Valid --> C[Initialize];
     B -- Invalid --> B_Error[Yield Error & Exit];
 
     C --> D{Loop through URLs};
-    D -- For each URL --> E[Call Firecrawl to Start Generation (`_generate_llms_txt`)];
-    E -- Success --> F[Poll Firecrawl for Completion (`_check_generation_status`)];
+    D -- For each URL --> E[Call Firecrawl to Start Generation (_generate_llms_txt)];
+    E -- Success --> F[Poll Firecrawl for Completion (_check_generation_status)];
     E -- Failure --> G[Log Error, Add to Failed URLs list];
     G --> D;
 
-    F -- Completed --> H[Add Content to `combined_content`, URL to `processed_urls`];
+    F -- Completed --> H[Add Content to combined_content, URL to processed_urls];
     F -- Failed/Timeout --> G;
     H --> D;
 
     D -- All URLs Processed --> I{Any URLs Processed?};
-    I -- Yes --> J[Combine Content from `combined_content`];
+    I -- Yes --> J[Combine Content from combined_content];
     I -- No --> I_Error[Yield Error (No URLs Processed) & Exit];
 
-    J --> K[Generate Filename (`_generate_file_name`)];
-    K --> L[Upload to DigitalOcean Spaces (`_upload_to_do_spaces`)];
+    J --> K[Generate Filename (_generate_file_name)];
+    K --> L[Upload to DigitalOcean Spaces (_upload_to_do_spaces)];
     L -- Success --> M[Construct Success Markdown with Download Link];
     L -- Failure --> L_Error[Yield Error (Upload Failed) & Exit];
 
