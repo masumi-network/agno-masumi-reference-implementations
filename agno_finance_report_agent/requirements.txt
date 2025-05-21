@@ -1,4 +1,3 @@
-googlesearch-python
 pycountry
 fastapi
 uvicorn
@@ -14,3 +13,6 @@ yfinance
 firecrawl
 exa-py
 googlesearch-python
+boto3
+pandoc
+pdflatex

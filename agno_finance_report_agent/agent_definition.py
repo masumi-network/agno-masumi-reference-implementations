@@ -13,6 +13,9 @@ import time
 import logging
 import random
 from functools import wraps
+import subprocess # Added
+import boto3 # Added
+from botocore.exceptions import NoCredentialsError, ClientError # Added
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -298,6 +301,21 @@ _synthesis_agent_common_instructions = dedent("""\
     4.  **Elaborate Massively:** Write **multiple, dense paragraphs** expanding on each significant data point relevant to your sections. Use supporting arguments, connect it to other relevant data points from different sub-agent inputs.
     5.  **Integrate into Narrative:** Seamlessly weave this granular data analysis into a flowing, cohesive narrative for your assigned sections. The numbers must tell a story.
     6.  **Critical Lens:** If data pertinent to your sections seems contradictory or raises questions, discuss these complexities.
+
+    **IMPORTANT: LATEX COMPATIBILITY & MARKDOWN FORMATTING FOR PDF CONVERSION**
+    The final Markdown report will be converted to PDF using Pandoc and LaTeX. To minimize conversion errors:
+    *   **Mathematical Formulas:**
+        *   For **display mathematics** (formulas on their own line, centered), use `$$ ... $$` delimiters. Example: `$$ E = mc^2 $$`
+        *   For **inline mathematics** (formulas within a paragraph), use `$ ... $` delimiters. Example: `The return is $R_i = \alpha_i + \beta_i R_m + \epsilon_i$.`
+        *   Ensure all mathematical symbols and LaTeX commands (e.g., `\times`, `\Delta`, `\sum`, `\frac{}{}`, `\text{...}`, `\alpha`, `\beta`) are correctly placed *inside* these math delimiters.
+        *   Avoid using `\[ ... \]` or `\( ... \)` for math, as `$$...$$` and `$...$` are generally more robust with Pandoc for LaTeX output.
+    *   **Special Characters in Plain Text:** Be very cautious with characters that have special meaning in LaTeX when they appear in regular text (i.e., outside of code blocks or math environments). These include: `_` (underscore), `^` (caret), `\` (backslash), `{ }` (curly braces), `$` (dollar sign), `%` (percent sign), `#` (hash/pound sign), `&` (ampersand).
+        *   If an underscore `_` is needed in plain text (e.g., a variable_name not in code or math), it will likely cause a LaTeX error or be misinterpreted. If essential, it might need to be escaped as `\_` in the final LaTeX, but it's better to rephrase or ensure such constructs are in code blocks (using backticks `` `variable_name` ``) or math mode if appropriate. Prefer to avoid unescaped special characters in plain narrative text.
+        *   Similarly, ensure backslashes `\` are not used in plain text in a way that LaTeX would interpret as a command.
+    *   **Tables:** Use standard Pandoc-compatible Markdown for tables (e.g., pipes `|` and hyphens `-`).
+    *   **Headings:** Use standard `#`, `##`, `###`, etc., for headings.
+    *   **Lists:** Use standard Markdown for bulleted (`*`, `-`, `+`) and numbered lists.
+    *   **Keep it Clean:** Prioritize clear, standard, and unambiguous Markdown. Avoid overly complex or non-standard Markdown structures that might confuse the LaTeX converter.
 
     **Output Requirements for Your Assigned Part:**
     *   Adhere strictly to the section numbers and titles provided for your part.
@@ -746,6 +764,106 @@ async def generate_comprehensive_report_sequential(query_subject):
     
     return final_report
 
+def _convert_md_to_pdf(md_filepath, pdf_filepath):
+    """Converts a markdown file to PDF using pandoc."""
+    try:
+        logger.info(f"Attempting to convert {md_filepath} to {pdf_filepath} using pandoc...")
+        
+        env = os.environ.copy()
+        tex_bin_path = "/Library/TeX/texbin"
+        if tex_bin_path not in env.get('PATH', ''):
+            env['PATH'] = f"{tex_bin_path}:{env.get('PATH', '')}"
+            logger.info(f"Temporarily prepended {tex_bin_path} to PATH for pandoc subprocess.")
+
+        process = subprocess.run(
+            ['pandoc', '--standalone', md_filepath, '-o', pdf_filepath], # Added --standalone
+            check=True,
+            capture_output=True,
+            text=True,
+            env=env 
+        )
+        logger.info(f"Successfully converted {md_filepath} to {pdf_filepath}.")
+        logger.debug(f"Pandoc output: {process.stdout}")
+        return True
+    except FileNotFoundError:
+        logger.error("Pandoc not found. Please ensure pandoc is installed and in your system's PATH.")
+        print("ERROR: Pandoc not found. Please install pandoc to generate PDF reports.")
+        return False
+    except subprocess.CalledProcessError as e:
+        logger.error(f"Pandoc conversion failed for {md_filepath}: {e}")
+        logger.error(f"Pandoc stderr: {e.stderr}")
+        print(f"ERROR: Pandoc conversion failed for {md_filepath}. Check logs for details.")
+        return False
+    except Exception as e:
+        logger.error(f"An unexpected error occurred during PDF conversion: {e}", exc_info=True)
+        print(f"ERROR: An unexpected error occurred during PDF conversion. Check logs for details.")
+        return False
+
+def _get_content_type(filepath):
+    """Determines the content type based on file extension."""
+    if filepath.endswith(".md"):
+        return "text/markdown"
+    elif filepath.endswith(".pdf"):
+        return "application/pdf"
+    else:
+        return "application/octet-stream" # Default binary type
+
+def _upload_to_do_spaces(local_filepath, object_name_override=None):
+    """Uploads a file to DigitalOcean Spaces and returns its public URL."""
+    do_key = os.getenv("DO_SPACES_KEY")
+    do_secret = os.getenv("DO_SPACES_SECRET")
+    do_bucket = os.getenv("DO_SPACES_BUCKET")
+    do_region = os.getenv("DO_SPACES_REGION")
+
+    if not all([do_key, do_secret, do_bucket, do_region]):
+        logger.error("DigitalOcean Spaces credentials not fully configured in environment variables.")
+        print("ERROR: DigitalOcean Spaces credentials (DO_SPACES_KEY, DO_SPACES_SECRET, DO_SPACES_BUCKET, DO_SPACES_REGION) are missing.")
+        return None
+
+    object_name = object_name_override if object_name_override else os.path.basename(local_filepath)
+    content_type = _get_content_type(local_filepath)
+    
+    s3_client = boto3.client(
+        's3',
+        region_name=do_region,
+        endpoint_url=f'https://{do_region}.digitaloceanspaces.com',
+        aws_access_key_id=do_key,
+        aws_secret_access_key=do_secret
+    )
+
+    try:
+        logger.info(f"Uploading {local_filepath} to DigitalOcean Spaces bucket {do_bucket} as {object_name} with ContentType {content_type}...")
+        with open(local_filepath, "rb") as f:
+            s3_client.upload_fileobj(
+                f,
+                do_bucket,
+                object_name,
+                ExtraArgs={
+                    'ACL': 'public-read',
+                    'ContentType': content_type
+                }
+            )
+        
+        download_url = f'https://{do_bucket}.{do_region}.digitaloceanspaces.com/{object_name}'
+        logger.info(f"Successfully uploaded {local_filepath} to {download_url}")
+        return download_url
+    except FileNotFoundError:
+        logger.error(f"Local file not found for upload: {local_filepath}")
+        print(f"ERROR: Local file not found for upload: {local_filepath}")
+        return None
+    except NoCredentialsError:
+        logger.error("Boto3 credentials not available for DigitalOcean Spaces upload.")
+        print("ERROR: Boto3 credentials not available for DigitalOcean Spaces upload.")
+        return None
+    except ClientError as e:
+        logger.error(f"Boto3 client error during upload to DigitalOcean Spaces: {e}", exc_info=True)
+        print(f"ERROR: Client error during upload to DigitalOcean Spaces: {e}")
+        return None
+    except Exception as e:
+        logger.error(f"An unexpected error occurred during upload to DigitalOcean Spaces: {e}", exc_info=True)
+        print(f"ERROR: An unexpected error occurred during upload to DigitalOcean Spaces: {e}")
+        return None
+
 def run_comprehensive_report(query_subject):
     main_orchestrator_query = f"Generate an ultra-comprehensive institutional-grade investment research report on {query_subject}, covering all aspects of its business, financials, market position, and future outlook in extreme detail, leveraging all specialized sub-agent data."
 
@@ -753,29 +871,58 @@ def run_comprehensive_report(query_subject):
     print("This process will take an EXTREMELY considerable amount of time (potentially 30-60+ minutes or even longer) due to extensive data gathering, meticulous rate limit management, and multiple complex, lengthy synthesis steps by the LLM.")
     print("Progress will be logged. Please be extremely patient and do not interrupt unless necessary.")
     
+    report = "" # Initialize report string
+    md_filename = "" # Initialize markdown filename
+    pdf_filename = "" # Initialize pdf filename
+
     try:
-        report = asyncio.run(generate_comprehensive_report_sequential(query_subject)) 
+        report_content = asyncio.run(generate_comprehensive_report_sequential(query_subject)) 
         
         print("\n\n=== RAW MARKDOWN REPORT (ULTRA-COMPREHENSIVE) ===\n\n")
         report_summary_display_length = 5000 
-        report_summary = report[:report_summary_display_length] + f"\n\n... (report truncated after {report_summary_display_length} chars for terminal display) ..." if len(report) > report_summary_display_length else report
+        report_summary = report_content[:report_summary_display_length] + f"\n\n... (report truncated after {report_summary_display_length} chars for terminal display) ..." if len(report_content) > report_summary_display_length else report_content
         print(report_summary)
-        print(f"\nFull report length: {len(report)} characters.")
+        print(f"\nFull report length: {len(report_content)} characters.")
         print("\n\n=== END OF REPORT SUMMARY ===\n\n")
         
         timestamp = int(time.time())
         safe_query_part = "".join(c if c.isalnum() else "_" for c in query_subject[:40]).strip("_").replace("__","_")
-        filename = f"FINANCE_REPORT_{safe_query_part}_{timestamp}.md"
+        md_filename = f"FINANCE_REPORT_{safe_query_part}_{timestamp}.md"
+        pdf_filename = f"FINANCE_REPORT_{safe_query_part}_{timestamp}.pdf"
         
         try:
-            with open(filename, "w", encoding='utf-8') as f:
-                f.write(report)
-            print(f"Full report saved to: {filename}")
-        except Exception as e_write:
-            print(f"Error saving ultra-comprehensive report to file: {e_write}")
-            logger.error(f"Error writing report to file {filename}: {e_write}", exc_info=True)
+            with open(md_filename, "w", encoding='utf-8') as f:
+                f.write(report_content)
+            print(f"Full Markdown report saved locally to: {md_filename}")
             
-        return report
+            # Convert to PDF
+            pdf_conversion_success = _convert_md_to_pdf(md_filename, pdf_filename)
+            if pdf_conversion_success:
+                print(f"PDF report generated successfully: {pdf_filename}")
+            else:
+                print(f"PDF report generation failed. Check logs. Only Markdown will be uploaded if configured.")
+
+            # Upload to DigitalOcean Spaces
+            print("\n--- DigitalOcean Spaces Upload ---")
+            md_url = _upload_to_do_spaces(md_filename)
+            if md_url:
+                print(f"Markdown report uploaded to: {md_url}")
+            else:
+                print(f"Markdown report upload failed.")
+
+            if pdf_conversion_success:
+                pdf_url = _upload_to_do_spaces(pdf_filename)
+                if pdf_url:
+                    print(f"PDF report uploaded to: {pdf_url}")
+                else:
+                    print(f"PDF report upload failed.")
+            print("--- End of DigitalOcean Spaces Upload ---\n")
+
+        except Exception as e_write:
+            print(f"Error during file operations (save, convert, upload): {e_write}")
+            logger.error(f"Error during file operations for report {md_filename}: {e_write}", exc_info=True)
+            
+        return report_content # Return the original markdown content
     except KeyboardInterrupt:
         print("\nProcess interrupted by user. Partial results may not be available or complete.")
         logger.warning("Report generation interrupted by user.")
@@ -785,14 +932,67 @@ def run_comprehensive_report(query_subject):
         print(f"An unexpected error occurred for {query_subject}: {str(e)}")
         return f"Fatal error during report generation for {query_subject}: {str(e)}"
 
+# New function for testing conversion and upload
+def test_conversion_and_upload(existing_md_filepath):
+    """
+    Tests PDF conversion and DigitalOcean Spaces upload for an existing Markdown file.
+    """
+    logger.info(f"Starting test for PDF conversion and upload for: {existing_md_filepath}")
+
+    if not os.path.exists(existing_md_filepath):
+        logger.error(f"Markdown file not found: {existing_md_filepath}")
+        print(f"ERROR: Markdown file not found: {existing_md_filepath}")
+        return
+
+    base_filename, _ = os.path.splitext(existing_md_filepath)
+    pdf_filepath = base_filename + ".pdf"
+
+    # Convert to PDF
+    pdf_conversion_success = _convert_md_to_pdf(existing_md_filepath, pdf_filepath)
+    if pdf_conversion_success:
+        print(f"PDF report generated successfully from {existing_md_filepath} to {pdf_filepath}")
+    else:
+        print(f"PDF report generation failed for {existing_md_filepath}. Check logs. Only Markdown will be uploaded if configured.")
+
+    # Upload to DigitalOcean Spaces
+    print("\n--- DigitalOcean Spaces Upload ---")
+    md_url = _upload_to_do_spaces(existing_md_filepath)
+    if md_url:
+        print(f"Markdown report uploaded to: {md_url}")
+    else:
+        print(f"Markdown report upload failed for {existing_md_filepath}.")
+
+    if pdf_conversion_success and os.path.exists(pdf_filepath):
+        pdf_url = _upload_to_do_spaces(pdf_filepath)
+        if pdf_url:
+            print(f"PDF report uploaded to: {pdf_url}")
+        else:
+            print(f"PDF report upload failed for {pdf_filepath}.")
+    elif pdf_conversion_success and not os.path.exists(pdf_filepath):
+        logger.warning(f"PDF conversion reported success, but PDF file not found at {pdf_filepath} for upload.")
+        print(f"PDF file {pdf_filepath} not found for upload despite reported conversion success.")
+
+    print("--- End of DigitalOcean Spaces Upload ---\n")
+    logger.info(f"Test for PDF conversion and upload finished for: {existing_md_filepath}")
+
+
 if __name__ == "__main__":
     try:
-        report_subject = "Cardano (ADA)" 
-        # report_subject = "NVIDIA (NVDA)"
-        # report_subject = "Microsoft (MSFT)"
-        # report_subject = "Palantir Technologies (PLTR)"
-
+        # --- To run the full report generation ---
+        report_subject = "NVIDIA (NVDA)" # Or any other subject
         run_comprehensive_report(report_subject)
+
+        # --- To test PDF conversion and upload for an existing MD file ---
+        # existing_md_file_to_test = "FINANCE_REPORT_NVIDIA_NVDA_1747824986.md" 
+        # script_dir = os.path.dirname(os.path.abspath(__file__))
+        # full_md_path = os.path.join(script_dir, existing_md_file_to_test)
+        
+        # if os.path.exists(full_md_path):
+        #     test_conversion_and_upload(full_md_path)
+        # else:
+        #     print(f"ERROR: Test file not found: {full_md_path}")
+        #     logger.error(f"Test file not found: {full_md_path}")
+
     except Exception as e:
         logger.critical(f"Fatal error in main execution block: {str(e)}", exc_info=True)
-        print(f"A critical error occurred in the main execution: {str(e)}") 
+        print(f"A critical error occurred in the main execution: {str(e)}")
