@@ -16,3 +16,5 @@ googlesearch-python
 boto3
 pandoc
 pdflatex
+octagon-mcp
+mcp
